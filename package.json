@@ -2,12 +2,23 @@
   "name": "linui",
   "version": "0.0.0",
   "license": "MIT",
-  "scripts": {},
+  "scripts": {
+    "start": "npx nx run @linui/docs:start",
+    "build": "npx nx affected --target=build"
+  },
   "private": true,
-  "dependencies": {},
   "devDependencies": {
+    "@types/node": "^18.11.18",
+    "@types/react": "^18.0.26",
+    "@typescript-eslint/eslint-plugin": "^5.49.0",
+    "@typescript-eslint/parser": "^5.49.0",
+    "eslint": "^8.32.0",
+    "eslint-plugin-react": "^7.32.1",
+    "eslint-plugin-react-hooks": "^4.6.0",
     "nx": "15.6.3",
-    "prettier": "^2.6.2"
+    "prettier": "^2.6.2",
+    "react": "^18.2.0",
+    "typescript": "^4.9.3"
   },
   "workspaces": [
     "packages/*"
