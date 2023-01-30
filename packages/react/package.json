@@ -1,5 +1,5 @@
 {
-  "name": "@linui/react",
+  "name": "@objectively-ui/react",
   "version": "1.0.0",
   "type": "module",
   "sideEffects": false,
@@ -13,6 +13,7 @@
     }
   },
   "scripts": {
+    "start": "rollup -c rollup.config.js -w",
     "build": "npx rimraf dist/ && rollup -c rollup.config.js"
   },
   "peerDependencies": {

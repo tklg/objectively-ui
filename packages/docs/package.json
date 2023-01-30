@@ -1,5 +1,5 @@
 {
-  "name": "@linui/docs",
+  "name": "@objectively-ui/docs",
   "version": "1.0.0",
   "private": true,
   "type": "module",
@@ -9,7 +9,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@linui/react": "*"
+    "@objectively-ui/react": "*"
   },
   "devDependencies": {
     "@babel/plugin-transform-runtime": "^7.19.6",

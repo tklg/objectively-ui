@@ -1,11 +1,6 @@
-const GLOBAL_PREFIX = 'LinUI'
+import { capitalize } from 'src/utils/stringUtils'
 
-const capitalize = (str: string): string => {
-  if (str) {
-    return `${str[0].toUpperCase()}${str.slice(1)}`
-  }
-  return ''
-}
+const GLOBAL_PREFIX = 'LinUI'
 
 /**
  * @param elementName The name of the element the className is for

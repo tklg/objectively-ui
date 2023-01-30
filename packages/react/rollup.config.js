@@ -61,6 +61,9 @@ const options = [
     input: 'src/index.ts',
     output: [{ file: 'dist/index.d.ts', format: 'es' }],
     plugins: [
+      typescript({
+        useTsconfigDeclarationDir: true,
+      }),
       dts(),
     ],
   },
