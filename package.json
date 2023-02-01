@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
-    "start": "npx nx run-many --target=start --projects=@objectively-ui/react,@objectively-ui/docs",
+    "start": "npx nx run-many --target=start --projects=@objectively-ui/react,@objectively-ui/docs --nx-bail=true",
     "build": "npx nx affected --target=build"
   },
   "private": true,

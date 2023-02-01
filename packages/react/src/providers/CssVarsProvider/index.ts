@@ -1,1 +1,1 @@
-export * from './CssVarsProvider'
+export { CssVarsProvider } from './CssVarsProvider'

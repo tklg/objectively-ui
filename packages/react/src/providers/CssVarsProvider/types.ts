@@ -1,19 +1,17 @@
 import { PropsWithChildren } from 'react'
-import { ColorScheme, ColorTheme } from 'src/types/colorscheme'
+import { ColorScheme, ColorTheme } from 'src/types/ColorTheme'
 import { DeepPartial } from 'src/types/DeepPartial'
 
 export interface CssVarsContextProps {
   mode: ColorScheme;
   setMode: (mode: ColorScheme) => void;
-  theme: ColorTheme;
-  darkTheme: ColorTheme;
 }
 
 export interface CssVarsProviderProps extends PropsWithChildren {
   /**
-   * The initial color scheme. Defaults to `ColorScheme.Light`
+   * The color scheme. Overrides system preference.
    */
-  initialMode?: ColorScheme;
+  mode?: ColorScheme;
   /**
    * The light color theme.
    */

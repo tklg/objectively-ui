@@ -5,11 +5,13 @@
     [
       "@babel/preset-react",
       {
-        "runtime": "automatic"
+        "runtime": "automatic",
+        "importSource": "@emotion/react"
       }
     ]
   ],
   "plugins": [
-    ["@babel/plugin-transform-runtime", { "useESModules": true }]
+    ["@babel/plugin-transform-runtime", { "useESModules": true }],
+    "@emotion/babel-plugin"
   ]
 }

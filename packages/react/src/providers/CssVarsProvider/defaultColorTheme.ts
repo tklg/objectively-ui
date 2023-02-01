@@ -1,13 +1,21 @@
-import { ColorTheme } from 'src/types/colorscheme'
+import { ColorScheme, ColorTheme } from 'src/types/ColorTheme'
 import { DeepPartial } from 'src/types/DeepPartial'
 
 export const defaultLightColorTheme: ColorTheme = {
   colors: {
+    mode: ColorScheme.Light,
+
     backgroundPrimary: '#ffffff',
     backgroundSecondary: '#e2e2e2',
 
-    accentPrimary: 'orange',
-    accentSecondary: 'lime',
+    accentPrimary: {
+      value: 'orange',
+      contrastText: 'white',
+    },
+    accentSecondary: {
+      value: 'gray',
+      contrastText: 'white',
+    },
 
     textPrimary: '#222222',
     textSecondary: '#999999',
@@ -16,10 +24,22 @@ export const defaultLightColorTheme: ColorTheme = {
 
     divider: '#ededed',
 
-    statusInfo: 'blue',
-    statusSuccess: 'green',
-    statusWarning: 'orange',
-    statusError: 'red',
+    statusInfo: {
+      value: 'blue',
+      contrastText: 'white',
+    },
+    statusSuccess: {
+      value: 'green',
+      contrastText: 'white',
+    },
+    statusWarning: {
+      value: 'orange',
+      contrastText: 'black',
+    },
+    statusError: {
+      value: 'red',
+      contrastText: 'white',
+    },
   },
 
   typography: {
@@ -56,6 +76,8 @@ export const defaultLightColorTheme: ColorTheme = {
 
 export const defaultDarkColorTheme: DeepPartial<ColorTheme> = {
   colors: {
+    mode: ColorScheme.Dark,
+
     backgroundPrimary: '#111111',
     backgroundSecondary: '#444444',
 

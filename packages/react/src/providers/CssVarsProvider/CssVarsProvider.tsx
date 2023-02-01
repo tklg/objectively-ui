@@ -1,41 +1,69 @@
-import { createContext, FC, useMemo, useState } from 'react'
+import { ThemeProvider } from '@emotion/react'
+import { createContext, FC, useCallback, useEffect, useMemo, useState } from 'react'
 import { defaultDarkColorTheme, defaultLightColorTheme } from 'src/providers/CssVarsProvider/defaultColorTheme'
 import { useCompleteColorTheme } from 'src/providers/CssVarsProvider/useCompleteTheme'
 import { useInjectStyleElement } from 'src/providers/CssVarsProvider/useInjectStyleElement'
-import { ColorScheme } from 'src/types/colorscheme'
+import { ColorScheme } from 'src/types/ColorTheme'
+import { COLOR_SCHEME_DATA_ATTR, COLOR_SCHEME_STORAGE_KEY } from 'src/utils/constants'
 import { CssVarsContextProps, CssVarsProviderProps } from './types'
+
+const matcher = window.matchMedia('(prefers-color-scheme: dark)')
 
 export const CssVarsContext = createContext<CssVarsContextProps>({
   mode: ColorScheme.Light,
   setMode: () => null,
-  theme: defaultLightColorTheme,
-  darkTheme: defaultLightColorTheme,
 })
 
 export const CssVarsProvider: FC<CssVarsProviderProps> = ({
-  initialMode = ColorScheme.Light,
+  mode: overrideMode,
   theme = defaultLightColorTheme,
   darkTheme = defaultDarkColorTheme,
   children,
 }) => {
+  const [osMode, setOsMode] = useState(overrideMode ?? (matcher.matches ? ColorScheme.Dark : ColorScheme.Light))
+  const [mode, setMode] = useState<ColorScheme | null>(overrideMode ?? (localStorage.getItem(COLOR_SCHEME_STORAGE_KEY) as ColorScheme) ?? null)
+
   const completeLightTheme = useCompleteColorTheme(theme, defaultLightColorTheme)
   const completeDarkTheme = useCompleteColorTheme(darkTheme, completeLightTheme)
-
   useInjectStyleElement(completeLightTheme)
-  useInjectStyleElement(darkTheme)
+  useInjectStyleElement(darkTheme, ColorScheme.Dark)
 
-  const [mode, setMode] = useState(initialMode)
+  useEffect(() => {
+    const handleChange = (e: MediaQueryListEvent) => {
+      setOsMode(e.matches ? ColorScheme.Dark : ColorScheme.Light)
+    }
+    if (!overrideMode) {
+      matcher.addEventListener('change', handleChange)
+    }
+    return () => matcher.removeEventListener('change', handleChange)
+  }, [])
+
+  const setColorTheme = useCallback((colorScheme: ColorScheme) => {
+    if (colorScheme === osMode) {
+      localStorage.removeItem(COLOR_SCHEME_STORAGE_KEY)
+      setMode(null)
+    } else {
+      localStorage.setItem(COLOR_SCHEME_STORAGE_KEY, colorScheme)
+      setMode(colorScheme)
+    }
+  }, [osMode])
+
+  const effectiveColorScheme = mode ?? osMode
+
+  useEffect(() => {
+    document.documentElement.setAttribute(COLOR_SCHEME_DATA_ATTR, effectiveColorScheme)
+  }, [effectiveColorScheme])
 
   const value = useMemo(() => ({
-    mode,
-    setMode,
-    theme: completeLightTheme,
-    darkTheme: completeDarkTheme,
-  }), [mode, completeLightTheme, completeDarkTheme])
+    mode: effectiveColorScheme,
+    setMode: setColorTheme,
+  }), [effectiveColorScheme, setColorTheme])
 
   return (
     <CssVarsContext.Provider value={value}>
-      {children}
+      <ThemeProvider theme={effectiveColorScheme === ColorScheme.Light ? completeLightTheme : completeDarkTheme}>
+        {children}
+      </ThemeProvider>
     </CssVarsContext.Provider>
   )
 }

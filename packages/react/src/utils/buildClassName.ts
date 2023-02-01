@@ -1,6 +1,7 @@
+import { PROJECT_SHORTNAME } from 'src/utils/constants'
 import { capitalize } from 'src/utils/stringUtils'
 
-const GLOBAL_PREFIX = 'LinUI'
+const GLOBAL_PREFIX = `${PROJECT_SHORTNAME}-`
 
 /**
  * @param elementName The name of the element the className is for
@@ -8,7 +9,7 @@ const GLOBAL_PREFIX = 'LinUI'
  * @param extraClasses Extra css classes to add
  * @returns A className
  */
-export const buildClassName = (elementName: string, variants: Record<string, boolean | string | undefined> = {}, ...extraClasses: string[]): string => {
+export const buildClassName = (elementName: string, variants: Record<string, boolean | string | undefined> = {}, ...extraClasses: (string | undefined)[]): string => {
   const classPrefix = `${GLOBAL_PREFIX}${elementName}`
   return [
     classPrefix,
@@ -20,5 +21,5 @@ export const buildClassName = (elementName: string, variants: Record<string, boo
       }
     }),
     ...extraClasses,
-  ].join(' ')
+  ].join(' ').trim()
 }

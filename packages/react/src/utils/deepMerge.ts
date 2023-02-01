@@ -38,20 +38,20 @@ interface IObject {
 
 export const deepMerge = <T extends IObject[]>(...objects: T): TMerged<T[number]> => {
   return objects.reduce((target, source) => {
-    if (!target || !source) {
-      return target || source
-    }
     for (const k in source) {
       const toMerge = source[k]
       if (k in target) {
         if (toMerge && typeof toMerge === 'object') {
           if (typeof target[k] === 'object' || target[k] == undefined || target[k] === null) {
             target[k] = deepMerge(target[k] as object, toMerge)
+            continue
           }
-          throw new Error(`target.${k} is not an object and cannot be merged into`)
+          throw new Error(`target.${k} is not an object (${typeof target[k]}) and cannot be merged into`)
         } else {
           target[k] = toMerge
         }
+      } else {
+        target[k] = toMerge
       }
     }
     return target

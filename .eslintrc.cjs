@@ -1,5 +1,6 @@
 // eslint-disable-next-line no-undef
 module.exports = {
+  root: true,
   'env': {
     'browser': true,
     'es2021': true,
@@ -24,6 +25,7 @@ module.exports = {
     'react-hooks',
   ],
   'rules': {
+    'react/no-unknown-property': ['error', { 'ignore': ['css'] }],
     'react/jsx-closing-bracket-location': 'warn',
     'indent': ['error', 2],
     'linebreak-style': ['error', 'unix'],

@@ -3,12 +3,20 @@ export enum ColorScheme {
   Dark = 'dark'
 }
 
+interface ColorWithContrasts {
+  value: string;
+  contrastText: string;
+}
+
 export interface ColorTheme {
   colors: {
+    mode: ColorScheme,
+
     backgroundPrimary: string;
     backgroundSecondary: string;
-    accentPrimary: string;
-    accentSecondary: string;
+
+    accentPrimary: string | ColorWithContrasts;
+    accentSecondary: string | ColorWithContrasts;
 
     textPrimary: string;
     textSecondary: string;
@@ -17,10 +25,10 @@ export interface ColorTheme {
 
     divider: string;
 
-    statusInfo: string;
-    statusSuccess: string;
-    statusWarning: string;
-    statusError: string;
+    statusInfo: string | ColorWithContrasts;
+    statusSuccess: string | ColorWithContrasts;
+    statusWarning: string | ColorWithContrasts;
+    statusError: string | ColorWithContrasts;
   },
   typography: {
     size: {
