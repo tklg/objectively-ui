@@ -1,9 +1,9 @@
 {
   "generators": {
     "component": {
-      "factory": "./src/generators/component/generator",
-      "schema": "./src/generators/component/schema.json",
-      "description": "component generator"
+      "factory": "./generators/component/generator",
+      "schema": "./generators/component/schema.json",
+      "description": "Generate a new react component"
     }
   }
 }
