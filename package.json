@@ -6,11 +6,9 @@
   "scripts": {
     "start": "npx nx run-many --target=start --projects=@objectively-ui/react,@objectively-ui/docs --nx-bail=true",
     "build": "npx nx affected --target=build",
-    "test": "npx nx run-many --target=test",
-    "g:component": "npx nx generate @objectively-ui/react:component -d"
+    "test": "npx nx run-many --target=test"
   },
   "devDependencies": {
-    "@nrwl/nx-plugin": "^15.6.3",
     "@types/node": "^18.11.18",
     "@types/react": "^18.0.26",
     "@typescript-eslint/eslint-plugin": "^5.49.0",
