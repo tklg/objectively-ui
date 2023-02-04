@@ -23,6 +23,7 @@ export const baselineStyles = (theme: ColorTheme) => css({
     margin: 0,
     color: theme.colors.textPrimary,
     fontSize: theme.typography.size.medium,
+    fontFamily: theme.typography.fontFamily.body,
     backgroundColor: theme.colors.backgroundPrimary,
     '@media print': {
       backgroundColor: 'white',
@@ -36,7 +37,39 @@ export const baselineStyles = (theme: ColorTheme) => css({
   },
   h1: {
     fontSize: theme.typography.size.h1,
+    fontWeight: theme.typography.fontWeight.bolder,
+    fontFamily: theme.typography.fontFamily.heading,
     margin: `${theme.spacing.sm}px 0`,
+  },
+  h2: {
+    fontSize: theme.typography.size.h2,
+    fontWeight: theme.typography.fontWeight.bold,
+    fontFamily: theme.typography.fontFamily.heading,
+    margin: `${theme.spacing.xs}px 0`,
+  },
+  h3: {
+    fontSize: theme.typography.size.h3,
+    fontWeight: theme.typography.fontWeight.bold,
+    fontFamily: theme.typography.fontFamily.heading,
+    margin: `${theme.spacing.xs}px 0`,
+  },
+  h4: {
+    fontSize: theme.typography.size.h4,
+    fontWeight: theme.typography.fontWeight.normal,
+    fontFamily: theme.typography.fontFamily.heading,
+    margin: `${theme.spacing.xs}px 0`,
+  },
+  h5: {
+    fontSize: theme.typography.size.h5,
+    fontWeight: theme.typography.fontWeight.normal,
+    fontFamily: theme.typography.fontFamily.heading,
+    margin: 0,
+  },
+  h6: {
+    fontSize: theme.typography.size.h6,
+    fontWeight: theme.typography.fontWeight.normal,
+    fontFamily: theme.typography.fontFamily.heading,
+    margin: 0,
   },
   hr: {
     height: 0,

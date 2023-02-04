@@ -10,7 +10,7 @@ const isExternal = (id) => !id.startsWith('.') && !id.startsWith('src/') && !pat
 
 /** @type {import('rollup').OutputOptions} */
 const outputOptions = {
-  name: 'LinUI',
+  name: 'ObjUI',
   compact: true,
   generatedCode: 'es2015',
   sourcemapExcludeSources: true,

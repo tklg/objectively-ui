@@ -10,9 +10,9 @@ ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
         <TopNavigation>
           <Heading
             level='h1'
-            subheading='This is a nice subheader'
+            subheading='A clean & minimal React component library.'
           >
-            This is g header
+            Objectively UI
           </Heading>
         </TopNavigation>
       </CssBaseline>

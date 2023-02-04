@@ -23,6 +23,7 @@ export interface ColorTheme {
     textHint: string;
     textDisabled: string;
 
+    border: string;
     divider: string;
 
     statusInfo: string | ColorWithContrasts;
@@ -45,6 +46,17 @@ export interface ColorTheme {
       large: number | string;
       xlarge: number | string;
       xxlarge: number | string;
+    },
+    fontWeight: {
+      lighter: number;
+      light: number;
+      normal: number;
+      bold: number;
+      bolder: number;
+    },
+    fontFamily: {
+      heading: string;
+      body: string;
     }
   },
   spacing: {
@@ -57,5 +69,12 @@ export interface ColorTheme {
     lg: number | string;
     xl: number | string;
     xxl: number | string;
-  }
+  },
+  lines: {
+    xs: number | string;
+    sm: number | string;
+    md: number | string;
+    lg: number | string;
+    xl: number | string;
+  },
 }

@@ -1,25 +1,21 @@
-import { useEffect } from 'react'
+import { useMemo } from 'react'
 import { ColorScheme, ColorTheme } from 'src/types/ColorTheme'
 import { DeepPartial } from 'src/types/DeepPartial'
 import { COLOR_SCHEME_DATA_ATTR, PROJECT_SHORTNAME } from 'src/utils/constants'
 import { hyphenate } from 'src/utils/stringUtils'
 
-export const useInjectStyleElement = (theme: DeepPartial<ColorTheme>, withMode?: ColorScheme) => {
-  useEffect(() => {
-    const styleElem = document.createElement('style')
+export const useStyleElementVars = (theme: DeepPartial<ColorTheme>, withMode?: ColorScheme) => {
+  return useMemo(() => {
     if (theme) {
-      const vars = createVars(theme)
-      const css = Object.keys(vars).map(varName => `${varName}:${vars[varName]};`).join('')
+      const { variables, replacedTheme } = createVars(theme)
+      const css = Object.keys(variables).map(varName => `${varName}:${variables[varName]};`).join('')
       if (!withMode) {
-        styleElem.innerText = `:root{${css}}`
+        return { replacedTheme, style: `:root{${css}}` }
       } else {
-        styleElem.innerText = `[${COLOR_SCHEME_DATA_ATTR}=${withMode}]{${css}}`
+        return { replacedTheme, style: `[${COLOR_SCHEME_DATA_ATTR}=${withMode}]{${css}}` }
       }
-      document.head.appendChild(styleElem)
     }
-    return () => {
-      styleElem.remove()
-    }
+    return { replacedTheme: theme, style: '' }
   }, [theme])
 }
 
@@ -27,25 +23,33 @@ export const useThemeCss = (theme: ColorTheme) => {
   return null
 }
 
-const createVars = (theme: DeepPartial<ColorTheme>): Record<string, string> => {
+const createVars = (theme: DeepPartial<ColorTheme>) => {
+  type GenericObject = { [key: string]: string | number }
   const vars: Record<string, string> = {}
+  const obj = JSON.parse(JSON.stringify(theme)) as GenericObject
 
-  const addKeysToVars = <T>(prefix: string, obj: T) => {
+  const addKeysToVars = (prefix: string, obj: GenericObject) => {
     for (const k in obj) {
       let value = obj[k] as string | number | object
       const hypenKey = hyphenate(k)
       if (typeof value === 'object') {
-        addKeysToVars(`${prefix}-${hypenKey}`, value)
+        addKeysToVars(`${prefix}-${hypenKey}`, value as GenericObject)
       } else {
-        if (typeof value === 'number' && /(spacing|size)$/.test(prefix)) {
+        if (typeof value === 'number' && /(spacing|size|lines)$/.test(prefix)) {
           value = `${value}px`
         }
-        vars[`${prefix}-${hypenKey}`] = value.toString()
+        if (k !== 'mode') {
+          vars[`${prefix}-${hypenKey}`] = value.toString()
+          obj[k] = `var(${prefix}-${hypenKey})`
+        }
       }
     }
   }
 
-  addKeysToVars(`--${PROJECT_SHORTNAME}`, theme)
+  addKeysToVars(`--${PROJECT_SHORTNAME}`, obj)
 
-  return vars
+  return {
+    variables: vars,
+    replacedTheme: obj as unknown as ColorTheme,
+  }
 }

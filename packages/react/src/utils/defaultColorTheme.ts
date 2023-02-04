@@ -5,8 +5,8 @@ export const defaultLightColorTheme: ColorTheme = {
   colors: {
     mode: ColorScheme.Light,
 
-    backgroundPrimary: '#ffffff',
-    backgroundSecondary: '#e2e2e2',
+    backgroundPrimary: '#f0f0f0',
+    backgroundSecondary: '#fefefe',
 
     accentPrimary: {
       value: 'orange',
@@ -22,6 +22,7 @@ export const defaultLightColorTheme: ColorTheme = {
     textHint: '#aaaaaa',
     textDisabled: '#dddddd',
 
+    border: '#cccccc',
     divider: '#ededed',
 
     statusInfo: {
@@ -58,6 +59,17 @@ export const defaultLightColorTheme: ColorTheme = {
       xlarge: '1.266rem',
       xxlarge: '1.424rem',
     },
+    fontWeight: {
+      lighter: 100,
+      light: 300,
+      normal: 400,
+      bold: 600,
+      bolder: 800,
+    },
+    fontFamily: {
+      body: '\'Public Sans\', sans-serif',
+      heading: '\'Public Sans\', sans-serif',
+    },
   },
 
   spacing: {
@@ -71,6 +83,14 @@ export const defaultLightColorTheme: ColorTheme = {
     lg: 32,
     xl: 48,
     xxl: 96,
+  },
+
+  lines: {
+    xs: 1,
+    sm: 2,
+    md: 4,
+    lg: 6,
+    xl: 8,
   },
 }
 
@@ -89,6 +109,7 @@ export const defaultDarkColorTheme: DeepPartial<ColorTheme> = {
     textHint: '#999999',
     textDisabled: '#777777',
 
+    border: '#5f5f5f',
     divider: '#4f4f4f',
   },
 }

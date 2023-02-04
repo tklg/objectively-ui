@@ -1,10 +1,10 @@
-import { ThemeProvider } from '@emotion/react'
+import { css, Global, ThemeProvider } from '@emotion/react'
 import { createContext, FC, useCallback, useEffect, useMemo, useState } from 'react'
-import { defaultDarkColorTheme, defaultLightColorTheme } from 'src/providers/CssVarsProvider/defaultColorTheme'
 import { useCompleteColorTheme } from 'src/providers/CssVarsProvider/useCompleteTheme'
-import { useInjectStyleElement } from 'src/providers/CssVarsProvider/useInjectStyleElement'
+import { useStyleElementVars } from 'src/providers/CssVarsProvider/useInjectStyleElement'
 import { ColorScheme } from 'src/types/ColorTheme'
 import { COLOR_SCHEME_DATA_ATTR, COLOR_SCHEME_STORAGE_KEY } from 'src/utils/constants'
+import { defaultDarkColorTheme, defaultLightColorTheme } from 'src/utils/defaultColorTheme'
 import { CssVarsContextProps, CssVarsProviderProps } from './types'
 
 const matcher = window.matchMedia('(prefers-color-scheme: dark)')
@@ -24,9 +24,8 @@ export const CssVarsProvider: FC<CssVarsProviderProps> = ({
   const [mode, setMode] = useState<ColorScheme | null>(overrideMode ?? (localStorage.getItem(COLOR_SCHEME_STORAGE_KEY) as ColorScheme) ?? null)
 
   const completeLightTheme = useCompleteColorTheme(theme, defaultLightColorTheme)
-  const completeDarkTheme = useCompleteColorTheme(darkTheme, completeLightTheme)
-  useInjectStyleElement(completeLightTheme)
-  useInjectStyleElement(darkTheme, ColorScheme.Dark)
+  const { style: lightThemeVars, replacedTheme: themeWithCssVars } = useStyleElementVars(completeLightTheme)
+  const { style: darkThemeVars } = useStyleElementVars(darkTheme, ColorScheme.Dark)
 
   useEffect(() => {
     const handleChange = (e: MediaQueryListEvent) => {
@@ -61,7 +60,10 @@ export const CssVarsProvider: FC<CssVarsProviderProps> = ({
 
   return (
     <CssVarsContext.Provider value={value}>
-      <ThemeProvider theme={effectiveColorScheme === ColorScheme.Light ? completeLightTheme : completeDarkTheme}>
+      <ThemeProvider theme={themeWithCssVars}>
+        <Global
+          styles={css(lightThemeVars, darkThemeVars)}
+        />
         {children}
       </ThemeProvider>
     </CssVarsContext.Provider>
