@@ -18,6 +18,7 @@ export const baselineStyles = (theme: ColorTheme) => css({
     boxSizing: 'border-box',
     webkitTextSizeAdjust: '100%',
     colorTheme: theme.colors.mode,
+    height: '100%',
   },
   body: {
     margin: 0,
@@ -25,6 +26,7 @@ export const baselineStyles = (theme: ColorTheme) => css({
     fontSize: theme.typography.size.medium,
     fontFamily: theme.typography.fontFamily.body,
     backgroundColor: theme.colors.backgroundPrimary,
+    height: '100%',
     '@media print': {
       backgroundColor: 'white',
     },

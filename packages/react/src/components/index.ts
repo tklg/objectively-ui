@@ -1,5 +1,7 @@
+export * from './AppLayout'
 export * from './Button'
 export * from './CssBaseline'
 export * from './Heading'
 export * from './Input'
+export * from './SideNavigation'
 export * from './TopNavigation'

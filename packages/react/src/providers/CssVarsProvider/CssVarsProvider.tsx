@@ -10,7 +10,7 @@ import { CssVarsContextProps, CssVarsProviderProps } from './types'
 const matcher = window.matchMedia('(prefers-color-scheme: dark)')
 
 export const CssVarsContext = createContext<CssVarsContextProps>({
-  mode: ColorScheme.Light,
+  mode: 'light',
   setMode: () => null,
 })
 
@@ -20,16 +20,16 @@ export const CssVarsProvider: FC<CssVarsProviderProps> = ({
   darkTheme = defaultDarkColorTheme,
   children,
 }) => {
-  const [osMode, setOsMode] = useState(overrideMode ?? (matcher.matches ? ColorScheme.Dark : ColorScheme.Light))
+  const [osMode, setOsMode] = useState<ColorScheme>(overrideMode ?? (matcher.matches ? 'dark' : 'light'))
   const [mode, setMode] = useState<ColorScheme | null>(overrideMode ?? (localStorage.getItem(COLOR_SCHEME_STORAGE_KEY) as ColorScheme) ?? null)
 
   const completeLightTheme = useCompleteColorTheme(theme, defaultLightColorTheme)
-  const { style: lightThemeVars, replacedTheme: themeWithCssVars } = useStyleElementVars(completeLightTheme, ColorScheme.Light, true)
-  const { style: darkThemeVars } = useStyleElementVars(darkTheme, ColorScheme.Dark, false)
+  const { style: lightThemeVars, replacedTheme: themeWithCssVars } = useStyleElementVars(completeLightTheme, 'light', true)
+  const { style: darkThemeVars } = useStyleElementVars(darkTheme, 'dark', false)
 
   useEffect(() => {
     const handleChange = (e: MediaQueryListEvent) => {
-      setOsMode(e.matches ? ColorScheme.Dark : ColorScheme.Light)
+      setOsMode(e.matches ? 'dark' : 'light')
     }
     if (!overrideMode) {
       matcher.addEventListener('change', handleChange)

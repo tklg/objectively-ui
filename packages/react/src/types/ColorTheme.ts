@@ -1,7 +1,4 @@
-export enum ColorScheme {
-  Light = 'light',
-  Dark = 'dark'
-}
+export type ColorScheme = 'light' | 'dark'
 
 interface ColorWithContrasts {
   value: string;

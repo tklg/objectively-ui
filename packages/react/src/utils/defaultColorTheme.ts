@@ -1,9 +1,9 @@
-import { ColorScheme, ColorTheme } from 'src/types/ColorTheme'
+import { ColorTheme } from 'src/types/ColorTheme'
 import { DeepPartial } from 'src/types/DeepPartial'
 
 export const defaultLightColorTheme: ColorTheme = {
   colors: {
-    mode: ColorScheme.Light,
+    mode: 'light',
 
     backgroundPrimary: '#f0f0f0',
     backgroundSecondary: '#fefefe',
@@ -122,7 +122,7 @@ export const defaultLightColorTheme: ColorTheme = {
 
 export const defaultDarkColorTheme: DeepPartial<ColorTheme> = {
   colors: {
-    mode: ColorScheme.Dark,
+    mode: 'dark',
 
     backgroundPrimary: '#111111',
     backgroundSecondary: '#444444',

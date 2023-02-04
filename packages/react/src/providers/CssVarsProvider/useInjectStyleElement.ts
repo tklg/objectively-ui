@@ -20,10 +20,6 @@ export const useStyleElementVars = (theme: DeepPartial<ColorTheme>, withMode: Co
   }, [theme])
 }
 
-export const useThemeCss = (theme: ColorTheme) => {
-  return null
-}
-
 const createVars = (theme: DeepPartial<ColorTheme>) => {
   type GenericObject = { [key: string]: string | number }
   const vars: Record<string, string> = {}
