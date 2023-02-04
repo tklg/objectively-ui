@@ -15,6 +15,10 @@ export const fadeColor = (value: string) => {
   return new Color(value).fade(0.7).toString()
 }
 
+export const tintColor = (value: string, tint: string) => {
+  return new Color(value).mix(new Color(tint).lighten(0.7)).toString()
+}
+
 export const isLightColor = (value: string) => {
   return new Color(value).isLight()
 }

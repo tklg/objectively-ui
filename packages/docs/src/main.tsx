@@ -1,6 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import { AppLayout, CssVarsProvider, TopNavigation, Heading, CssBaseline, Input, SideNavigation } from '@objectively-ui/react'
+import { List, AppLayout, CssVarsProvider, TopNavigation, Heading, CssBaseline, Input, SideNavigation, ListItem } from '@objectively-ui/react'
 import './main.scss'
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
@@ -25,7 +25,20 @@ ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
           }
           leftNavigation={
             <SideNavigation>
-              asda
+              <List divided>
+                <ListItem button>
+                  one
+                </ListItem>
+                <ListItem button description='subheading'>
+                  two
+                </ListItem>
+                <ListItem button selected description='subheading 2'>
+                  three
+                </ListItem>
+                <ListItem button>
+                  four
+                </ListItem>
+              </List>
             </SideNavigation>
           }
         />

@@ -8,11 +8,11 @@ export const defaultLightColorTheme: ColorTheme = {
     backgroundPrimary: '#f0f0f0',
     backgroundSecondary: '#fefefe',
 
-    hover: 'rgba(0,0,0,.12)',
+    hover: 'rgba(0,0,0,.08)',
     active: 'rgba(0,0,0,.3)',
 
     accentPrimary: {
-      value: '#246e45',
+      value: '#3d815b',
       contrastText: 'white',
     },
     accentSecondary: {
@@ -26,7 +26,7 @@ export const defaultLightColorTheme: ColorTheme = {
     textDisabled: '#dddddd',
 
     border: '#cccccc',
-    divider: '#ededed',
+    divider: '#dddddd',
 
     statusInfo: {
       value: 'blue',

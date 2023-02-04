@@ -3,6 +3,8 @@ export type ColorScheme = 'light' | 'dark'
 interface ColorWithContrasts {
   value: string;
   contrastText: string;
+  contrastTextSecondary?: string;
+  contrastTextDisabled?: string;
   hover?: string;
   active?: string;
   shadow?: string;
