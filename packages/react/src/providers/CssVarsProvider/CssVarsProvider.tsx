@@ -24,8 +24,8 @@ export const CssVarsProvider: FC<CssVarsProviderProps> = ({
   const [mode, setMode] = useState<ColorScheme | null>(overrideMode ?? (localStorage.getItem(COLOR_SCHEME_STORAGE_KEY) as ColorScheme) ?? null)
 
   const completeLightTheme = useCompleteColorTheme(theme, defaultLightColorTheme)
-  const { style: lightThemeVars, replacedTheme: themeWithCssVars } = useStyleElementVars(completeLightTheme)
-  const { style: darkThemeVars } = useStyleElementVars(darkTheme, ColorScheme.Dark)
+  const { style: lightThemeVars, replacedTheme: themeWithCssVars } = useStyleElementVars(completeLightTheme, ColorScheme.Light, true)
+  const { style: darkThemeVars } = useStyleElementVars(darkTheme, ColorScheme.Dark, false)
 
   useEffect(() => {
     const handleChange = (e: MediaQueryListEvent) => {

@@ -1,7 +1,7 @@
 import { useMemo } from 'react'
 import { ColorTheme } from 'src/types/ColorTheme'
 import { DeepPartial } from 'src/types/DeepPartial'
-import { darkenColor, isLightColor, lightenColor } from 'src/utils/colorUtils'
+import { darkenColor, isLightColor, lightenColor, fadeColor } from 'src/utils/colorUtils'
 import { deepClone } from 'src/utils/deepClone'
 import { deepFreeze } from 'src/utils/deepFreeze'
 import { deepMerge } from 'src/utils/deepMerge'
@@ -33,6 +33,9 @@ const populateHoverColorsInner = (obj: Record<string, string | object>) => {
         } if (!('active' in item)) {
           // @ts-expect-error This is adding [active] to the color group if its not there already
           item.active = isLightColor(value) ? lightenColor(value, 1) : darkenColor(value, 1)
+        } if (!('shadow' in item)) {
+          // @ts-expect-error This is adding [shadow] to the color group if its not there already
+          item.shadow = fadeColor(value)
         }
       } else {
         populateHoverColorsInner(item as Record<string, string | object>)

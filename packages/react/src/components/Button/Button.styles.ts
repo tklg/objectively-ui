@@ -4,6 +4,7 @@ import { PROJECT_SHORTNAME } from 'src/utils/constants'
 
 export const buttonStyles = (theme: ColorTheme) => css({
   position: 'relative',
+  display: 'inline-block',
   borderWidth: theme.lines.sm,
   borderStyle: 'solid',
   borderColor: 'transparent',
@@ -36,6 +37,7 @@ export const buttonStyles = (theme: ColorTheme) => css({
   },
   [`&.${PROJECT_SHORTNAME}-Button-fullWidth`]: {
     display: 'block',
+    width: '100%',
   },
   [`&.${PROJECT_SHORTNAME}-Button-variantPrimary`]: {
     background: theme.colors.accentPrimary.value,

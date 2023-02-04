@@ -8,6 +8,7 @@ interface ColorWithContrasts {
   contrastText: string;
   hover?: string;
   active?: string;
+  shadow?: string;
 }
 
 export interface ColorTheme {

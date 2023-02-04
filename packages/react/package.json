@@ -15,7 +15,8 @@
   "scripts": {
     "start": "rollup -c rollup.config.js -w",
     "build": "npx rimraf dist/ && rollup -c rollup.config.js",
-    "test": "jest"
+    "test": "jest",
+    "clean": "npx rimraf node_modules/.cache/"
   },
   "peerDependencies": {
     "@emotion/react": "11.10.5",

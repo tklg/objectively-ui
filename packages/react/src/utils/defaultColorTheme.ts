@@ -12,7 +12,7 @@ export const defaultLightColorTheme: ColorTheme = {
     active: 'rgba(0,0,0,.3)',
 
     accentPrimary: {
-      value: '#3c7a6c',
+      value: '#246e45',
       contrastText: 'white',
     },
     accentSecondary: {

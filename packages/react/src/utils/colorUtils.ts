@@ -11,6 +11,10 @@ export const darkenColor = (value: string, step: Step) => {
   return new Color(value).darken(steps[step - 1]).toString()
 }
 
+export const fadeColor = (value: string) => {
+  return new Color(value).fade(0.7).toString()
+}
+
 export const isLightColor = (value: string) => {
   return new Color(value).isLight()
 }

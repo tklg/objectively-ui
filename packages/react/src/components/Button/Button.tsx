@@ -15,6 +15,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(({
   fullWidth,
   onMouseDown,
   onMouseUp,
+  className: _className,
   ...props
 }, ref) => {
   const theme = useTheme()
@@ -25,7 +26,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(({
     variant,
     fullWidth,
     danger,
-  })
+  }, _className)
 
   const handleMouseDown = useCallback((e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
     onMouseDown?.(e)

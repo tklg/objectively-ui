@@ -5,13 +5,13 @@ import { COLOR_SCHEME_DATA_ATTR, PROJECT_SHORTNAME } from 'src/utils/constants'
 import { deepClone } from 'src/utils/deepClone'
 import { hyphenate } from 'src/utils/stringUtils'
 
-export const useStyleElementVars = (theme: DeepPartial<ColorTheme>, withMode?: ColorScheme) => {
+export const useStyleElementVars = (theme: DeepPartial<ColorTheme>, withMode: ColorScheme, root: boolean) => {
   return useMemo(() => {
     if (theme) {
       const { variables, replacedTheme } = createVars(theme)
       const css = Object.keys(variables).map(varName => `${varName}:${variables[varName]};`).join('')
-      if (!withMode) {
-        return { replacedTheme, style: `:root{${css}}` }
+      if (root) {
+        return { replacedTheme, style: `:root,[${COLOR_SCHEME_DATA_ATTR}=${withMode}]{${css}}` }
       } else {
         return { replacedTheme, style: `[${COLOR_SCHEME_DATA_ATTR}=${withMode}]{${css}}` }
       }
