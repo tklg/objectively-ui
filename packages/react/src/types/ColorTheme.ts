@@ -6,17 +6,22 @@ export enum ColorScheme {
 interface ColorWithContrasts {
   value: string;
   contrastText: string;
+  hover?: string;
+  active?: string;
 }
 
 export interface ColorTheme {
   colors: {
-    mode: ColorScheme,
+    mode: ColorScheme;
 
     backgroundPrimary: string;
     backgroundSecondary: string;
 
-    accentPrimary: string | ColorWithContrasts;
-    accentSecondary: string | ColorWithContrasts;
+    hover: string;
+    active: string;
+
+    accentPrimary: ColorWithContrasts;
+    accentSecondary: ColorWithContrasts;
 
     textPrimary: string;
     textSecondary: string;
@@ -26,11 +31,11 @@ export interface ColorTheme {
     border: string;
     divider: string;
 
-    statusInfo: string | ColorWithContrasts;
-    statusSuccess: string | ColorWithContrasts;
-    statusWarning: string | ColorWithContrasts;
-    statusError: string | ColorWithContrasts;
-  },
+    statusInfo: ColorWithContrasts;
+    statusSuccess: ColorWithContrasts;
+    statusWarning: ColorWithContrasts;
+    statusError: ColorWithContrasts;
+  };
   typography: {
     size: {
       h1: number | string;
@@ -46,19 +51,19 @@ export interface ColorTheme {
       large: number | string;
       xlarge: number | string;
       xxlarge: number | string;
-    },
+    };
     fontWeight: {
       lighter: number;
       light: number;
       normal: number;
       bold: number;
       bolder: number;
-    },
+    };
     fontFamily: {
       heading: string;
       body: string;
-    }
-  },
+    };
+  };
   spacing: {
     none: 0;
     gutter: number | string;
@@ -69,12 +74,32 @@ export interface ColorTheme {
     lg: number | string;
     xl: number | string;
     xxl: number | string;
-  },
+  };
   lines: {
     xs: number | string;
     sm: number | string;
     md: number | string;
     lg: number | string;
     xl: number | string;
-  },
+  };
+  size: {
+    sm: number | string;
+    md: number | string;
+    lg: number | string;
+  };
+  radii: {
+    sm: number | string;
+    md: number | string;
+    lg: number | string;
+  };
+  transitions: {
+    duration: {
+      fast: number;
+      normal: number;
+      slow: number;
+    };
+    function: {
+      default: string;
+    };
+  };
 }

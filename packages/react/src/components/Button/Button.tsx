@@ -1,29 +1,61 @@
-import { ButtonHTMLAttributes, DetailedHTMLProps, forwardRef, ReactNode } from 'react'
-import { CommonSize } from 'src/types/sizes'
+import { css } from '@emotion/react'
+import { forwardRef, useCallback, useEffect, useState } from 'react'
+import { buttonGlowStyles, buttonStyles } from 'src/components/Button/Button.styles'
+import { ButtonProps } from 'src/components/Button/types'
+import { useTheme } from 'src/hooks'
 import { buildClassName } from 'src/utils/buildClassName'
-
-interface ButtonProps extends DetailedHTMLProps<ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement> {
-  size?: CommonSize;
-  iconStart?: ReactNode;
-}
 
 const ELEMENT_NAME = 'Button'
 
 export const Button = forwardRef<HTMLButtonElement, ButtonProps>(({
-  size,
+  children,
+  size = 'md',
+  variant = 'default',
+  danger,
+  fullWidth,
+  onMouseDown,
+  onMouseUp,
   ...props
 }, ref) => {
+  const theme = useTheme()
+  const [mouseUpGlow, setMouseUpGlow] = useState(false)
+
   const className = buildClassName(ELEMENT_NAME, {
-    size,
+    size: size.toUpperCase(),
+    variant,
+    fullWidth,
+    danger,
   })
+
+  const handleMouseDown = useCallback((e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+    onMouseDown?.(e)
+    setMouseUpGlow(false)
+  }, [onMouseDown])
+
+  const handleMouseUp = useCallback((e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+    onMouseUp?.(e)
+    setMouseUpGlow(true)
+  }, [onMouseUp])
+
+  useEffect(() => {
+    let timeout: number
+    if (mouseUpGlow) {
+      // timeout = window.setTimeout(() => setMouseUpGlow(false), 1000)
+    }
+    return () => window.clearTimeout(timeout)
+  }, [mouseUpGlow])
 
   return (
     <button
       ref={ref}
       {...props}
       className={className}
+      css={buttonStyles(theme)}
+      onMouseDown={handleMouseDown}
+      onMouseUp={handleMouseUp}
     >
-
+      {mouseUpGlow && <div css={buttonGlowStyles(theme)} />}
+      <span>{children}</span>
     </button>
   )
 })

@@ -32,6 +32,7 @@ module.exports = {
     'quotes': [ 'error', 'single'],
     'jsx-quotes': ['error', 'prefer-single'],
     'semi': ['error', 'never'],
+    '@typescript-eslint/member-delimiter-style': 'warn',
     'comma-dangle': ['warn', 'always-multiline'],
     'space-before-function-paren': ['warn', 'always'],
     'semi-spacing': 'warn',

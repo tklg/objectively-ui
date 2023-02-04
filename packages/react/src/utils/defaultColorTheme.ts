@@ -8,8 +8,11 @@ export const defaultLightColorTheme: ColorTheme = {
     backgroundPrimary: '#f0f0f0',
     backgroundSecondary: '#fefefe',
 
+    hover: 'rgba(0,0,0,.12)',
+    active: 'rgba(0,0,0,.3)',
+
     accentPrimary: {
-      value: 'orange',
+      value: '#3c7a6c',
       contrastText: 'white',
     },
     accentSecondary: {
@@ -92,6 +95,29 @@ export const defaultLightColorTheme: ColorTheme = {
     lg: 6,
     xl: 8,
   },
+
+  size: {
+    sm: 30,
+    md: 40,
+    lg: 50,
+  },
+
+  radii: {
+    sm: 4,
+    md: 8,
+    lg: 12,
+  },
+
+  transitions: {
+    duration: {
+      fast: .15,
+      normal: .3,
+      slow: .8,
+    },
+    function: {
+      default: 'cubic-bezier(0.23, 0.54, 0.19, 0.99)',
+    },
+  },
 }
 
 export const defaultDarkColorTheme: DeepPartial<ColorTheme> = {
@@ -101,8 +127,17 @@ export const defaultDarkColorTheme: DeepPartial<ColorTheme> = {
     backgroundPrimary: '#111111',
     backgroundSecondary: '#444444',
 
-    accentPrimary: 'orange',
-    accentSecondary: 'lime',
+    hover: 'rgba(255,255,255,.3)',
+    active: 'rgba(255,255,255,.4)',
+
+    accentPrimary: {
+      value: 'teal',
+      contrastText: 'white',
+    },
+    accentSecondary: {
+      value: 'orange',
+      contrastText: 'white',
+    },
 
     textPrimary: '#ffffff',
     textSecondary: '#cccccc',

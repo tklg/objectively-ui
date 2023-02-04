@@ -1,8 +1,7 @@
 import { forwardRef, useMemo } from 'react'
-import { headerStyles, headerSubHeadingStyles, headerTopHeadingStyles } from 'src/components/Heading/Heading.styles'
+import { headingActionStyles, headingContainerStyles, headingStyles, headingSubHeadingStyles, headingTopHeadingStyles } from 'src/components/Heading/Heading.styles'
 import { HeadingProps } from 'src/components/Heading/types'
 import { useTheme } from 'src/hooks/useTheme'
-import { ColorTheme } from 'src/types/ColorTheme'
 import { HtmlHeadingLevel } from 'src/types/headings'
 import { buildClassName } from 'src/utils/buildClassName'
 
@@ -13,6 +12,7 @@ export const Heading = forwardRef<HTMLDivElement, HeadingProps>(({
   className: _className,
   level = 'h1',
   subheading,
+  action,
 }, ref) => {
   const theme = useTheme()
   const HeadingTag = level
@@ -26,10 +26,17 @@ export const Heading = forwardRef<HTMLDivElement, HeadingProps>(({
     <div
       ref={ref}
       className={className}
-      css={headerStyles(theme)}
+      css={headingStyles(theme)}
     >
-      <HeadingTag css={headerTopHeadingStyles(theme)}>{children}</HeadingTag>
-      {subheading && <SubheadingTag css={headerSubHeadingStyles(theme)}>{subheading}</SubheadingTag>}
+      <div css={headingContainerStyles(theme)}>
+        <HeadingTag css={headingTopHeadingStyles(theme)}>{children}</HeadingTag>
+        {subheading && <SubheadingTag css={headingSubHeadingStyles(theme)}>{subheading}</SubheadingTag>}
+      </div>
+      {action && (
+        <div className={buildClassName(`${ELEMENT_NAME}Action`)} css={headingActionStyles(theme)}>
+          {action}
+        </div>
+      )}
     </div>
   )
 })

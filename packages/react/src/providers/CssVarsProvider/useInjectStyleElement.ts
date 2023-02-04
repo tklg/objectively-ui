@@ -2,6 +2,7 @@ import { useMemo } from 'react'
 import { ColorScheme, ColorTheme } from 'src/types/ColorTheme'
 import { DeepPartial } from 'src/types/DeepPartial'
 import { COLOR_SCHEME_DATA_ATTR, PROJECT_SHORTNAME } from 'src/utils/constants'
+import { deepClone } from 'src/utils/deepClone'
 import { hyphenate } from 'src/utils/stringUtils'
 
 export const useStyleElementVars = (theme: DeepPartial<ColorTheme>, withMode?: ColorScheme) => {
@@ -26,7 +27,7 @@ export const useThemeCss = (theme: ColorTheme) => {
 const createVars = (theme: DeepPartial<ColorTheme>) => {
   type GenericObject = { [key: string]: string | number }
   const vars: Record<string, string> = {}
-  const obj = JSON.parse(JSON.stringify(theme)) as GenericObject
+  const obj = deepClone(theme) as GenericObject
 
   const addKeysToVars = (prefix: string, obj: GenericObject) => {
     for (const k in obj) {
@@ -35,9 +36,12 @@ const createVars = (theme: DeepPartial<ColorTheme>) => {
       if (typeof value === 'object') {
         addKeysToVars(`${prefix}-${hypenKey}`, value as GenericObject)
       } else {
-        if (typeof value === 'number' && /(spacing|size|lines)$/.test(prefix)) {
-          value = `${value}px`
-        }
+        if (typeof value === 'number')
+          if (/(spacing|size|lines|radii)$/.test(prefix)) {
+            value = `${value}px`
+          } else if (/(duration)$/.test(prefix)) {
+            value = `${value}s` // Seconds
+          }
         if (k !== 'mode') {
           vars[`${prefix}-${hypenKey}`] = value.toString()
           obj[k] = `var(${prefix}-${hypenKey})`

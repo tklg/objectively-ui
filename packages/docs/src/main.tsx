@@ -1,6 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import { CssVarsProvider, TopNavigation, Heading, CssBaseline, ColorScheme } from '@objectively-ui/react'
+import { CssVarsProvider, TopNavigation, Heading, CssBaseline, ColorScheme, Button } from '@objectively-ui/react'
 import './main.scss'
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
@@ -11,6 +11,9 @@ ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
           <Heading
             level='h1'
             subheading='A clean & minimal React component library.'
+            action={
+              <Button variant='primary'>Click me</Button>
+            }
           >
             Objectively UI
           </Heading>

@@ -1,5 +1,1 @@
-export enum CommonSize {
-  Small = 'sm',
-  Medium = 'md',
-  Large = 'lg',
-}
+export type CommonSize = 'sm' | 'md' | 'lg'
