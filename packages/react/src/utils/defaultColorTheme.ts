@@ -105,9 +105,9 @@ export const defaultLightColorTheme: ColorTheme = {
   },
 
   radii: {
-    sm: 4,
-    md: 8,
-    lg: 12,
+    sm: 17,
+    md: 23,
+    lg: 28,
   },
 
   transitions: {

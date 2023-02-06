@@ -39,6 +39,7 @@ export const listItemButtonStyles = (theme: ColorTheme) => css({
 })
 
 export const listItemContentStyles = (theme: ColorTheme) => css({
+  position: 'relative',
   padding: `0 ${theme.spacing.md}`,
   height: '100%',
   width: '100%',
@@ -55,7 +56,15 @@ export const listItemContentStyles = (theme: ColorTheme) => css({
   '&:active': {
     background: theme.colors.accentPrimary.shadow,
   },
-  'button:focus-visible &': focusOutlineStylesWithoutElement(theme),
+  'button &:before': {
+    content: '""',
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    height: '100%',
+    width: '100%',
+  },
+  'button:focus-visible &:before': focusOutlineStylesWithoutElement(theme),
 
   '&[data-selected=true]': {
     background: theme.colors.accentPrimary.value,
