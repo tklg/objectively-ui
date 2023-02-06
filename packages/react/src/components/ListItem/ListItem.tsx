@@ -39,7 +39,7 @@ export const ListItem = forwardRef<HTMLLIElement, ListItemProps>(({
         {description && <span className={listItemTextDesciptionClassName} css={listItemSubtextStyles(theme)}>{description}</span>}
       </div>
     </div>
-  ), [description, children, listItemTextClassName, listItemTextDesciptionClassName, theme])
+  ), [theme, selected, listItemTextClassName, children, description, listItemTextDesciptionClassName])
 
   return (
     <li

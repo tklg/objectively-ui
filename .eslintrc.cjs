@@ -23,10 +23,15 @@ module.exports = {
     'react',
     '@typescript-eslint',
     'react-hooks',
+    'unused-imports',
   ],
   'rules': {
     'react/no-unknown-property': ['error', { 'ignore': ['css'] }],
     'react/jsx-closing-bracket-location': 'warn',
+    'react/jsx-tag-spacing': 'warn',
+    'react/jsx-first-prop-new-line': 'warn',
+    'react-hooks/rules-of-hooks': 'error',
+    'react-hooks/exhaustive-deps': 'warn',
     'indent': ['error', 2],
     'linebreak-style': ['error', 'unix'],
     'quotes': [ 'error', 'single'],
@@ -42,5 +47,11 @@ module.exports = {
     }],
     'keyword-spacing': 'warn',
     'no-multi-spaces': ['warn'],
+    '@typescript-eslint/no-unused-vars': 'off',
+    'unused-imports/no-unused-imports': 'warn',
+    'unused-imports/no-unused-vars': [
+      'warn',
+      { 'vars': 'all', 'varsIgnorePattern': '^_', 'args': 'after-used', 'argsIgnorePattern': '^_' },
+    ],
   },
 }

@@ -1,58 +1,20 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import { List, AppLayout, CssVarsProvider, TopNavigation, Heading, CssBaseline, Input, SideNavigation, ListItem, PageContent } from '@objectively-ui/react'
+import { CssVarsProvider, CssBaseline } from '@objectively-ui/react'
 import './main.scss'
+import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom'
+import { ComponentsPageLayout } from 'src/components/ComponentsPageLayout'
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
-    <CssVarsProvider mode='light'>
-      <CssBaseline>
-        <AppLayout
-          header={
-            <TopNavigation>
-              <Heading
-                level='h1'
-                // subheading='A clean & minimal React component library.'
-                action={
-                  <Input
-                    placeholder='searchy search'
-                  />
-                }
-              >
-                Objectively UI
-              </Heading>
-            </TopNavigation>
-          }
-          leftNavigation={
-            <SideNavigation>
-              <List>
-                <ListItem button onClick={console.log}>
-                  one
-                </ListItem>
-                <ListItem button description='subheading' onClick={console.log}>
-                  two
-                </ListItem>
-                <ListItem button selected description='subheading 2' onClick={console.log}>
-                  three
-                </ListItem>
-                <ListItem button onClick={console.log}>
-                  four
-                </ListItem>
-              </List>
-            </SideNavigation>
-          }
-          content={
-            <PageContent>
-              <Heading
-                subheading='A button.'
-                size='h2'
-              >
-                Button
-              </Heading>
-            </PageContent>
-          }
-        />
-      </CssBaseline>
+    <CssVarsProvider mode='dark'>
+      <CssBaseline />
+      <BrowserRouter>
+        <Routes>
+          <Route path='/components/:component?/*' element={<ComponentsPageLayout />} />
+          <Route path='*' element={<Navigate to='/components/button' replace />} />
+        </Routes>
+      </BrowserRouter>
     </CssVarsProvider>
   </React.StrictMode>,
 )

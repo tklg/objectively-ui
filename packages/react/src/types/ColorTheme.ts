@@ -23,6 +23,8 @@ export interface ColorTheme {
     accentPrimary: ColorWithContrasts;
     accentSecondary: ColorWithContrasts;
 
+    focusOutline: string;
+
     textPrimary: string;
     textSecondary: string;
     textHint: string;
@@ -45,12 +47,12 @@ export interface ColorTheme {
       h5: number | string;
       h6: number | string;
 
-      xsmall: number | string;
-      small: number | string;
-      medium: number | string;
-      large: number | string;
-      xlarge: number | string;
-      xxlarge: number | string;
+      xs: number | string;
+      sm: number | string;
+      md: number | string;
+      lg: number | string;
+      xl: number | string;
+      xxl: number | string;
     };
     fontWeight: {
       lighter: number;

@@ -28,7 +28,7 @@ export const List = forwardRef<HTMLUListElement, ListProps>(({
   const contextValue = useMemo(() => ({
     compact: compact ?? false,
     divided: divided ?? false,
-  }), [compact])
+  }), [compact, divided])
 
   return (
     <ListContext.Provider value={contextValue}>

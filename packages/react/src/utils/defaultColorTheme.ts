@@ -20,6 +20,8 @@ export const defaultLightColorTheme: ColorTheme = {
       contrastText: 'white',
     },
 
+    focusOutline: '#2c80ff',
+
     textPrimary: '#222222',
     textSecondary: '#999999',
     textHint: '#aaaaaa',
@@ -55,12 +57,12 @@ export const defaultLightColorTheme: ColorTheme = {
       h5: '0.889rem',
       h6: '0.79rem',
 
-      xsmall: '0.79rem',
-      small: '0.889rem',
-      medium: '1rem',
-      large: '1.125rem',
-      xlarge: '1.266rem',
-      xxlarge: '1.424rem',
+      xs: '0.79rem',
+      sm: '0.889rem',
+      md: '1rem',
+      lg: '1.125rem',
+      xl: '1.266rem',
+      xxl: '1.424rem',
     },
     fontWeight: {
       lighter: 100,

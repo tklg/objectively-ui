@@ -23,7 +23,7 @@ export const baselineStyles = (theme: ColorTheme) => css({
   body: {
     margin: 0,
     color: theme.colors.textPrimary,
-    fontSize: theme.typography.size.medium,
+    fontSize: theme.typography.size.md,
     fontFamily: theme.typography.fontFamily.body,
     backgroundColor: theme.colors.backgroundPrimary,
     height: '100%',
@@ -79,7 +79,7 @@ export const baselineStyles = (theme: ColorTheme) => css({
   },
   pre: {
     fontFamily: 'monospace monospace', // double monospace is intentional: https://github.com/necolas/normalize.css#pre-code-kbd-samp
-    fontSize: theme.typography.size.medium,
+    fontSize: theme.typography.size.md,
   },
   a: {
     backgroundColor: 'transparent',
@@ -93,7 +93,7 @@ export const baselineStyles = (theme: ColorTheme) => css({
   },
   'code, kbd, samp': {
     fontFamily: 'monospace monospace', // double monospace is intentional: https://github.com/necolas/normalize.css#pre-code-kbd-samp
-    fontSize: theme.typography.size.medium,
+    fontSize: theme.typography.size.md,
   },
   small: {
     fontSize: '80%',

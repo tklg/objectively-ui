@@ -1,16 +1,13 @@
 import { Global } from '@emotion/react'
-import { FC, PropsWithChildren } from 'react'
+import { FC } from 'react'
 import { baselineStyles } from './CssBaseline.styles'
 import { useTheme } from 'src/hooks'
 
-export const CssBaseline: FC<PropsWithChildren> = ({ children }) => {
+export const CssBaseline: FC = () => {
   const theme = useTheme()
   return (
-    <>
-      <Global
-        styles={baselineStyles(theme)}
-      />
-      {children}
-    </>
+    <Global
+      styles={baselineStyles(theme)}
+    />
   )
 }

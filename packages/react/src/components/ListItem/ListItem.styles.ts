@@ -1,4 +1,5 @@
 import { css } from '@emotion/react'
+import { focusOutlineStylesWithoutElement } from 'src/components/Accessibility.styles'
 import { ColorTheme } from 'src/types/ColorTheme'
 import { PROJECT_SHORTNAME } from 'src/utils/constants'
 
@@ -31,6 +32,10 @@ export const listItemButtonStyles = (theme: ColorTheme) => css({
   margin: 0,
   color: theme.colors.textPrimary,
   cursor: 'pointer',
+
+  '&:focus-visible': {
+    outline: 'none',
+  },
 })
 
 export const listItemContentStyles = (theme: ColorTheme) => css({
@@ -50,6 +55,7 @@ export const listItemContentStyles = (theme: ColorTheme) => css({
   '&:active': {
     background: theme.colors.accentPrimary.shadow,
   },
+  'button:focus-visible &': focusOutlineStylesWithoutElement(theme),
 
   '&[data-selected=true]': {
     background: theme.colors.accentPrimary.value,
@@ -62,7 +68,6 @@ export const listItemContentStyles = (theme: ColorTheme) => css({
       background: theme.colors.accentPrimary.active,
     },
   },
-
 
   [`.${PROJECT_SHORTNAME}-ListItem-joined &`]: {
     margin: `2px ${theme.spacing.xxs}`,
@@ -79,7 +84,7 @@ export const listItemTextStyles = (theme: ColorTheme) => css({
 
 export const listItemSubtextStyles = (theme: ColorTheme) => css({
   display: 'block',
-  fontSize: theme.typography.size.xsmall,
+  fontSize: theme.typography.size.xs,
   marginTop: -2,
   color: theme.colors.textSecondary,
 
