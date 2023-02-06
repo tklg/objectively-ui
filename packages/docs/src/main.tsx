@@ -12,7 +12,7 @@ ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
             <TopNavigation>
               <Heading
                 level='h1'
-                subheading='A clean & minimal React component library.'
+                // subheading='A clean & minimal React component library.'
                 action={
                   <Input
                     placeholder='searchy search'
@@ -25,22 +25,23 @@ ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
           }
           leftNavigation={
             <SideNavigation>
-              <List divided>
-                <ListItem button>
+              <List>
+                <ListItem button onClick={console.log}>
                   one
                 </ListItem>
-                <ListItem button description='subheading'>
+                <ListItem button description='subheading' onClick={console.log}>
                   two
                 </ListItem>
-                <ListItem button selected description='subheading 2'>
+                <ListItem button selected description='subheading 2' onClick={console.log}>
                   three
                 </ListItem>
-                <ListItem button>
+                <ListItem button onClick={console.log}>
                   four
                 </ListItem>
               </List>
             </SideNavigation>
           }
+          content={'foooo'}
         />
       </CssBaseline>
     </CssVarsProvider>

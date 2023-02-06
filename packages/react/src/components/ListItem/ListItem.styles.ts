@@ -26,10 +26,20 @@ export const listItemButtonStyles = (theme: ColorTheme) => css({
   height: '100%',
   width: '100%',
   textAlign: 'left',
+  background: 'transparent',
   padding: 0,
   margin: 0,
   color: theme.colors.textPrimary,
   cursor: 'pointer',
+})
+
+export const listItemContentStyles = (theme: ColorTheme) => css({
+  padding: `0 ${theme.spacing.md}`,
+  height: '100%',
+  width: '100%',
+  display: 'flex',
+  justifyContent: 'center',
+  alignItems: 'center',
   transition: [
     `background ${theme.transitions.duration.fast} ${theme.transitions.function.default}`,
   ].join(','),
@@ -52,10 +62,15 @@ export const listItemButtonStyles = (theme: ColorTheme) => css({
       background: theme.colors.accentPrimary.active,
     },
   },
-})
 
-export const listItemContentStyles = (theme: ColorTheme) => css({
-  padding: `0 ${theme.spacing.md}`,
+
+  [`.${PROJECT_SHORTNAME}-ListItem-joined &`]: {
+    margin: `2px ${theme.spacing.xxs}`,
+    borderRadius: theme.radii.sm,
+    width: `calc(100% - (${theme.spacing.xxs} * 2))`,
+    height: 'calc(100% - 4px)',
+    padding: `0 calc(${theme.spacing.md} - ${theme.spacing.xxs})`,
+  },
 })
 
 export const listItemTextStyles = (theme: ColorTheme) => css({

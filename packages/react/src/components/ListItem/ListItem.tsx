@@ -1,3 +1,4 @@
+import { css } from '@emotion/react'
 import { forwardRef, useMemo } from 'react'
 import { useListContext } from 'src/components/List/useListContext'
 import { listItemButtonStyles, listItemStyles, listItemContentStyles, listItemTextStyles, listItemSubtextStyles } from 'src/components/ListItem/ListItem.styles'
@@ -13,6 +14,7 @@ export const ListItem = forwardRef<HTMLLIElement, ListItemProps>(({
   selected,
   button,
   className: _className,
+  onClick,
 }, ref) => {
   const { divided, compact } = useListContext()
   const theme = useTheme()
@@ -20,6 +22,7 @@ export const ListItem = forwardRef<HTMLLIElement, ListItemProps>(({
     selected,
     button,
     divided,
+    joined: !divided,
     compact,
     description: Boolean(description),
   }, _className)
@@ -27,9 +30,14 @@ export const ListItem = forwardRef<HTMLLIElement, ListItemProps>(({
   const listItemTextDesciptionClassName = buildClassName(`${ELEMENT_NAME}Subtext`)
 
   const content = useMemo(() => (
-    <div css={listItemContentStyles(theme)}>
-      <span className={listItemTextClassName} css={listItemTextStyles(theme)}>{children}</span>
-      {description && <span className={listItemTextDesciptionClassName} css={listItemSubtextStyles(theme)}>{description}</span>}
+    <div
+      css={listItemContentStyles(theme)}
+      data-selected={selected}
+    >
+      <div css={css({ width: '100%' })}>
+        <span className={listItemTextClassName} css={listItemTextStyles(theme)}>{children}</span>
+        {description && <span className={listItemTextDesciptionClassName} css={listItemSubtextStyles(theme)}>{description}</span>}
+      </div>
     </div>
   ), [description, children, listItemTextClassName, listItemTextDesciptionClassName, theme])
 
@@ -40,7 +48,10 @@ export const ListItem = forwardRef<HTMLLIElement, ListItemProps>(({
       css={listItemStyles(theme)}
     >
       {button ? (
-        <button css={listItemButtonStyles(theme)} data-selected={selected}>
+        <button
+          css={listItemButtonStyles(theme)}
+          onClick={onClick}
+        >
           {content}
         </button>
       ) : (
