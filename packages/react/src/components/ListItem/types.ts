@@ -1,7 +1,8 @@
-import { NamedExoticComponent } from 'react'
+import { ForwardRefExoticComponent } from 'react'
 import { PropsWithChildrenAndClassName } from 'src/types/PropsWithChildrenAndClassName'
 
 export type ListItemProps = PropsWithChildrenAndClassName & {
+  ref?: React.RefObject<HTMLLIElement>;
   description?: string;
   selected?: boolean;
 } & ({
@@ -12,4 +13,4 @@ export type ListItemProps = PropsWithChildrenAndClassName & {
   onClick?: (event: React.MouseEvent<HTMLLIElement, MouseEvent>) => void;
 })
 
-export type ListItemComponent<P = object> = NamedExoticComponent<P>
+export type ListItemComponent<P = ListItemProps> = ForwardRefExoticComponent<P>

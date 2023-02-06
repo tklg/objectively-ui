@@ -41,7 +41,7 @@ export const List = forwardRef<HTMLUListElement, ListProps>(({
       </ul>
     </ListContext.Provider>
   )
-}) as ListComponent<ListProps>
+}) as ListComponent
 
 if (process.env.NODE_ENV !== 'production') {
   List.displayName = ELEMENT_NAME

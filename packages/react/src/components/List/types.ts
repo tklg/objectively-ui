@@ -1,7 +1,8 @@
-import { NamedExoticComponent } from 'react'
+import { ForwardRefExoticComponent } from 'react'
 import { PropsWithChildrenAndClassName } from 'src/types/PropsWithChildrenAndClassName'
 
 export interface ListProps extends PropsWithChildrenAndClassName {
+  ref?: React.RefObject<HTMLUListElement>;
   compact?: boolean;
   divided?: boolean;
   noPadding?: boolean;
@@ -12,4 +13,4 @@ export interface ListContextProps {
   divided: boolean;
 }
 
-export type ListComponent<P = object> = NamedExoticComponent<P>
+export type ListComponent<P = ListProps> = ForwardRefExoticComponent<P>

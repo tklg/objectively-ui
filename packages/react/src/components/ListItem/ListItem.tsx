@@ -59,7 +59,7 @@ export const ListItem = forwardRef<HTMLLIElement, ListItemProps>(({
       )}
     </li>
   )
-}) as ListItemComponent<ListItemProps>
+}) as ListItemComponent
 
 if (process.env.NODE_ENV !== 'production') {
   ListItem.displayName = ELEMENT_NAME

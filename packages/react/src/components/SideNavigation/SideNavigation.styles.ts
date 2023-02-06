@@ -7,6 +7,7 @@ export const sideNavigationStyles = (theme: ColorTheme) => css({
   height: '100%',
   display: 'flex',
   flexDirection: 'column',
+  overflowY: 'auto',
 
   [`&.${PROJECT_SHORTNAME}-SideNavigation-sideLeft`]: {
     borderRight: `${theme.lines.xs} solid ${theme.colors.border}`,

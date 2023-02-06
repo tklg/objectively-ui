@@ -1,6 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import { List, AppLayout, CssVarsProvider, TopNavigation, Heading, CssBaseline, Input, SideNavigation, ListItem } from '@objectively-ui/react'
+import { List, AppLayout, CssVarsProvider, TopNavigation, Heading, CssBaseline, Input, SideNavigation, ListItem, PageContent } from '@objectively-ui/react'
 import './main.scss'
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
@@ -41,7 +41,16 @@ ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
               </List>
             </SideNavigation>
           }
-          content={'foooo'}
+          content={
+            <PageContent>
+              <Heading
+                subheading='A button.'
+                size='h2'
+              >
+                Button
+              </Heading>
+            </PageContent>
+          }
         />
       </CssBaseline>
     </CssVarsProvider>
