@@ -1,6 +1,6 @@
 import { forwardRef, useCallback, useEffect, useState } from 'react'
 import { buttonGlowStyles, buttonStyles } from 'src/components/Button/Button.styles'
-import { ButtonProps } from 'src/components/Button/types'
+import { ButtonComponent, ButtonProps } from 'src/components/Button/types'
 import { useTheme } from 'src/hooks'
 import { buildClassName } from 'src/utils/buildClassName'
 
@@ -58,6 +58,6 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(({
       <span>{children}</span>
     </button>
   )
-})
+}) as ButtonComponent
 
 Button.displayName = ELEMENT_NAME

@@ -1,4 +1,4 @@
-import { ButtonHTMLAttributes, DetailedHTMLProps, ReactNode } from 'react'
+import { ButtonHTMLAttributes, DetailedHTMLProps, ForwardRefExoticComponent, ReactNode } from 'react'
 import { CommonSize } from 'src/types/sizes'
 
 export type ButtonVariant = 'default' | 'primary' | 'text' | 'link';
@@ -10,3 +10,5 @@ export interface ButtonProps extends DetailedHTMLProps<ButtonHTMLAttributes<HTML
   variant?: ButtonVariant;
   danger?: boolean;
 }
+
+export type ButtonComponent<P = ButtonProps> = ForwardRefExoticComponent<P>

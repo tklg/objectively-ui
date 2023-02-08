@@ -27,4 +27,6 @@ export const TopNavigation = forwardRef<HTMLElement, TopNavigationProps>(({
   )
 })
 
-TopNavigation.displayName = ELEMENT_NAME
+if (process.env.NODE_ENV !== 'production') {
+  TopNavigation.displayName = ELEMENT_NAME
+}

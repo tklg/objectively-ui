@@ -35,7 +35,7 @@ export const CssVarsProvider: FC<CssVarsProviderProps> = ({
       matcher.addEventListener('change', handleChange)
     }
     return () => matcher.removeEventListener('change', handleChange)
-  }, [])
+  }, [overrideMode])
 
   const setColorTheme = useCallback((colorScheme: ColorScheme) => {
     if (colorScheme === osMode) {

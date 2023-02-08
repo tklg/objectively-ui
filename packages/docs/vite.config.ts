@@ -1,6 +1,7 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react-swc'
 import path from 'node:path'
+import mdx from '@mdx-js/rollup'
 
 export default defineConfig({
   resolve: {
@@ -9,6 +10,7 @@ export default defineConfig({
     },
   },
   plugins: [
+    { enforce: 'pre', ...mdx({ /* jsxImportSource: 'emotion' */ }) },
     react(),
   ],
   clearScreen: true,
@@ -29,7 +31,6 @@ export default defineConfig({
         generatedCode: 'es2015',
         // sourcemapExcludeSources: true,
         dir: 'dist',
-        // preserveModules: true,
         inlineDynamicImports: false,
       },
       // external: isExternal,

@@ -30,6 +30,7 @@
     "@emotion/babel-plugin": "^11.10.5",
     "@emotion/eslint-plugin": "^11.10.0",
     "@emotion/react": "^11.10.5",
+    "@mdx-js/rollup": "^2.2.1",
     "@rollup/plugin-babel": "^6.0.3",
     "@rollup/plugin-commonjs": "^24.0.1",
     "@rollup/plugin-node-resolve": "^15.0.1",

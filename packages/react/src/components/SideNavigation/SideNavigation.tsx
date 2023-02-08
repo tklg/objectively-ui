@@ -23,4 +23,6 @@ export const SideNavigation = forwardRef<HTMLElement, SideNavigationProps>(({
   )
 })
 
-SideNavigation.displayName = ELEMENT_NAME
+if (process.env.NODE_ENV !== 'production') {
+  SideNavigation.displayName = ELEMENT_NAME
+}
