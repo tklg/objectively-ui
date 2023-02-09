@@ -1,4 +1,4 @@
-import { Children, cloneElement, forwardRef } from 'react'
+import { Children, cloneElement, forwardRef, ReactElement } from 'react'
 import { spaceBetweenStyles } from 'src/components/SpaceBetween/SpaceBetween.styles'
 import { SpaceBetweenComponent, SpaceBetweenProps } from 'src/components/SpaceBetween/types'
 import { useTheme } from 'src/hooks'
@@ -25,9 +25,9 @@ export const SpaceBetween = forwardRef<HTMLDivElement, SpaceBetweenProps>(({
       css={spaceBetweenStyles(theme, size)}
       data-spacebetween-direction={direction}
     >
-      {Children.map(children, (elem, i) => (
-        cloneElement(elem, {
-          'data-spacebetween-first': i === 0,
+      {Children.toArray(children).filter(elem => typeof elem === 'object').map((elem, i) => (
+        cloneElement(elem as ReactElement, {
+          'data-spacebetween-first': i === 0 ? true : undefined,
         })
       ))}
     </div>

@@ -1,4 +1,4 @@
-import { forwardRef, useCallback, useEffect, useState } from 'react'
+import { forwardRef, useCallback, useState } from 'react'
 import { buttonGlowStyles, buttonStyles } from 'src/components/Button/Button.styles'
 import { ButtonComponent, ButtonProps } from 'src/components/Button/types'
 import { useTheme } from 'src/hooks'
@@ -10,7 +10,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(({
   children,
   size = 'md',
   variant = 'default',
-  danger,
+  color = 'default',
   fullWidth,
   onMouseDown,
   onMouseUp,
@@ -24,7 +24,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(({
     size: size.toUpperCase(),
     variant,
     fullWidth,
-    danger,
+    color,
   }, _className)
 
   const handleMouseDown = useCallback((e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
@@ -36,14 +36,6 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(({
     onMouseUp?.(e)
     setMouseUpGlow(true)
   }, [onMouseUp])
-
-  useEffect(() => {
-    let timeout: number
-    if (mouseUpGlow) {
-      // timeout = window.setTimeout(() => setMouseUpGlow(false), 1000)
-    }
-    return () => window.clearTimeout(timeout)
-  }, [mouseUpGlow])
 
   return (
     <button

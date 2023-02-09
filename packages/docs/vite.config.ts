@@ -10,7 +10,13 @@ export default defineConfig({
     },
   },
   plugins: [
-    { enforce: 'pre', ...mdx({ /* jsxImportSource: 'emotion' */ }) },
+    {
+      enforce: 'pre',
+      ...mdx({
+      // jsxImportSource: 'emotion'
+        providerImportSource: '@mdx-js/react',
+      }),
+    },
     react(),
   ],
   clearScreen: true,
@@ -22,7 +28,7 @@ export default defineConfig({
   },
   build: {
     cssCodeSplit: true,
-    sourcemap: true,
+    // sourcemap: true,
     // minify: false,
     // target: 'esnext',
     rollupOptions: {

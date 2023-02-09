@@ -1,0 +1,70 @@
+import { Button } from '@objectively-ui/react'
+
+# Button
+
+It's a button.
+
+-----
+## Variants
+
+The Button component has 4 variants - `default`, `solid`, `text`, and `link`.
+
+<ComponentPreview>
+  <SpaceBetween>
+    <Button>Default</Button>
+    <Button variant='solid'>Solid</Button>
+    <Button variant='text'>Text</Button>
+    <Button variant='link'>Link</Button>
+  </SpaceBetween>
+</ComponentPreview>
+
+-----
+## Colors
+
+The button component has 6 colors - `default`, `primary`, `info`, `warning`, `error`, and `success`.  
+Link buttons do not support colors; they are always blue.
+
+<ComponentPreview>
+  <div>
+    Default
+    <SpaceBetween>
+      <Button>Default</Button>
+      <Button color='primary'>Primary</Button>
+      <Button color='info'>Info</Button>
+      <Button color='warning'>Warning</Button>
+      <Button color='error'>Error</Button>
+      <Button color='success'>Success</Button>
+    </SpaceBetween>
+  </div>
+  <div>
+    Solid
+    <SpaceBetween>
+      <Button variant='solid'>Default</Button>
+      <Button variant='solid' color='primary'>Primary</Button>
+      <Button variant='solid' color='info'>Info</Button>
+      <Button variant='solid' color='warning'>Warning</Button>
+      <Button variant='solid' color='error'>Error</Button>
+      <Button variant='solid' color='success'>Success</Button>
+    </SpaceBetween>
+  </div>
+  <div>
+    Text
+    <SpaceBetween>
+      <Button variant='text'>Default</Button>
+      <Button variant='text' color='primary'>Primary</Button>
+      <Button variant='text' color='info'>Info</Button>
+      <Button variant='text' color='warning'>Warning</Button>
+      <Button variant='text' color='error'>Error</Button>
+      <Button variant='text' color='success'>Success</Button>
+    </SpaceBetween>
+  </div>
+</ComponentPreview>
+
+-----
+## Full width
+
+Full width buttons fill their container.
+
+<ComponentPreview>
+  <Button fullWidth>I am wide</Button>
+</ComponentPreview>

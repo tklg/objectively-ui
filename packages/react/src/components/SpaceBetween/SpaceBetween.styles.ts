@@ -11,10 +11,10 @@ export const spaceBetweenStyles = (theme: ColorTheme, size: CommonSize) => css({
   '&[data-spacebetween-direction=vertical]': {
     flexDirection: 'column',
   },
-  '&[data-spacebetween-direction=horizontal] > *:not([data-spacebetween-first])': {
+  '&[data-spacebetween-direction=horizontal] > *:not([data-spacebetween-first=true])': {
     marginLeft: theme.spacing[size],
   },
-  '&[data-spacebetween-direction=vertical] > *:not([data-spacebetween-first])': {
+  '&[data-spacebetween-direction=vertical] > *:not([data-spacebetween-first=true])': {
     marginTop: theme.spacing[size],
   },
 })

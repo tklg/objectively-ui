@@ -2,13 +2,25 @@ import { css } from '@emotion/react'
 import { ColorTheme } from 'src/types/ColorTheme'
 
 /**
- * Styles from normalize.css and material-ui CssBaseline
+ * Styles from normalize.css and material-ui CssBaseline, and some extra baseline stuff.
  * normalize.css https://github.com/necolas/normalize.css
  * material-ui https://github.com/mui/material-ui/blob/1912b736abd2114e9779e194c0242b301c4ce807/packages/mui-material/src/CssBaseline/CssBaseline.js
  */
 export const baselineStyles = (theme: ColorTheme) => css({
   '*, *::before, *::after': {
     boxSizing: 'inherit',
+  },
+  '::-webkit-scrollbar': {
+    width: 10,
+    height: 10,
+  },
+  '::-webkit-scrollbar-track': {
+    background: theme.colors.backgroundPrimary,
+  },
+  '::-webkit-scrollbar-thumb': {
+    background: theme.colors.textHint,
+    border: `2px solid ${theme.colors.backgroundPrimary}`,
+    borderRadius: 5,
   },
   html: {
     lineHeight: 1.15,

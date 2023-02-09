@@ -7,7 +7,8 @@ export const buttonStyles = (theme: ColorTheme) => css({
   display: 'inline-block',
   borderWidth: theme.lines.sm,
   borderStyle: 'solid',
-  borderColor: 'transparent',
+  borderColor: theme.colors.border,
+  outlineColor: theme.colors.border,
   padding: `0 ${theme.spacing.md}`,
   minHeight: theme.size.md,
   background: 'transparent',
@@ -39,24 +40,101 @@ export const buttonStyles = (theme: ColorTheme) => css({
     display: 'block',
     width: '100%',
   },
-  [`&.${PROJECT_SHORTNAME}-Button-variantPrimary`]: {
-    background: theme.colors.accentPrimary.value,
-    color: theme.colors.accentPrimary.contrastText,
-    borderColor: theme.colors.accentPrimary.value,
+
+  [`&.${PROJECT_SHORTNAME}-Button-variantLink`]: {
+    borderColor: 'transparent',
+    color: theme.colors.link,
+  },
+
+  [`&.${PROJECT_SHORTNAME}-Button-variantDefault`]: {
+    ...['Primary', 'Info', 'Warning', 'Error', 'Success'].reduce((a, status) => {
+      const key = status === 'Primary'
+        ? 'accentPrimary'
+        : (`status${status}` as 'statusInfo' | 'statusWarning' | 'statusError' | 'statusSuccess')
+      return {
+        ...a,
+        [`&.${PROJECT_SHORTNAME}-Button-color${status}`]: {
+          color: theme.colors[key].value,
+          borderColor: theme.colors[key].value,
+          outlineColor: theme.colors[key].value,
+
+          '&:hover': {
+            background: theme.colors.hover,
+            borderColor: theme.colors[key].hover,
+          },
+
+          '&:active': {
+            background: theme.colors.active,
+            borderColor: theme.colors[key].active,
+          },
+        },
+      }
+    }, {}),
+  },
+  [`&.${PROJECT_SHORTNAME}-Button-variantText`]: {
+    borderColor: 'transparent',
+
+    ...['Primary', 'Info', 'Warning', 'Error', 'Success'].reduce((a, status) => {
+      const key = status === 'Primary'
+        ? 'accentPrimary'
+        : (`status${status}` as 'statusInfo' | 'statusWarning' | 'statusError' | 'statusSuccess')
+      return {
+        ...a,
+        [`&.${PROJECT_SHORTNAME}-Button-color${status}`]: {
+          color: theme.colors[key].value,
+          outlineColor: theme.colors[key].value,
+
+          '&:hover': {
+            background: theme.colors.hover,
+          },
+
+          '&:active': {
+            background: theme.colors.active,
+          },
+        },
+      }
+    }, {}),
+  },
+  [`&.${PROJECT_SHORTNAME}-Button-variantSolid`]: {
+    background: theme.colors.border,
+    color: theme.colors.textPrimary,
+    borderColor: theme.colors.border,
+    outlineColor: theme.colors.border,
 
     '&:hover': {
-      background: theme.colors.accentPrimary.hover,
-      borderColor: theme.colors.accentPrimary.hover,
+      background: theme.colors.hover,
+      borderColor: theme.colors.hover,
     },
 
     '&:active': {
-      background: theme.colors.accentPrimary.active,
-      borderColor: theme.colors.accentPrimary.active,
+      background: theme.colors.active,
+      borderColor: theme.colors.active,
     },
-  },
-  [`&.${PROJECT_SHORTNAME}-Button-variantText`]: {
-  },
-  [`&.${PROJECT_SHORTNAME}-Button-variantLink`]: {
+
+    ...['Primary', 'Info', 'Warning', 'Error', 'Success'].reduce((a, status) => {
+      const key = status === 'Primary'
+        ? 'accentPrimary'
+        : (`status${status}` as 'statusInfo' | 'statusWarning' | 'statusError' | 'statusSuccess')
+      return {
+        ...a,
+        [`&.${PROJECT_SHORTNAME}-Button-color${status}`]: {
+          background: theme.colors[key].value,
+          color: theme.colors[key].contrastText,
+          borderColor: theme.colors[key].value,
+          outlineColor: theme.colors[key].value,
+
+          '&:hover': {
+            background: theme.colors[key].hover,
+            borderColor: theme.colors[key].hover,
+          },
+
+          '&:active': {
+            background: theme.colors[key].active,
+            borderColor: theme.colors[key].active,
+          },
+        },
+      }
+    }, {}),
   },
 })
 
@@ -67,7 +145,8 @@ export const buttonGlowStyles = (theme: ColorTheme) => css({
   top: 0,
   left: 0,
   outlineOffset: theme.lines.sm,
-  outline: `${theme.lines.lg} solid ${theme.colors.accentPrimary.value}`,
+  outline: `${theme.lines.lg} solid`,
+  outlineColor: 'inherit',
   borderRadius: 'inherit',
 
   animation: `${theme.transitions.duration.slow} ${theme.transitions.function.default} button-outline-fadeout`,

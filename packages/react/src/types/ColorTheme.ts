@@ -23,6 +23,8 @@ export interface ColorTheme {
     accentPrimary: ColorWithContrasts;
     accentSecondary: ColorWithContrasts;
 
+    link: string;
+
     focusOutline: string;
 
     textPrimary: string;

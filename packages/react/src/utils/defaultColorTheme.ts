@@ -9,7 +9,7 @@ export const defaultLightColorTheme: ColorTheme = {
     backgroundSecondary: '#fefefe',
 
     hover: 'rgba(0,0,0,.08)',
-    active: 'rgba(0,0,0,.3)',
+    active: 'rgba(0,0,0,.18)',
 
     accentPrimary: {
       value: '#3d815b',
@@ -19,6 +19,8 @@ export const defaultLightColorTheme: ColorTheme = {
       value: 'gray',
       contrastText: 'white',
     },
+
+    link: '#0c78ff',
 
     focusOutline: '#2c80ff',
 
@@ -31,19 +33,19 @@ export const defaultLightColorTheme: ColorTheme = {
     divider: '#dddddd',
 
     statusInfo: {
-      value: 'blue',
+      value: '#618ddd',
       contrastText: 'white',
     },
     statusSuccess: {
-      value: 'green',
+      value: '#71a95f',
       contrastText: 'white',
     },
     statusWarning: {
-      value: 'orange',
+      value: '#ff8d2b',
       contrastText: 'black',
     },
     statusError: {
-      value: 'red',
+      value: '#f55e4f',
       contrastText: 'white',
     },
   },
@@ -140,6 +142,8 @@ export const defaultDarkColorTheme: DeepPartial<ColorTheme> = {
     //   value: 'orange',
     //   contrastText: 'white',
     // },
+
+    link: '#2afbf1',
 
     textPrimary: '#ffffff',
     textSecondary: '#a3b0c3',
