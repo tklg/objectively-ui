@@ -1,4 +1,4 @@
-import { Button, Heading, Input, SpaceBetween, TopNavigation } from '@objectively-ui/react'
+import { Heading, Input, SpaceBetween, TopNavigation } from '@objectively-ui/react'
 import { FC } from 'react'
 import styles from './index.module.scss'
 
@@ -11,9 +11,6 @@ export const Header: FC = () => {
         subheading='Components'
         action={
           <SpaceBetween>
-            <Button>
-              Button
-            </Button>
             <Input
               placeholder='searchy search'
             />

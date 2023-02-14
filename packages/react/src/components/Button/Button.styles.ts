@@ -1,11 +1,13 @@
 import { css } from '@emotion/react'
+import { focusOutlineStylesWithoutElement } from 'src/components/Accessibility.styles'
 import { ColorTheme } from 'src/types/ColorTheme'
 import { PROJECT_SHORTNAME } from 'src/utils/constants'
 
 export const buttonStyles = (theme: ColorTheme) => css({
   position: 'relative',
   display: 'inline-block',
-  borderWidth: theme.lines.sm,
+  borderWidth: 0,
+  outlineOffset: 0,
   borderStyle: 'solid',
   borderColor: theme.colors.border,
   outlineColor: theme.colors.border,
@@ -30,6 +32,20 @@ export const buttonStyles = (theme: ColorTheme) => css({
     transform: 'scale(0.97)',
   },
 
+  '&:focus': {
+    outline: 'none',
+  },
+
+  '&:focus-visible:before': {
+    content: '\'\'',
+    position: 'absolute',
+    height: '100%',
+    width: '100%',
+    top: 0,
+    left: 0,
+    ...focusOutlineStylesWithoutElement(theme),
+  },
+
   [`&.${PROJECT_SHORTNAME}-Button-sizeSM`]: {
     minHeight: theme.size.sm,
   },
@@ -47,9 +63,12 @@ export const buttonStyles = (theme: ColorTheme) => css({
   },
 
   [`&.${PROJECT_SHORTNAME}-Button-variantDefault`]: {
-    ...['Primary', 'Info', 'Warning', 'Error', 'Success'].reduce((a, status) => {
-      const key = status === 'Primary'
-        ? 'accentPrimary'
+    borderWidth: theme.lines.sm,
+    outlineOffset: theme.lines.sm,
+
+    ...['Primary', 'Secondary', 'Info', 'Warning', 'Error', 'Success'].reduce((a, status) => {
+      const key = status === 'Primary' || status === 'Secondary'
+        ? (`accent${status}` as 'accentPrimary' | 'accentSecondary')
         : (`status${status}` as 'statusInfo' | 'statusWarning' | 'statusError' | 'statusSuccess')
       return {
         ...a,
@@ -74,9 +93,9 @@ export const buttonStyles = (theme: ColorTheme) => css({
   [`&.${PROJECT_SHORTNAME}-Button-variantText`]: {
     borderColor: 'transparent',
 
-    ...['Primary', 'Info', 'Warning', 'Error', 'Success'].reduce((a, status) => {
-      const key = status === 'Primary'
-        ? 'accentPrimary'
+    ...['Primary', 'Secondary', 'Info', 'Warning', 'Error', 'Success'].reduce((a, status) => {
+      const key = status === 'Primary' || status === 'Secondary'
+        ? (`accent${status}` as 'accentPrimary' | 'accentSecondary')
         : (`status${status}` as 'statusInfo' | 'statusWarning' | 'statusError' | 'statusSuccess')
       return {
         ...a,
@@ -111,9 +130,9 @@ export const buttonStyles = (theme: ColorTheme) => css({
       borderColor: theme.colors.active,
     },
 
-    ...['Primary', 'Info', 'Warning', 'Error', 'Success'].reduce((a, status) => {
-      const key = status === 'Primary'
-        ? 'accentPrimary'
+    ...['Primary', 'Secondary', 'Info', 'Warning', 'Error', 'Success'].reduce((a, status) => {
+      const key = status === 'Primary' || status === 'Secondary'
+        ? (`accent${status}` as 'accentPrimary' | 'accentSecondary')
         : (`status${status}` as 'statusInfo' | 'statusWarning' | 'statusError' | 'statusSuccess')
       return {
         ...a,
@@ -144,7 +163,7 @@ export const buttonGlowStyles = (theme: ColorTheme) => css({
   width: '100%',
   top: 0,
   left: 0,
-  outlineOffset: theme.lines.sm,
+  outlineOffset: 'inherit',
   outline: `${theme.lines.lg} solid`,
   outlineColor: 'inherit',
   borderRadius: 'inherit',

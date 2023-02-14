@@ -12,15 +12,18 @@ export const defaultLightColorTheme: ColorTheme = {
     active: 'rgba(0,0,0,.18)',
 
     accentPrimary: {
-      value: '#3d815b',
+      // value: '#3d815b',
+      value: '#1e88b1',
       contrastText: 'white',
+
+      // value: 'linear-gradient(30deg, rgba(0,14,75,1) 0%, rgba(9,94,121,1) 30%, rgba(0,190,118,1) 100%)',
     },
     accentSecondary: {
-      value: 'gray',
+      value: '#ad388f',
       contrastText: 'white',
     },
 
-    link: '#0c78ff',
+    link: '#2ab7fb',
 
     focusOutline: '#2c80ff',
 
@@ -133,15 +136,6 @@ export const defaultDarkColorTheme: DeepPartial<ColorTheme> = {
 
     hover: 'rgba(200,220,255,.12)',
     active: 'rgba(255,255,255,.3)',
-
-    // accentPrimary: {
-    //   value: 'teal',
-    //   contrastText: 'white',
-    // },
-    // accentSecondary: {
-    //   value: 'orange',
-    //   contrastText: 'white',
-    // },
 
     link: '#2afbf1',
 
