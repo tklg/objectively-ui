@@ -1,24 +1,45 @@
-.componentPreviewContainer {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  // border: 1px solid var(--ObjUI-colors-divider);
-  border-radius: 5px;
-  min-height: 100px;
-  margin: var(--ObjUI-spacing-md) 0;
-  overflow-x: auto;
+@import 'src/vars';
 
-  .row {
-    margin: var(--ObjUI-spacing-gutter) 0;
-    padding: 0 var(--ObjUI-spacing-gutter);
-    width: 100%;
+.componentPreview {
+  width: 100%;
 
-    & + .row {
-      margin-top: 0;
-    }
+  .componentPreviewToolbar {
+    text-align: right;
+    height: 50px;
+    line-height: 50px;
   }
-  p {
-    margin-bottom: 8px;
+  .componentPreviewEditor {
+    border-radius: 5px;
+    border: 1px solid $dividerColor;
+  }
+  .componentPreviewContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100px;
+    margin: var(--ObjUI-spacing-md) 0 0 0;
+    overflow-x: auto;
+    border-radius: 5px;
+    border: 1px solid $dividerColor;
+    padding: 0 $spacingSm;
+
+    [data-row] {
+      display: flex;
+      flex-direction: column;
+      margin: $spacingGutter 0;
+      width: 100%;
+
+      & + [data-row] {
+        margin-top: 0;
+      }
+
+      > div {
+        width: 100%;
+      }
+    }
+    p {
+      margin-bottom: 8px;
+    }
   }
 }

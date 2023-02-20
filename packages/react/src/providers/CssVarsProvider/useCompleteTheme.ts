@@ -28,19 +28,20 @@ const populateHoverColorsInner = (obj: Record<string, string | object>) => {
       if ('value' in item && 'contrastText' in item) {
         const value = item.value as string
         const contrastText = item.contrastText as string
-        if (!('hover' in item)) {
+
+        if (value && !('hover' in item)) {
           // @ts-expect-error This is adding [hover] to the color group if its not there already
           item.hover = isLightColor(value) ? darkenColor(value, 1) : lightenColor(value, 1)
         }
-        if (!('active' in item)) {
+        if (value && !('active' in item)) {
           // @ts-expect-error This is adding [active] to the color group if its not there already
           item.active = isLightColor(value) ? lightenColor(value, 1) : darkenColor(value, 1)
         }
-        if (!('shadow' in item)) {
+        if (value && !('shadow' in item)) {
           // @ts-expect-error This is adding [shadow] to the color group if its not there already
           item.shadow = fadeColor(value)
         }
-        if (!('contrastTextSecondary' in item)) {
+        if (value && contrastText && !('contrastTextSecondary' in item)) {
           // @ts-expect-error This is adding [contrastTextSecondary] to the color group if its not there already
           item.contrastTextSecondary = tintColor(contrastText, value)
         }

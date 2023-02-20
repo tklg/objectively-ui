@@ -1,5 +1,6 @@
 import { forwardRef } from 'react'
-import { topNavigationStyles } from 'src/components/TopNavigation/TopNavigation.styles'
+import { useAppLayout } from 'src/components/AppLayout/useAppLayout'
+import { topNavigationStyles, topNavigationWidthLimitStyles } from 'src/components/TopNavigation/TopNavigation.styles'
 import { TopNavigationProps } from 'src/components/TopNavigation/types'
 import { useTheme } from 'src/hooks'
 import { buildClassName } from 'src/utils/buildClassName'
@@ -12,6 +13,7 @@ export const TopNavigation = forwardRef<HTMLElement, TopNavigationProps>(({
   compact,
 }, ref) => {
   const theme = useTheme()
+  const { maxWidth } = useAppLayout()
   const className = buildClassName(ELEMENT_NAME, {
     compact,
   }, _className)
@@ -22,7 +24,9 @@ export const TopNavigation = forwardRef<HTMLElement, TopNavigationProps>(({
       className={className}
       css={topNavigationStyles(theme)}
     >
-      {children}
+      <div css={topNavigationWidthLimitStyles(theme, maxWidth)}>
+        {children}
+      </div>
     </header>
   )
 })

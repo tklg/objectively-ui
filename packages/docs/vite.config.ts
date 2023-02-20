@@ -1,4 +1,4 @@
-import { defineConfig } from 'vite'
+import { defineConfig, splitVendorChunkPlugin } from 'vite'
 import react from '@vitejs/plugin-react-swc'
 import path from 'node:path'
 import mdx from '@mdx-js/rollup'
@@ -13,31 +13,33 @@ export default defineConfig({
     {
       enforce: 'pre',
       ...mdx({
-      // jsxImportSource: 'emotion'
         providerImportSource: '@mdx-js/react',
       }),
     },
     react(),
+    splitVendorChunkPlugin(),
   ],
   clearScreen: true,
   optimizeDeps: {
-    disabled: 'build',
+    // disabled: 'build',
   },
   server: {
     port: 3000,
   },
+  preview: {
+    port: 3000,
+  },
   build: {
-    cssCodeSplit: true,
+    // cssCodeSplit: true,
     // sourcemap: true,
-    // minify: false,
+    minify: false,
     // target: 'esnext',
     rollupOptions: {
       output: {
         compact: true,
-        generatedCode: 'es2015',
         // sourcemapExcludeSources: true,
         dir: 'dist',
-        inlineDynamicImports: false,
+        // inlineDynamicImports: false,
       },
       // external: isExternal,
     },

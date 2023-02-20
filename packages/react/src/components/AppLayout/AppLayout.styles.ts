@@ -7,9 +7,14 @@ export const appLayoutStyles = css({
   overflowY: 'hidden',
 })
 
-export const appLayoutContentStyles = css({
+export const appLayoutContentStyles = (maxWidth: string) => css({
   flex: 1,
   display: 'flex',
   flexDirection: 'row',
   overflowY: 'auto',
+  width: maxWidth,
+  maxWidth: '100%',
+  // margin: '0 auto',
+  marginLeft: 'auto',
+  marginRight: 'auto',
 })

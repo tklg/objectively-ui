@@ -167,6 +167,7 @@ export const buttonGlowStyles = (theme: ColorTheme) => css({
   outline: `${theme.lines.lg} solid`,
   outlineColor: 'inherit',
   borderRadius: 'inherit',
+  pointerEvents: 'none',
 
   animation: `${theme.transitions.duration.slow} ${theme.transitions.function.default} button-outline-fadeout`,
   animationFillMode: 'forwards',

@@ -7,4 +7,10 @@ export interface AppLayoutProps {
   content?: ReactNode;
   header?: ReactNode;
   footer?: ReactNode;
+  fullWidth?: boolean;
+  maxWidth?: string | number;
+}
+
+export interface AppLayoutContextProps {
+  maxWidth: string;
 }
