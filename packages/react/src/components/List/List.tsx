@@ -17,6 +17,7 @@ export const List = forwardRef<HTMLUListElement, ListProps>(({
   compact,
   divided,
   noPadding,
+  ...props
 }, ref) => {
   const theme = useTheme()
   const className = buildClassName(ELEMENT_NAME, {
@@ -34,6 +35,7 @@ export const List = forwardRef<HTMLUListElement, ListProps>(({
     <ListContext.Provider value={contextValue}>
       <ul
         ref={ref}
+        {...props}
         className={className}
         css={listStyles(theme)}
       >

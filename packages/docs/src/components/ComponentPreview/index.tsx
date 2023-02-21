@@ -1,4 +1,4 @@
-import { FC, Fragment, useCallback, useState } from 'react'
+import { FC, Fragment, useCallback, useEffect, useState, useMemo } from 'react'
 import styles from './index.module.scss'
 import {
   LiveProvider,
@@ -6,28 +6,44 @@ import {
   LiveError,
   LivePreview,
 } from 'react-live'
-import { Button, SpaceBetween } from '@objectively-ui/react'
-import theme from 'prism-react-renderer/themes/vsDark'
+import { AppLayout, Button, CssBaseline, Heading, Input, List, ListItem, ListItemGroup, PageContent, SideNavigation, SpaceBetween, Switch, TopNavigation, useColorScheme } from '@objectively-ui/react'
+import darkTheme from 'prism-react-renderer/themes/vsDark'
+import lightTheme from 'prism-react-renderer/themes/vsLight'
 
 interface ComponentPreviewContainerProps {
   code: string;
 }
 
 const liveScope = {
-  SpaceBetween: SpaceBetween,
+  useState,
+  useEffect,
+  useMemo,
+  AppLayout: AppLayout,
   Button: Button,
+  CssBaseline: CssBaseline,
+  Heading: Heading,
+  Input: Input,
+  List: List,
+  ListItem: ListItem,
+  ListItemGroup: ListItemGroup,
+  PageContent: PageContent,
+  SideNavigation: SideNavigation,
+  SpaceBetween: SpaceBetween,
+  Switch: Switch,
+  TopNavigation: TopNavigation,
 }
 
 export const ComponentPreviewContainer: FC<ComponentPreviewContainerProps> = ({
   code,
 }) => {
   const [showEditor, setShowEditor] = useState(false)
+  const { mode } = useColorScheme()
 
   const toggleShowEditor = useCallback(() => setShowEditor(current => !current), [])
 
   return (
     <div className={styles.componentPreview}>
-      <LiveProvider code={code.trim()} scope={liveScope} theme={theme}>
+      <LiveProvider code={code.trim()} scope={liveScope} theme={mode === 'dark' ? darkTheme : lightTheme}>
         <div className={styles.componentPreviewContainer}>
           {/* eslint-disable-next-line @typescript-eslint/ban-ts-comment */}
           {/* @ts-ignore */}

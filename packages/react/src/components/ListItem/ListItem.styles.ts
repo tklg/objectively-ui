@@ -50,10 +50,10 @@ export const listItemContentStyles = (theme: ColorTheme) => css({
     `background ${theme.transitions.duration.fast} ${theme.transitions.function.default}`,
   ].join(','),
 
-  '&:hover': {
+  'button &:hover': {
     background: theme.colors.hover,
   },
-  '&:active': {
+  'button &:active': {
     background: theme.colors.accentPrimary.shadow,
   },
   'button &:before': {

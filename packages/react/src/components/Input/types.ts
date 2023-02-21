@@ -1,5 +1,5 @@
 import { DetailedHTMLProps, InputHTMLAttributes, ReactNode } from 'react'
-import { CommonSize } from 'src/types/sizes'
+import { CommonSize } from 'src/types/props'
 
 export interface InputProps extends Omit<DetailedHTMLProps<InputHTMLAttributes<HTMLInputElement>, HTMLInputElement>, 'size'> {
   label?: string;

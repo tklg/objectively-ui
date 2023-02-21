@@ -90,7 +90,7 @@ export const baselineStyles = (theme: ColorTheme) => css({
     overflow: 'visible',
   },
   pre: {
-    fontFamily: 'monospace monospace', // double monospace is intentional: https://github.com/necolas/normalize.css#pre-code-kbd-samp
+    fontFamily: 'monospace, monospace', // double monospace is intentional: https://github.com/necolas/normalize.css#pre-code-kbd-samp
     fontSize: theme.typography.size.md,
   },
   a: {
@@ -104,7 +104,7 @@ export const baselineStyles = (theme: ColorTheme) => css({
     fontWeight: 'bolder',
   },
   'code, kbd, samp': {
-    fontFamily: 'monospace monospace', // double monospace is intentional: https://github.com/necolas/normalize.css#pre-code-kbd-samp
+    fontFamily: 'monospace, monospace', // double monospace is intentional: https://github.com/necolas/normalize.css#pre-code-kbd-samp
     fontSize: theme.typography.size.md,
   },
   small: {

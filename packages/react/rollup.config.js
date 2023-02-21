@@ -1,12 +1,9 @@
 import { babel } from '@rollup/plugin-babel'
 import resolve from '@rollup/plugin-node-resolve'
-// import commonjs from '@rollup/plugin-commonjs'
 import peerDepsExternal from 'rollup-plugin-peer-deps-external'
 import typescript from 'rollup-plugin-typescript2'
 import dts from 'rollup-plugin-dts'
 import cjs from 'rollup-plugin-cjs-es'
-
-// const isExternal = (id) => !id.startsWith('.') && !id.startsWith('src/') && !path.isAbsolute(id)
 
 /** @type {import('rollup').OutputOptions} */
 const outputOptions = {
@@ -50,7 +47,6 @@ const options = [
       resolve({
         extensions: ['.js', '.ts', '.tsx'],
       }),
-      // commonjs(),
       babel({
         babelHelpers: 'runtime', // 'bundled'
         exclude: '**/node_modules/**',

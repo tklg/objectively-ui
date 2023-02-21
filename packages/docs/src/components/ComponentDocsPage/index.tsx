@@ -2,13 +2,15 @@ import { FC, JSXElementConstructor, lazy, Suspense, useEffect, useState } from '
 import { useParams } from 'react-router-dom'
 import { MDXProvider } from '@mdx-js/react'
 import { ComponentPreviewContainer } from 'src/components/ComponentPreview'
-import { SpaceBetween } from '@objectively-ui/react'
+import { SpaceBetween, Switch } from '@objectively-ui/react'
 import styles from './index.module.scss'
+import { UnknownImportErrorBoundary } from 'src/components/ErrorBoundary/UnknownImportErrorBoundary'
 // const pagePaths = import.meta.glob('/src/Pages/**/index.mdx', { as: 'url', eager: true })
 
 const mdxComponents = {
   ComponentPreview: ComponentPreviewContainer,
   SpaceBetween: SpaceBetween,
+  Switch: Switch,
 }
 
 export const ComponentDocsPage: FC = () => {
@@ -17,10 +19,14 @@ export const ComponentDocsPage: FC = () => {
 
   useEffect(() => {
     (async () => {
-      if (componentParam) {
-        setComponent(lazy(() => import(`./../../Pages/${componentParam}/index.mdx`)))
-      } else {
-        setComponent(null)
+      try {
+        if (componentParam) {
+          setComponent(lazy(() => import(`./../../Pages/${componentParam}/index.mdx`)))
+        } else {
+          setComponent(null)
+        }
+      } catch (e) {
+        console.warn(e)
       }
     })()
   }, [componentParam])
@@ -28,9 +34,11 @@ export const ComponentDocsPage: FC = () => {
   return (
     <MDXProvider components={mdxComponents}>
       <div className={styles.docs}>
-        <Suspense>
-          {Component && <Component />}
-        </Suspense>
+        <UnknownImportErrorBoundary page={componentParam}>
+          <Suspense>
+            {Component && <Component />}
+          </Suspense>
+        </UnknownImportErrorBoundary>
       </div>
     </MDXProvider>
   )

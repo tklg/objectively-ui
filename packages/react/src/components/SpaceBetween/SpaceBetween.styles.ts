@@ -1,6 +1,6 @@
 import { css } from '@emotion/react'
 import { ColorTheme } from 'src/types/ColorTheme'
-import { CommonSize } from 'src/types/sizes'
+import { CommonSize } from 'src/types/props'
 
 export const spaceBetweenStyles = (theme: ColorTheme, size: CommonSize) => css({
   display: 'inline-flex',

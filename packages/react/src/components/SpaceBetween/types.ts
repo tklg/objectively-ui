@@ -1,5 +1,5 @@
 import { ForwardRefExoticComponent, ReactElement } from 'react'
-import { CommonSize } from 'src/types/sizes'
+import { CommonSize } from 'src/types/props'
 
 export interface SpaceBetweenProps {
   children: ReactElement | ReactElement[];

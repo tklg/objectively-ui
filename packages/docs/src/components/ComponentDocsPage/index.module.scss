@@ -16,4 +16,8 @@
     border: 1px solid var(--ObjUI-colors-divider);
     font-family: monospace;
   }
+
+  pre {
+    font-family: monospace !important;
+  }
 }

@@ -28,6 +28,10 @@ export const componentsList = [
         path: 'input',
         name: 'Input',
       },
+      {
+        path: 'switch',
+        name: 'Switch',
+      },
     ],
   }, {
     group: 'layout',
