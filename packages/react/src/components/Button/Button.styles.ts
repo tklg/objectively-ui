@@ -13,9 +13,9 @@ export const buttonStyles = (theme: ColorTheme) => css({
   outlineColor: theme.colors.border,
   padding: `0 ${theme.spacing.md}`,
   minHeight: theme.size.md,
+  borderRadius: theme.radii.md,
   background: 'transparent',
   color: theme.colors.textPrimary,
-  borderRadius: theme.radii.md,
   cursor: 'pointer',
   userSelect: 'none',
   transition: [
@@ -48,9 +48,11 @@ export const buttonStyles = (theme: ColorTheme) => css({
 
   [`&.${PROJECT_SHORTNAME}-Button-sizeSM`]: {
     minHeight: theme.size.sm,
+    borderRadius: theme.radii.sm,
   },
   [`&.${PROJECT_SHORTNAME}-Button-sizeLG`]: {
     minHeight: theme.size.lg,
+    borderRadius: theme.radii.lg,
   },
   [`&.${PROJECT_SHORTNAME}-Button-fullWidth`]: {
     display: 'block',

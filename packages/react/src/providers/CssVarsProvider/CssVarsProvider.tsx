@@ -26,6 +26,15 @@ export const CssVarsProvider: FC<CssVarsProviderProps> = ({
   const completeLightTheme = useCompleteColorTheme(theme, defaultLightColorTheme)
   const { style: lightThemeVars, replacedTheme: themeWithCssVars } = useStyleElementVars(completeLightTheme, 'light', true)
   const { style: darkThemeVars } = useStyleElementVars(darkTheme, 'dark', false)
+  const themeWithMode = useMemo(() => {
+    return {
+      ...themeWithCssVars,
+      colors: {
+        ...themeWithCssVars.colors,
+        mode,
+      },
+    }
+  }, [themeWithCssVars, mode])
 
   useEffect(() => {
     const handleChange = (e: MediaQueryListEvent) => {
@@ -60,7 +69,7 @@ export const CssVarsProvider: FC<CssVarsProviderProps> = ({
 
   return (
     <CssVarsContext.Provider value={value}>
-      <ThemeProvider theme={themeWithCssVars}>
+      <ThemeProvider theme={themeWithMode}>
         <Global
           styles={css(lightThemeVars, darkThemeVars)}
         />

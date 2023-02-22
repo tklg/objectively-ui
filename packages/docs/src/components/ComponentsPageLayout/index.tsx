@@ -25,6 +25,5 @@ export const ComponentsPageLayout: FC = () => {
         <Route path='*' element={<ComponentDocsPage />} />
       </Route>
     </Routes>
-
   )
 }

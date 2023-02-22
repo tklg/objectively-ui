@@ -18,7 +18,7 @@
     align-items: center;
     justify-content: center;
     min-height: 100px;
-    margin: var(--ObjUI-spacing-md) 0 0 0;
+    margin: $spacingMd 0 0 0;
     overflow-x: auto;
     border-radius: 5px;
     border: 1px solid $dividerColor;

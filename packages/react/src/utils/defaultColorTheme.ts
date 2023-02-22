@@ -142,7 +142,7 @@ export const defaultDarkColorTheme: DeepPartial<ColorTheme> = {
     textPrimary: '#ffffff',
     textSecondary: '#a3b0c3',
     textHint: '#748399',
-    textDisabled: '#556987',
+    textDisabled: '#8d8d8d',
 
     border: '#535b68',
     divider: '#33373e',

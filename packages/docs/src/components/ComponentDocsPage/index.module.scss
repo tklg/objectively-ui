@@ -1,7 +1,9 @@
+@import 'src/vars';
+
 .docs {
   hr {
     border: none;
-    border-top: 1px solid var(--ObjUI-colors-divider);
+    border-top: 1px solid $dividerColor;
   }
 
   p {
@@ -10,10 +12,10 @@
 
   code:not(pre code) {
     padding: 2px 4px;
-    color: var(--ObjUI-colors-text-primary);
-    background: var(--ObjUI-colors-divider);
+    color: $textPrimaryColor;
+    background: $dividerColor;
     border-radius: 4px;
-    border: 1px solid var(--ObjUI-colors-divider);
+    border: 1px solid $dividerColor;
     font-family: monospace;
   }
 

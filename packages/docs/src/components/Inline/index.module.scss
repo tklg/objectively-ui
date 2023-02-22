@@ -1,0 +1,17 @@
+@import 'src/vars';
+
+.inline {
+  > * {
+    display: inline-block;
+
+    + * {
+      margin-left: $spacingSm;
+    }
+  }
+
+  &.flex {
+    > * {
+      display: inline-flex;
+    }
+  }
+}

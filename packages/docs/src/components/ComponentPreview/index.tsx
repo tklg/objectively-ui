@@ -9,6 +9,7 @@ import {
 import { AppLayout, Button, CssBaseline, Heading, Input, List, ListItem, ListItemGroup, PageContent, SideNavigation, SpaceBetween, Switch, TopNavigation, useColorScheme } from '@objectively-ui/react'
 import darkTheme from 'prism-react-renderer/themes/vsDark'
 import lightTheme from 'prism-react-renderer/themes/vsLight'
+import { Inline } from 'src/components/Inline'
 
 interface ComponentPreviewContainerProps {
   code: string;
@@ -18,6 +19,9 @@ const liveScope = {
   useState,
   useEffect,
   useMemo,
+  // docs components
+  Inline: Inline,
+  //  objui components
   AppLayout: AppLayout,
   Button: Button,
   CssBaseline: CssBaseline,

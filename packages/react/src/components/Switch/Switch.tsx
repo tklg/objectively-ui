@@ -1,13 +1,16 @@
-import { forwardRef, useId } from 'react'
+import { forwardRef, useCallback, useId, useRef } from 'react'
 import { switchHandleStyles, switchLabelStyles, switchStyles, switchTrackStyles } from 'src/components/Switch/Switch.styles'
 import { SwitchProps } from 'src/components/Switch/types'
 import { useTheme } from 'src/hooks'
+import { useKeyboardEvents } from 'src/hooks/useKeyboardEvents'
 import { buildClassName } from 'src/utils/buildClassName'
+import { KEYS } from 'src/utils/keys'
+import { mergeRefs } from 'src/utils/mergeRefs'
 
 const ELEMENT_NAME = 'Switch'
 
 export const Switch = forwardRef<HTMLInputElement, SwitchProps>(({
-  inputRef,
+  inputRef: externalInputRef,
   label,
   checked,
   onChange,
@@ -21,6 +24,7 @@ export const Switch = forwardRef<HTMLInputElement, SwitchProps>(({
 }, ref) => {
   const fallbackId = useId()
   const theme = useTheme()
+  const inputRef = useRef<HTMLInputElement>()
   const id = _id || fallbackId
   const className = buildClassName(ELEMENT_NAME, {
     readOnly,
@@ -32,6 +36,12 @@ export const Switch = forwardRef<HTMLInputElement, SwitchProps>(({
   const handleClassName = buildClassName(`${ELEMENT_NAME}Handle`)
   const labelClassName = buildClassName(`${ELEMENT_NAME}Label`)
 
+  const clickInput = useCallback(() => {
+    inputRef.current?.click()
+  }, [])
+
+  const keyboardProps = useKeyboardEvents([KEYS.Space, KEYS.Enter], clickInput, 'keydown')
+
   return (
     <div
       className={className}
@@ -39,7 +49,7 @@ export const Switch = forwardRef<HTMLInputElement, SwitchProps>(({
       ref={ref}
     >
       <input
-        ref={inputRef}
+        ref={mergeRefs(inputRef, externalInputRef)}
         {...props}
         checked={checked}
         onChange={onChange}
@@ -47,6 +57,7 @@ export const Switch = forwardRef<HTMLInputElement, SwitchProps>(({
         disabled={disabled}
         type='checkbox'
         hidden
+        tabIndex={-1}
         aria-hidden
         id={id}
       />
@@ -55,8 +66,9 @@ export const Switch = forwardRef<HTMLInputElement, SwitchProps>(({
         css={switchTrackStyles(theme, size)}
         role='switch'
         aria-checked={checked ?? 'false'}
-        tabIndex={0}
+        tabIndex={disabled ? -1 : 0}
         htmlFor={id}
+        {...keyboardProps}
       >
         <div className={handleClassName} css={switchHandleStyles(theme, size)} />
       </label>

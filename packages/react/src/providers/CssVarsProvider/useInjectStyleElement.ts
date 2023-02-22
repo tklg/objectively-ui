@@ -17,7 +17,7 @@ export const useStyleElementVars = (theme: DeepPartial<ColorTheme>, withMode: Co
       }
     }
     return { replacedTheme: theme, style: '' }
-  }, [theme])
+  }, [root, theme, withMode])
 }
 
 const createVars = (theme: DeepPartial<ColorTheme>) => {

@@ -5,10 +5,12 @@ import { ComponentPreviewContainer } from 'src/components/ComponentPreview'
 import { SpaceBetween, Switch } from '@objectively-ui/react'
 import styles from './index.module.scss'
 import { UnknownImportErrorBoundary } from 'src/components/ErrorBoundary/UnknownImportErrorBoundary'
+import { Inline } from 'src/components/Inline'
 // const pagePaths = import.meta.glob('/src/Pages/**/index.mdx', { as: 'url', eager: true })
 
 const mdxComponents = {
   ComponentPreview: ComponentPreviewContainer,
+  Inline: Inline,
   SpaceBetween: SpaceBetween,
   Switch: Switch,
 }

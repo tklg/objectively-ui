@@ -3,6 +3,8 @@ import react from '@vitejs/plugin-react-swc'
 import path from 'node:path'
 import mdx from '@mdx-js/rollup'
 
+const GENERATE_SOURCEMAPS = Boolean(process.env.GENERATE_SOURCEMAPS)
+
 export default defineConfig({
   resolve: {
     alias: {
@@ -31,7 +33,7 @@ export default defineConfig({
   },
   build: {
     // cssCodeSplit: true,
-    // sourcemap: true,
+    sourcemap: GENERATE_SOURCEMAPS,
     minify: false,
     // target: 'esnext',
     rollupOptions: {
