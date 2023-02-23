@@ -1,6 +1,5 @@
 import { render, screen } from 'src/__test__/render'
 import { List } from './List'
-import '@testing-library/jest-dom'
 import { ListItem } from 'src/components/ListItem'
 
 describe('List', () => {

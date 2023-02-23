@@ -1,0 +1,163 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Button colors default: d 1`] = `
+<button
+  class="ObjUI-ButtonBase ObjUI-ButtonBase-sizeMd ObjUI-ButtonBase-colorD ObjUI-ButtonBase-variantDefault ObjUI-Button ObjUI-Button-sizeMd ObjUI-Button-variantDefault ObjUI-Button-colorD emotion-0"
+>
+  <span>
+    text
+  </span>
+</button>
+`;
+
+exports[`Button colors error: e 1`] = `
+<button
+  class="ObjUI-ButtonBase ObjUI-ButtonBase-sizeMd ObjUI-ButtonBase-colorE ObjUI-ButtonBase-variantDefault ObjUI-Button ObjUI-Button-sizeMd ObjUI-Button-variantDefault ObjUI-Button-colorE emotion-0"
+>
+  <span>
+    text
+  </span>
+</button>
+`;
+
+exports[`Button colors info: i 1`] = `
+<button
+  class="ObjUI-ButtonBase ObjUI-ButtonBase-sizeMd ObjUI-ButtonBase-colorI ObjUI-ButtonBase-variantDefault ObjUI-Button ObjUI-Button-sizeMd ObjUI-Button-variantDefault ObjUI-Button-colorI emotion-0"
+>
+  <span>
+    text
+  </span>
+</button>
+`;
+
+exports[`Button colors primary: p 1`] = `
+<button
+  class="ObjUI-ButtonBase ObjUI-ButtonBase-sizeMd ObjUI-ButtonBase-colorP ObjUI-ButtonBase-variantDefault ObjUI-Button ObjUI-Button-sizeMd ObjUI-Button-variantDefault ObjUI-Button-colorP emotion-0"
+>
+  <span>
+    text
+  </span>
+</button>
+`;
+
+exports[`Button colors secondary: s 1`] = `
+<button
+  class="ObjUI-ButtonBase ObjUI-ButtonBase-sizeMd ObjUI-ButtonBase-colorS ObjUI-ButtonBase-variantDefault ObjUI-Button ObjUI-Button-sizeMd ObjUI-Button-variantDefault ObjUI-Button-colorS emotion-0"
+>
+  <span>
+    text
+  </span>
+</button>
+`;
+
+exports[`Button colors success: s 1`] = `
+<button
+  class="ObjUI-ButtonBase ObjUI-ButtonBase-sizeMd ObjUI-ButtonBase-colorS ObjUI-ButtonBase-variantDefault ObjUI-Button ObjUI-Button-sizeMd ObjUI-Button-variantDefault ObjUI-Button-colorS emotion-0"
+>
+  <span>
+    text
+  </span>
+</button>
+`;
+
+exports[`Button colors warning: w 1`] = `
+<button
+  class="ObjUI-ButtonBase ObjUI-ButtonBase-sizeMd ObjUI-ButtonBase-colorW ObjUI-ButtonBase-variantDefault ObjUI-Button ObjUI-Button-sizeMd ObjUI-Button-variantDefault ObjUI-Button-colorW emotion-0"
+>
+  <span>
+    text
+  </span>
+</button>
+`;
+
+exports[`Button sizes lg: l 1`] = `
+<button
+  class="ObjUI-ButtonBase ObjUI-ButtonBase-sizeL ObjUI-ButtonBase-colorDefault ObjUI-ButtonBase-variantDefault ObjUI-Button ObjUI-Button-sizeL ObjUI-Button-variantDefault ObjUI-Button-colorDefault emotion-0"
+>
+  <span>
+    text
+  </span>
+</button>
+`;
+
+exports[`Button sizes md: m 1`] = `
+<button
+  class="ObjUI-ButtonBase ObjUI-ButtonBase-sizeM ObjUI-ButtonBase-colorDefault ObjUI-ButtonBase-variantDefault ObjUI-Button ObjUI-Button-sizeM ObjUI-Button-variantDefault ObjUI-Button-colorDefault emotion-0"
+>
+  <span>
+    text
+  </span>
+</button>
+`;
+
+exports[`Button sizes sm: s 1`] = `
+<button
+  class="ObjUI-ButtonBase ObjUI-ButtonBase-sizeS ObjUI-ButtonBase-colorDefault ObjUI-ButtonBase-variantDefault ObjUI-Button ObjUI-Button-sizeS ObjUI-Button-variantDefault ObjUI-Button-colorDefault emotion-0"
+>
+  <span>
+    text
+  </span>
+</button>
+`;
+
+exports[`Button variants default: d 1`] = `
+<button
+  class="ObjUI-ButtonBase ObjUI-ButtonBase-sizeMd ObjUI-ButtonBase-colorDefault ObjUI-ButtonBase-variantD ObjUI-Button ObjUI-Button-sizeMd ObjUI-Button-variantD ObjUI-Button-colorDefault emotion-0"
+>
+  <span>
+    text
+  </span>
+</button>
+`;
+
+exports[`Button variants link: l 1`] = `
+<button
+  class="ObjUI-ButtonBase ObjUI-ButtonBase-sizeMd ObjUI-ButtonBase-colorDefault ObjUI-ButtonBase-variantL ObjUI-Button ObjUI-Button-sizeMd ObjUI-Button-variantL ObjUI-Button-colorDefault emotion-0"
+>
+  <span>
+    text
+  </span>
+</button>
+`;
+
+exports[`Button variants solid: s 1`] = `
+<button
+  class="ObjUI-ButtonBase ObjUI-ButtonBase-sizeMd ObjUI-ButtonBase-colorDefault ObjUI-ButtonBase-variantS ObjUI-Button ObjUI-Button-sizeMd ObjUI-Button-variantS ObjUI-Button-colorDefault emotion-0"
+>
+  <span>
+    text
+  </span>
+</button>
+`;
+
+exports[`Button variants text: t 1`] = `
+<button
+  class="ObjUI-ButtonBase ObjUI-ButtonBase-sizeMd ObjUI-ButtonBase-colorDefault ObjUI-ButtonBase-variantT ObjUI-Button ObjUI-Button-sizeMd ObjUI-Button-variantT ObjUI-Button-colorDefault emotion-0"
+>
+  <span>
+    text
+  </span>
+</button>
+`;
+
+exports[`Button with a start icon 1`] = `
+<button
+  class="ObjUI-ButtonBase ObjUI-ButtonBase-sizeMd ObjUI-ButtonBase-colorDefault ObjUI-ButtonBase-variantDefault ObjUI-Button ObjUI-Button-sizeMd ObjUI-Button-variantDefault ObjUI-Button-colorDefault ObjUI-Button-iconStart emotion-0"
+>
+  icon
+  <span>
+    text
+  </span>
+</button>
+`;
+
+exports[`Button with an end icon 1`] = `
+<button
+  class="ObjUI-ButtonBase ObjUI-ButtonBase-sizeMd ObjUI-ButtonBase-colorDefault ObjUI-ButtonBase-variantDefault ObjUI-Button ObjUI-Button-sizeMd ObjUI-Button-variantDefault ObjUI-Button-colorDefault ObjUI-Button-iconEnd emotion-0"
+>
+  <span>
+    text
+  </span>
+  icon
+</button>
+`;
