@@ -6,13 +6,17 @@ import {
   LiveError,
   LivePreview,
 } from 'react-live'
-import { AppLayout, Button, CssBaseline, Heading, Input, List, ListItem, ListItemGroup, PageContent, SideNavigation, SpaceBetween, Switch, TopNavigation, useColorScheme } from '@objectively-ui/react'
+import { AppLayout, Button, CssBaseline, Heading, Icon, IconButton, Input, List, ListItem, ListItemGroup, PageContent, SideNavigation, SpaceBetween, Switch, TopNavigation, useColorScheme } from '@objectively-ui/react'
 import darkTheme from 'prism-react-renderer/themes/vsDark'
 import lightTheme from 'prism-react-renderer/themes/vsLight'
-import { Inline } from 'src/components/Inline'
+import { Inline } from 'src/components/DisplayContainers/Inline'
+import { mdiPencil } from '@mdi/js'
+import { Align } from 'src/components/DisplayContainers/Align'
 
 interface ComponentPreviewContainerProps {
+  name?: string;
   code: string;
+  imports?: Record<string, unknown>;
 }
 
 const liveScope = {
@@ -21,11 +25,14 @@ const liveScope = {
   useMemo,
   // docs components
   Inline: Inline,
+  Align: Align,
   //  objui components
   AppLayout: AppLayout,
   Button: Button,
   CssBaseline: CssBaseline,
   Heading: Heading,
+  Icon: Icon,
+  IconButton: IconButton,
   Input: Input,
   List: List,
   ListItem: ListItem,
@@ -38,7 +45,9 @@ const liveScope = {
 }
 
 export const ComponentPreviewContainer: FC<ComponentPreviewContainerProps> = ({
+  name,
   code,
+  imports,
 }) => {
   const [showEditor, setShowEditor] = useState(false)
   const { mode } = useColorScheme()
@@ -47,7 +56,7 @@ export const ComponentPreviewContainer: FC<ComponentPreviewContainerProps> = ({
 
   return (
     <div className={styles.componentPreview}>
-      <LiveProvider code={code.trim()} scope={liveScope} theme={mode === 'dark' ? darkTheme : lightTheme}>
+      <LiveProvider code={code.trim()} scope={{ ...liveScope, ...imports }} theme={mode === 'dark' ? darkTheme : lightTheme}>
         <div className={styles.componentPreviewContainer}>
           {/* eslint-disable-next-line @typescript-eslint/ban-ts-comment */}
           {/* @ts-ignore */}
@@ -55,7 +64,7 @@ export const ComponentPreviewContainer: FC<ComponentPreviewContainerProps> = ({
         </div>
 
         <div className={styles.componentPreviewToolbar}>
-          <Button size='sm' onClick={toggleShowEditor}>Edit</Button>
+          <IconButton size='sm' onClick={toggleShowEditor} aria-label={`Edit ${name}`} icon={<Icon path={mdiPencil} size='sm' />} />
         </div>
 
         {showEditor && (

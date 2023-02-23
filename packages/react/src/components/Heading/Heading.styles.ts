@@ -3,6 +3,7 @@ import type { ColorTheme } from 'src/types/ColorTheme'
 import { PROJECT_SHORTNAME } from 'src/utils/constants'
 
 export const headingStyles = (theme: ColorTheme) => css({
+  width: '100%',
   display: 'flex',
 })
 
@@ -42,6 +43,16 @@ export const headingSubHeadingStyles = (theme: ColorTheme) => css({
   fontWeight: theme.typography.fontWeight.normal,
   color: theme.colors.textSecondary,
   fontSize: theme.typography.size.h4,
+
+  [`.${PROJECT_SHORTNAME}-Heading-sizeH1 &`]: {
+    fontSize: theme.typography.size.h4,
+  },
+  [`.${PROJECT_SHORTNAME}-Heading-sizeH2 &`]: {
+    fontSize: theme.typography.size.h5,
+  },
+  [`.${PROJECT_SHORTNAME}-Heading-sizeH3 &, .${PROJECT_SHORTNAME}-Heading-sizeH4 &, .${PROJECT_SHORTNAME}-Heading-sizeH5 &, .${PROJECT_SHORTNAME}-Heading-sizeH6 &`]: {
+    fontSize: theme.typography.size.h6,
+  },
 })
 
 export const headingActionStyles = (theme: ColorTheme) => css({

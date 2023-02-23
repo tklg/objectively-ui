@@ -1,7 +1,8 @@
 import { List, ListItem, ListItemGroup, SideNavigation } from '@objectively-ui/react'
 import { FC, useCallback } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
-import { componentsList } from 'src/util/componentslist'
+import { componentsList } from 'src/componentslist'
+import styles from './index.module.scss'
 
 export const ComponentsDocsSidebar: FC = () => {
   const navigate = useNavigate()
@@ -11,18 +12,19 @@ export const ComponentsDocsSidebar: FC = () => {
   }, [navigate])
 
   return (
-    <SideNavigation>
+    <SideNavigation className={styles.sideNavigation}>
       <List compact>
         {componentsList.map(({ group, name, items }) => (
           <ListItemGroup key={group} subheading={name}>
-            {items.map(({ path, name }) => (
+            {items.map(({ path, name, wip }) => (
               <ListItem
                 key={path}
                 button
                 onClick={() => handleNavigate(path)}
                 selected={component === path}
+                disabled={wip}
               >
-                {name}
+                {name}{wip && ' 🚧'}
               </ListItem>
             ))}
           </ListItemGroup>

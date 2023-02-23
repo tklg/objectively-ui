@@ -15,6 +15,10 @@ export const ListItem = forwardRef<HTMLLIElement, ListItemProps>(({
   button,
   className: _className,
   onClick,
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  // @ts-ignore
+  disabled,
+  ...props
 }, ref) => {
   const { divided, compact } = useListContext()
   const theme = useTheme()
@@ -46,11 +50,13 @@ export const ListItem = forwardRef<HTMLLIElement, ListItemProps>(({
       ref={ref}
       className={className}
       css={listItemStyles(theme)}
+      {...props}
     >
       {button ? (
         <button
           css={listItemButtonStyles(theme)}
           onClick={onClick}
+          disabled={disabled}
         >
           {content}
         </button>

@@ -1,0 +1,33 @@
+import sizeCode from './sizes.mdx?raw'
+import levelCode from './levels.mdx?raw'
+import subheadingCode from './subheadings.mdx?raw'
+import actionCode from './action.mdx?raw'
+import { mdiHeart } from '@mdi/js'
+
+# Heading
+
+Headings can be used for either an entire page, or for an individual section.
+
+-----
+## Heading size
+A heading's `size` is separate from its `level`. The following headings are all `h1`.
+
+<ComponentPreview code={sizeCode} />
+
+-----
+## Heading level
+A heading's level can be `h1` through `h6`. By default, the size of the heading will match its level.
+
+<ComponentPreview code={levelCode} />
+
+-----
+## Subheadings
+Headings can have subheadings. Subheadings start at size `h4` and go down to `h6`. The level of a subheading will always be 1 less than the level of the heading. The subheading of an `h6` heading will be a `p`.
+
+<ComponentPreview code={subheadingCode} />
+
+----- 
+## Actions
+A heading can have actions.
+
+<ComponentPreview code={actionCode} imports={{ mdiHeart }} />

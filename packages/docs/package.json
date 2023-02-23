@@ -11,6 +11,7 @@
     "analyze": "cross-env GENERATE_SOURCEMAPS=true npm run build && source-map-explorer 'dist/assets/*.js'"
   },
   "dependencies": {
+    "@mdi/js": "^7.1.96",
     "@objectively-ui/react": "*"
   },
   "devDependencies": {

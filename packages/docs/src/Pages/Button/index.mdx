@@ -2,6 +2,10 @@ import variantsCode from './variants.mdx?raw'
 import colorsCode from './colors.mdx?raw'
 import fullWidthCode from './fullwidth.mdx?raw'
 import sizeCode from './sizes.mdx?raw'
+import iconLabelCode from './iconlabel.mdx?raw'
+import iconCode from './icons.mdx?raw'
+
+import { mdiDelete, mdiPlus, mdiSend, mdiAccount, mdiPencil } from '@mdi/js'
 
 # Button
 
@@ -28,9 +32,24 @@ Link buttons do not support colors; they are always blue.
 Buttons come in 3 sizes: `sm`, `md`, `lg`
 
 <ComponentPreview code={sizeCode} />
+
+-----
+## Icon and label
+
+Buttons can have start and end icons.
+
+<ComponentPreview code={iconLabelCode} imports={{ mdiPlus, mdiDelete, mdiSend, mdiPencil }} />
+
+-----
+## Icon only
+
+Buttons can also have only an icon, with no label.
+
+<ComponentPreview code={iconCode} imports={{ mdiPlus, mdiDelete, mdiSend, mdiPencil }} />
+
 -----
 ## Full width
 
 Full width buttons fill their container.
 
-<ComponentPreview code={fullWidthCode} />
+<ComponentPreview code={fullWidthCode} imports={{ mdiAccount }} />

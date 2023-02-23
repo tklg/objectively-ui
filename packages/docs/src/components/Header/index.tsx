@@ -15,7 +15,7 @@ export const Header: FC = () => {
             <Switch
               checked={mode === 'dark'}
               onChange={(e) => setMode(e.target.checked ? 'dark' : 'light')}
-              label='🌞'
+              label={mode === 'dark' ? '🌙' : '🌞'}
             />
             <Input
               placeholder='searchy search'

@@ -6,9 +6,9 @@ interface InlineProps extends PropsWithChildren {
   flex?: boolean;
 }
 
-export const Inline: FC<InlineProps> = ({ children, flex }) => {
+export const Inline: FC<InlineProps> = ({ children, flex, ...props }) => {
   return (
-    <div className={clsx(styles.inline, flex && styles.flex)}>
+    <div {...props} className={clsx(styles.inline, flex && styles.flex)}>
       {children}
     </div>
   )

@@ -36,6 +36,10 @@ export const switchTrackStyles = (theme: ColorTheme, size: CommonSize) => css({
     ...focusOutlineStylesWithoutElement(theme),
   },
 
+  'input:disabled + &': {
+    cursor: 'default',
+  },
+
   ...['Primary', 'Secondary', 'Info', 'Warning', 'Error', 'Success'].reduce((a, status) => {
     const key = status === 'Primary' || status === 'Secondary'
       ? (`accent${status}` as 'accentPrimary' | 'accentSecondary')

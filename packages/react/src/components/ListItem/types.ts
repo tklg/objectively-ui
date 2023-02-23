@@ -8,6 +8,7 @@ export type ListItemProps = PropsWithChildrenAndClassName & {
 } & ({
   button: true;
   onClick: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
+  disabled?: boolean;
 } | {
   button?: false;
   onClick?: (event: React.MouseEvent<HTMLLIElement, MouseEvent>) => void;

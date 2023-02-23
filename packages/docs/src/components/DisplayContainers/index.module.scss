@@ -15,3 +15,14 @@
     }
   }
 }
+
+.align {
+  width: 100%;
+
+  &.left {
+    text-align: left;
+  }
+  &.center {
+    text-align: center;
+  }
+}

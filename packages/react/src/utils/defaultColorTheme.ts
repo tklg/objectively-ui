@@ -6,7 +6,8 @@ export const defaultLightColorTheme: ColorTheme = {
     mode: 'light',
 
     backgroundPrimary: '#f0f0f0',
-    backgroundSecondary: '#fefefe',
+    backgroundSecondary: '#ffffff',
+    backgroundDisabled: '#dddddd',
 
     hover: 'rgba(0,0,0,.08)',
     active: 'rgba(0,0,0,.18)',
@@ -19,18 +20,18 @@ export const defaultLightColorTheme: ColorTheme = {
       // value: 'linear-gradient(30deg, rgba(0,14,75,1) 0%, rgba(9,94,121,1) 30%, rgba(0,190,118,1) 100%)',
     },
     accentSecondary: {
-      value: '#ad388f',
+      value: '#d535ac',
       contrastText: 'white',
     },
 
-    link: '#2ab7fb',
+    link: '#32a9ef',
 
     focusOutline: '#2c80ff',
 
     textPrimary: '#222222',
-    textSecondary: '#999999',
+    textSecondary: '#888888',
     textHint: '#aaaaaa',
-    textDisabled: '#dddddd',
+    textDisabled: '#b7b7b7',
 
     border: '#cccccc',
     divider: '#dddddd',
@@ -50,6 +51,11 @@ export const defaultLightColorTheme: ColorTheme = {
     statusError: {
       value: '#f55e4f',
       contrastText: 'white',
+    },
+
+    special: {
+      codeText: '#d535ac',
+      codeBackground: '#e9e9e9',
     },
   },
 
@@ -133,11 +139,12 @@ export const defaultDarkColorTheme: DeepPartial<ColorTheme> = {
 
     backgroundPrimary: '#22242c',
     backgroundSecondary: '#444444',
+    backgroundDisabled: '#222222',
 
     hover: 'rgba(200,220,255,.12)',
     active: 'rgba(255,255,255,.3)',
 
-    link: '#2afbf1',
+    link: '#32a9ef',
 
     textPrimary: '#ffffff',
     textSecondary: '#a3b0c3',
@@ -146,5 +153,9 @@ export const defaultDarkColorTheme: DeepPartial<ColorTheme> = {
 
     border: '#535b68',
     divider: '#33373e',
+
+    special: {
+      codeBackground: '#33373e',
+    },
   },
 }

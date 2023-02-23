@@ -36,6 +36,11 @@ export const listItemButtonStyles = (theme: ColorTheme) => css({
   '&:focus-visible': {
     outline: 'none',
   },
+
+  '&:disabled': {
+    color: theme.colors.textDisabled,
+    cursor: 'default',
+  },
 })
 
 export const listItemContentStyles = (theme: ColorTheme) => css({
@@ -50,10 +55,10 @@ export const listItemContentStyles = (theme: ColorTheme) => css({
     `background ${theme.transitions.duration.fast} ${theme.transitions.function.default}`,
   ].join(','),
 
-  'button &:hover': {
+  'button:not(:disabled) &:hover': {
     background: theme.colors.hover,
   },
-  'button &:active': {
+  'button:not(:disabled) &:active': {
     background: theme.colors.accentPrimary.shadow,
   },
   'button &:before': {
@@ -89,10 +94,16 @@ export const listItemContentStyles = (theme: ColorTheme) => css({
 
 export const listItemTextStyles = (theme: ColorTheme) => css({
   display: 'block',
+  overflowX: 'hidden',
+  whiteSpace: 'nowrap',
+  textOverflow: 'ellipsis',
 })
 
 export const listItemSubtextStyles = (theme: ColorTheme) => css({
   display: 'block',
+  overflowX: 'hidden',
+  whiteSpace: 'nowrap',
+  textOverflow: 'ellipsis',
   fontSize: theme.typography.size.xs,
   marginTop: -2,
   color: theme.colors.textSecondary,

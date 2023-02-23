@@ -16,6 +16,7 @@ export interface ColorTheme {
 
     backgroundPrimary: string;
     backgroundSecondary: string;
+    backgroundDisabled: string;
 
     hover: string;
     active: string;
@@ -39,6 +40,11 @@ export interface ColorTheme {
     statusSuccess: ColorWithContrasts;
     statusWarning: ColorWithContrasts;
     statusError: ColorWithContrasts;
+
+    special: {
+      codeText: string;
+      codeBackground: string;
+    };
   };
   typography: {
     size: {

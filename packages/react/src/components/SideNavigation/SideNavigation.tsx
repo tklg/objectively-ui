@@ -9,6 +9,7 @@ const ELEMENT_NAME = 'SideNavigation'
 export const SideNavigation = forwardRef<HTMLElement, SideNavigationProps>(({
   children,
   side = 'left',
+  collapsable,
   className: _className,
 }, ref) => {
   const theme = useTheme()

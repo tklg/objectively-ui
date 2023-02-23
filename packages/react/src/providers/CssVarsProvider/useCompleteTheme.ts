@@ -47,7 +47,7 @@ const populateHoverColorsInner = (obj: Record<string, string | object>) => {
         }
         if (!('contrastTextDisabled' in item)) {
           // @ts-expect-error This is adding [contrastTextDisabled] to the color group if its not there already
-          item.contrastTextDisabled = ''
+          item.contrastTextDisabled = isLightColor(contrastText) ? darkenColor(contrastText, 2) : lightenColor(contrastText, 2)
         }
       } else {
         populateHoverColorsInner(item as Record<string, string | object>)

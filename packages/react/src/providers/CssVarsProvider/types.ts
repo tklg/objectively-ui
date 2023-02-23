@@ -5,6 +5,7 @@ import { DeepPartial } from 'src/types/DeepPartial'
 export interface CssVarsContextProps {
   mode: ColorScheme;
   setMode: (mode: ColorScheme) => void;
+  theme: ColorTheme;
 }
 
 export interface CssVarsProviderProps extends PropsWithChildren {

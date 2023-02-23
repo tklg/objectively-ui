@@ -26,7 +26,7 @@ module.exports = {
     'unused-imports',
   ],
   'rules': {
-    'react/no-unknown-property': ['error', { 'ignore': ['css'] }],
+    'react/no-unknown-property': ['error', { 'ignore': ['css']}],
     'react/jsx-closing-bracket-location': 'warn',
     'react/jsx-tag-spacing': 'warn',
     'react/jsx-first-prop-new-line': 'warn',
@@ -40,12 +40,17 @@ module.exports = {
     '@typescript-eslint/member-delimiter-style': 'warn',
     'comma-dangle': ['warn', 'always-multiline'],
     'space-before-function-paren': ['warn', 'always'],
+    'object-curly-spacing': ['warn', 'always', {
+      objectsInObjects: false,
+      arraysInObjects: false,
+    }],
     'semi-spacing': 'warn',
     'comma-spacing': ['warn', {
       before: false,
       after: true,
     }],
-    'keyword-spacing': 'warn',
+    'key-spacing': ['warn'],
+    'keyword-spacing': ['warn'],
     'no-multi-spaces': ['warn'],
     '@typescript-eslint/no-unused-vars': 'off',
     'unused-imports/no-unused-imports': 'warn',

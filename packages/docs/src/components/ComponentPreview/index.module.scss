@@ -22,7 +22,7 @@
     overflow-x: auto;
     border-radius: 5px;
     border: 1px solid $dividerColor;
-    padding: 0 $spacingSm;
+    padding: $spacingSm;
 
     [data-row] {
       display: flex;

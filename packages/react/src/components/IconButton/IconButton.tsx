@@ -1,20 +1,17 @@
 import { forwardRef } from 'react'
-import { buttonStyles } from 'src/components/Button/Button.styles'
-import { ButtonComponent, ButtonProps } from 'src/components/Button/Button.types'
 import { ButtonBase } from 'src/components/Button/ButtonBase'
+import { iconButtonStyles } from 'src/components/IconButton/IconButton.styles'
+import { IconButtonComponent, IconButtonProps } from 'src/components/IconButton/types'
 import { useTheme } from 'src/hooks'
 import { buildClassName } from 'src/utils/buildClassName'
 
-const ELEMENT_NAME = 'Button'
+const ELEMENT_NAME = 'IconButton'
 
-export const Button = forwardRef<HTMLButtonElement, ButtonProps>(({
-  children,
+export const IconButton = forwardRef<HTMLButtonElement, IconButtonProps>(({
   size = 'md',
   variant = 'default',
   color = 'default',
-  fullWidth,
-  iconStart,
-  iconEnd,
+  icon,
   className: _className,
   ...props
 }, ref) => {
@@ -23,10 +20,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(({
   const className = buildClassName(ELEMENT_NAME, {
     size,
     variant,
-    fullWidth,
     color,
-    iconStart: Boolean(iconStart),
-    iconEnd: Boolean(iconEnd),
   }, _className)
 
   return (
@@ -34,20 +28,18 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(({
       ref={ref}
       {...props}
       className={className}
-      css={buttonStyles(theme)}
+      css={iconButtonStyles(theme, size)}
       size={size}
       color={color}
       variant={variant}
     >
-      {iconStart}
-      <span>{children}</span>
-      {iconEnd}
+      {icon}
     </ButtonBase>
   )
-}) as ButtonComponent
+}) as IconButtonComponent
 
-Button.displayName = ELEMENT_NAME
+IconButton.displayName = ELEMENT_NAME
 
 if (process.env.NODE_ENV !== 'production') {
-  Button.displayName = ELEMENT_NAME
+  IconButton.displayName = ELEMENT_NAME
 }

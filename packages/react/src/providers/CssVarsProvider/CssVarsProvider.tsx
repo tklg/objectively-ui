@@ -1,17 +1,31 @@
-import { css, Global, ThemeProvider } from '@emotion/react'
+import { CacheProvider, css, Global, ThemeProvider } from '@emotion/react'
+import createCache from '@emotion/cache'
 import { createContext, FC, useCallback, useEffect, useMemo, useState } from 'react'
 import { useCompleteColorTheme } from 'src/providers/CssVarsProvider/useCompleteTheme'
-import { useStyleElementVars } from 'src/providers/CssVarsProvider/useInjectStyleElement'
+import { useStyleElementVars } from 'src/providers/CssVarsProvider/useStyleElementVars'
 import { ColorScheme } from 'src/types/ColorTheme'
-import { COLOR_SCHEME_DATA_ATTR, COLOR_SCHEME_STORAGE_KEY } from 'src/utils/constants'
+import { COLOR_SCHEME_DATA_ATTR, COLOR_SCHEME_STORAGE_KEY, PROJECT_SHORTNAME } from 'src/utils/constants'
 import { defaultDarkColorTheme, defaultLightColorTheme } from 'src/utils/defaultColorTheme'
 import { CssVarsContextProps, CssVarsProviderProps } from './types'
 
+const head = document.querySelector('head')
+const emotionInsertionPoint = document.createElement('meta')
+emotionInsertionPoint.setAttribute('name', 'emotion-insertion-point')
+emotionInsertionPoint.setAttribute('content', '')
+head?.prepend(emotionInsertionPoint)
+
 const matcher = window.matchMedia('(prefers-color-scheme: dark)')
+
+// https://github.com/emotion-js/emotion/issues/2790
+const emotionCache = createCache({
+  key: PROJECT_SHORTNAME.toLowerCase(),
+  insertionPoint: emotionInsertionPoint,
+})
 
 export const CssVarsContext = createContext<CssVarsContextProps>({
   mode: 'light',
   setMode: () => null,
+  theme: defaultLightColorTheme,
 })
 
 export const CssVarsProvider: FC<CssVarsProviderProps> = ({
@@ -21,9 +35,11 @@ export const CssVarsProvider: FC<CssVarsProviderProps> = ({
   children,
 }) => {
   const [osMode, setOsMode] = useState<ColorScheme>(overrideMode ?? (matcher.matches ? 'dark' : 'light'))
-  const [mode, setMode] = useState<ColorScheme | null>(overrideMode ?? (localStorage.getItem(COLOR_SCHEME_STORAGE_KEY) as ColorScheme) ?? null)
+  const [mode, setMode] = useState<ColorScheme | null>((localStorage.getItem(COLOR_SCHEME_STORAGE_KEY) as ColorScheme) ?? overrideMode)
 
   const completeLightTheme = useCompleteColorTheme(theme, defaultLightColorTheme)
+  const completeDarkTheme = useCompleteColorTheme(defaultDarkColorTheme, completeLightTheme)
+
   const { style: lightThemeVars, replacedTheme: themeWithCssVars } = useStyleElementVars(completeLightTheme, 'light', true)
   const { style: darkThemeVars } = useStyleElementVars(darkTheme, 'dark', false)
   const themeWithMode = useMemo(() => {
@@ -65,16 +81,19 @@ export const CssVarsProvider: FC<CssVarsProviderProps> = ({
   const value = useMemo(() => ({
     mode: effectiveColorScheme,
     setMode: setColorTheme,
-  }), [effectiveColorScheme, setColorTheme])
+    theme: mode === 'dark' ? completeDarkTheme : completeLightTheme,
+  }), [completeDarkTheme, completeLightTheme, effectiveColorScheme, mode, setColorTheme])
 
   return (
     <CssVarsContext.Provider value={value}>
-      <ThemeProvider theme={themeWithMode}>
-        <Global
-          styles={css(lightThemeVars, darkThemeVars)}
-        />
-        {children}
-      </ThemeProvider>
+      <CacheProvider value={emotionCache}>
+        <ThemeProvider theme={themeWithMode}>
+          <Global
+            styles={css(lightThemeVars, darkThemeVars)}
+          />
+          {children}
+        </ThemeProvider>
+      </CacheProvider>
     </CssVarsContext.Provider>
   )
 }

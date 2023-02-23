@@ -2,17 +2,16 @@ import { FC, JSXElementConstructor, lazy, Suspense, useEffect, useState } from '
 import { useParams } from 'react-router-dom'
 import { MDXProvider } from '@mdx-js/react'
 import { ComponentPreviewContainer } from 'src/components/ComponentPreview'
-import { SpaceBetween, Switch } from '@objectively-ui/react'
+import { SpaceBetween } from '@objectively-ui/react'
 import styles from './index.module.scss'
 import { UnknownImportErrorBoundary } from 'src/components/ErrorBoundary/UnknownImportErrorBoundary'
-import { Inline } from 'src/components/Inline'
+import { Inline } from 'src/components/DisplayContainers/Inline'
 // const pagePaths = import.meta.glob('/src/Pages/**/index.mdx', { as: 'url', eager: true })
 
 const mdxComponents = {
   ComponentPreview: ComponentPreviewContainer,
   Inline: Inline,
   SpaceBetween: SpaceBetween,
-  Switch: Switch,
 }
 
 export const ComponentDocsPage: FC = () => {
@@ -37,7 +36,7 @@ export const ComponentDocsPage: FC = () => {
     <MDXProvider components={mdxComponents}>
       <div className={styles.docs}>
         <UnknownImportErrorBoundary page={componentParam}>
-          <Suspense>
+          <Suspense fallback='Loading'>
             {Component && <Component />}
           </Suspense>
         </UnknownImportErrorBoundary>
