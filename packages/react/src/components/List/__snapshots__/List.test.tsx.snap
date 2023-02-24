@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`List renders an empty list 1`] = `
+<ul
+  class="ObjUI-List emotion-0"
+/>
+`;

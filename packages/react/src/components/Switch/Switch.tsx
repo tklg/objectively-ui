@@ -1,4 +1,4 @@
-import { forwardRef, useCallback, useId, useRef } from 'react'
+import { ChangeEvent, forwardRef, useCallback, useEffect, useId, useRef, useState } from 'react'
 import { switchHandleStyles, switchLabelStyles, switchStyles, switchTrackStyles } from 'src/components/Switch/Switch.styles'
 import { SwitchProps } from 'src/components/Switch/types'
 import { useTheme } from 'src/hooks'
@@ -20,12 +20,15 @@ export const Switch = forwardRef<HTMLInputElement, SwitchProps>(({
   disabled,
   size = 'md',
   color = 'primary',
+  inputProps = {},
   ...props
 }, ref) => {
   const fallbackId = useId()
   const theme = useTheme()
   const inputRef = useRef<HTMLInputElement>()
   const id = _id || fallbackId
+  const [internalChecked, setInternalChecked] = useState(checked)
+  const internalCheckedRef = useRef(checked)
   const className = buildClassName(ELEMENT_NAME, {
     readOnly,
     disabled,
@@ -36,23 +39,37 @@ export const Switch = forwardRef<HTMLInputElement, SwitchProps>(({
   const handleClassName = buildClassName(`${ELEMENT_NAME}Handle`)
   const labelClassName = buildClassName(`${ELEMENT_NAME}Label`)
 
-  const clickInput = useCallback(() => {
+  useEffect(() => {
+    if (checked !== internalCheckedRef.current) {
+      setInternalChecked(checked)
+    }
+  }, [checked])
+
+  const handleChange = useCallback((e: ChangeEvent<HTMLInputElement>) => {
+    const newState = !internalChecked
+    internalCheckedRef.current = newState
+    setInternalChecked(newState)
+    onChange?.(e, newState)
+  }, [internalChecked, onChange])
+
+  const handleKeydown = useCallback(() => {
     inputRef.current?.click()
   }, [])
 
-  const keyboardProps = useKeyboardEvents([KEYS.Space, KEYS.Enter], clickInput, 'keydown')
+  const keyboardProps = useKeyboardEvents([KEYS.Space, KEYS.Enter], handleKeydown, 'keydown')
 
   return (
     <div
+      {...props}
       className={className}
       css={switchStyles(theme, size)}
       ref={ref}
     >
       <input
         ref={mergeRefs(inputRef, externalInputRef)}
-        {...props}
-        checked={checked}
-        onChange={onChange}
+        {...inputProps}
+        checked={internalChecked}
+        onChange={handleChange}
         readOnly={readOnly}
         disabled={disabled}
         type='checkbox'
@@ -65,7 +82,7 @@ export const Switch = forwardRef<HTMLInputElement, SwitchProps>(({
         className={trackClassName}
         css={switchTrackStyles(theme, size)}
         role='switch'
-        aria-checked={checked ?? 'false'}
+        aria-checked={internalChecked ?? 'false'}
         tabIndex={disabled ? -1 : 0}
         htmlFor={id}
         {...keyboardProps}

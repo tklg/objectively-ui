@@ -43,12 +43,16 @@ export const componentsList = [
         name: 'Divider',
         wip: true,
       }, {
-        path: 'blockquote',
-        name: 'Blockquote',
+        path: 'callout',
+        name: 'Callout',
         wip: true,
       }, {
         path: 'table',
         name: 'Table',
+        wip: true,
+      }, {
+        path: 'uptime',
+        name: 'Uptime',
         wip: true,
       },
     ],
@@ -88,6 +92,14 @@ export const componentsList = [
       }, {
         path: 'pin',
         name: 'Pin input',
+        wip: true,
+      }, {
+        path: 'datepicker',
+        name: 'Date input',
+        wip: true,
+      }, {
+        path: 'autocomplete',
+        name: 'Autocomplete',
         wip: true,
       },
     ],

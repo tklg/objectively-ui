@@ -1,4 +1,4 @@
-import { createContext, FC, useMemo } from 'react'
+import { createContext, forwardRef, useMemo } from 'react'
 import { appLayoutContentStyles, appLayoutStyles } from 'src/components/AppLayout/AppLayout.styles'
 import { AppLayoutContextProps, AppLayoutProps } from 'src/components/AppLayout/types'
 import { buildClassName } from 'src/utils/buildClassName'
@@ -9,7 +9,7 @@ export const AppLayoutContext = createContext<AppLayoutContextProps>({
   maxWidth: '900px',
 })
 
-export const AppLayout: FC<AppLayoutProps> = ({
+export const AppLayout = forwardRef<HTMLDivElement, AppLayoutProps>(({
   content,
   header,
   footer,
@@ -18,7 +18,7 @@ export const AppLayout: FC<AppLayoutProps> = ({
   fullWidth = false,
   maxWidth = 1200,
   className: _className,
-}) => {
+}, ref) => {
   const className = buildClassName(ELEMENT_NAME, {
     withContent: Boolean(content),
     withHeader: Boolean(header),
@@ -34,7 +34,7 @@ export const AppLayout: FC<AppLayoutProps> = ({
 
   return (
     <AppLayoutContext.Provider value={value}>
-      <div className={className} css={appLayoutStyles}>
+      <div className={className} css={appLayoutStyles} ref={ref}>
         {header}
         {(content || leftNavigation || rightNavigation) && (
           <main css={appLayoutContentStyles(value.maxWidth)}>
@@ -47,4 +47,8 @@ export const AppLayout: FC<AppLayoutProps> = ({
       </div>
     </AppLayoutContext.Provider>
   )
+})
+
+if (process.env.NODE_ENV !== 'production') {
+  AppLayout.displayName = ELEMENT_NAME
 }

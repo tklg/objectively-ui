@@ -1,0 +1,28 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Switch renders a switch 1`] = `
+<div
+  class="ObjUI-Switch ObjUI-Switch-sizeMd ObjUI-Switch-colorPrimary emotion-0"
+  data-testid="switch"
+>
+  <input
+    aria-hidden="true"
+    data-testid="checkbox"
+    hidden=""
+    id=":r0:"
+    tabindex="-1"
+    type="checkbox"
+  />
+  <label
+    aria-checked="true"
+    class="ObjUI-SwitchTrack emotion-1"
+    for=":r0:"
+    role="switch"
+    tabindex="0"
+  >
+    <div
+      class="ObjUI-SwitchHandle emotion-2"
+    />
+  </label>
+</div>
+`;

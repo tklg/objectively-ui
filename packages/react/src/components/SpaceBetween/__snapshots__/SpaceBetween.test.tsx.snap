@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SpaceBetween wraps items in a span if they are not a component 1`] = `
+<div
+  class="ObjUI-SpaceBetween ObjUI-SpaceBetween-sizeSm ObjUI-SpaceBetween-directionHorizontal emotion-0"
+  data-spacebetween-direction="horizontal"
+  data-testid="test"
+>
+  <span
+    data-spacebetween-first="true"
+  >
+    text 1
+  </span>
+  <button>
+    text 2
+  </button>
+</div>
+`;

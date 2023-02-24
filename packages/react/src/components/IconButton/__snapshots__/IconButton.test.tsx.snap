@@ -1,0 +1,113 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`IconButton colors default: d 1`] = `
+<button
+  class="ObjUI-ButtonBase ObjUI-ButtonBase-sizeMd ObjUI-ButtonBase-colorD ObjUI-ButtonBase-variantDefault ObjUI-IconButton ObjUI-IconButton-sizeMd ObjUI-IconButton-variantDefault ObjUI-IconButton-colorD emotion-0"
+>
+  icon
+</button>
+`;
+
+exports[`IconButton colors error: e 1`] = `
+<button
+  class="ObjUI-ButtonBase ObjUI-ButtonBase-sizeMd ObjUI-ButtonBase-colorE ObjUI-ButtonBase-variantDefault ObjUI-IconButton ObjUI-IconButton-sizeMd ObjUI-IconButton-variantDefault ObjUI-IconButton-colorE emotion-0"
+>
+  icon
+</button>
+`;
+
+exports[`IconButton colors info: i 1`] = `
+<button
+  class="ObjUI-ButtonBase ObjUI-ButtonBase-sizeMd ObjUI-ButtonBase-colorI ObjUI-ButtonBase-variantDefault ObjUI-IconButton ObjUI-IconButton-sizeMd ObjUI-IconButton-variantDefault ObjUI-IconButton-colorI emotion-0"
+>
+  icon
+</button>
+`;
+
+exports[`IconButton colors primary: p 1`] = `
+<button
+  class="ObjUI-ButtonBase ObjUI-ButtonBase-sizeMd ObjUI-ButtonBase-colorP ObjUI-ButtonBase-variantDefault ObjUI-IconButton ObjUI-IconButton-sizeMd ObjUI-IconButton-variantDefault ObjUI-IconButton-colorP emotion-0"
+>
+  icon
+</button>
+`;
+
+exports[`IconButton colors secondary: s 1`] = `
+<button
+  class="ObjUI-ButtonBase ObjUI-ButtonBase-sizeMd ObjUI-ButtonBase-colorS ObjUI-ButtonBase-variantDefault ObjUI-IconButton ObjUI-IconButton-sizeMd ObjUI-IconButton-variantDefault ObjUI-IconButton-colorS emotion-0"
+>
+  icon
+</button>
+`;
+
+exports[`IconButton colors success: s 1`] = `
+<button
+  class="ObjUI-ButtonBase ObjUI-ButtonBase-sizeMd ObjUI-ButtonBase-colorS ObjUI-ButtonBase-variantDefault ObjUI-IconButton ObjUI-IconButton-sizeMd ObjUI-IconButton-variantDefault ObjUI-IconButton-colorS emotion-0"
+>
+  icon
+</button>
+`;
+
+exports[`IconButton colors warning: w 1`] = `
+<button
+  class="ObjUI-ButtonBase ObjUI-ButtonBase-sizeMd ObjUI-ButtonBase-colorW ObjUI-ButtonBase-variantDefault ObjUI-IconButton ObjUI-IconButton-sizeMd ObjUI-IconButton-variantDefault ObjUI-IconButton-colorW emotion-0"
+>
+  icon
+</button>
+`;
+
+exports[`IconButton sizes lg: l 1`] = `
+<button
+  class="ObjUI-ButtonBase ObjUI-ButtonBase-sizeL ObjUI-ButtonBase-colorDefault ObjUI-ButtonBase-variantDefault ObjUI-IconButton ObjUI-IconButton-sizeL ObjUI-IconButton-variantDefault ObjUI-IconButton-colorDefault emotion-0"
+>
+  icon
+</button>
+`;
+
+exports[`IconButton sizes md: m 1`] = `
+<button
+  class="ObjUI-ButtonBase ObjUI-ButtonBase-sizeM ObjUI-ButtonBase-colorDefault ObjUI-ButtonBase-variantDefault ObjUI-IconButton ObjUI-IconButton-sizeM ObjUI-IconButton-variantDefault ObjUI-IconButton-colorDefault emotion-0"
+>
+  icon
+</button>
+`;
+
+exports[`IconButton sizes sm: s 1`] = `
+<button
+  class="ObjUI-ButtonBase ObjUI-ButtonBase-sizeS ObjUI-ButtonBase-colorDefault ObjUI-ButtonBase-variantDefault ObjUI-IconButton ObjUI-IconButton-sizeS ObjUI-IconButton-variantDefault ObjUI-IconButton-colorDefault emotion-0"
+>
+  icon
+</button>
+`;
+
+exports[`IconButton variants default: d 1`] = `
+<button
+  class="ObjUI-ButtonBase ObjUI-ButtonBase-sizeMd ObjUI-ButtonBase-colorDefault ObjUI-ButtonBase-variantD ObjUI-IconButton ObjUI-IconButton-sizeMd ObjUI-IconButton-variantD ObjUI-IconButton-colorDefault emotion-0"
+>
+  icon
+</button>
+`;
+
+exports[`IconButton variants solid: s 1`] = `
+<button
+  class="ObjUI-ButtonBase ObjUI-ButtonBase-sizeMd ObjUI-ButtonBase-colorDefault ObjUI-ButtonBase-variantS ObjUI-IconButton ObjUI-IconButton-sizeMd ObjUI-IconButton-variantS ObjUI-IconButton-colorDefault emotion-0"
+>
+  icon
+</button>
+`;
+
+exports[`IconButton variants text: t 1`] = `
+<button
+  class="ObjUI-ButtonBase ObjUI-ButtonBase-sizeMd ObjUI-ButtonBase-colorDefault ObjUI-ButtonBase-variantT ObjUI-IconButton ObjUI-IconButton-sizeMd ObjUI-IconButton-variantT ObjUI-IconButton-colorDefault emotion-0"
+>
+  icon
+</button>
+`;
+
+exports[`IconButton with an icon 1`] = `
+<button
+  class="ObjUI-ButtonBase ObjUI-ButtonBase-sizeMd ObjUI-ButtonBase-colorDefault ObjUI-ButtonBase-variantDefault ObjUI-IconButton ObjUI-IconButton-sizeMd ObjUI-IconButton-variantDefault ObjUI-IconButton-colorDefault emotion-0"
+>
+  icon
+</button>
+`;

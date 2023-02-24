@@ -45,4 +45,6 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(({
   )
 })
 
-Input.displayName = ELEMENT_NAME
+if (process.env.NODE_ENV !== 'production') {
+  Input.displayName = ELEMENT_NAME
+}

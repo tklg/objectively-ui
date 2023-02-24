@@ -45,4 +45,6 @@ export const Heading = forwardRef<HTMLDivElement, HeadingProps>(({
   )
 }) as HeadingComponent
 
-Heading.displayName = ELEMENT_NAME
+if (process.env.NODE_ENV !== 'production') {
+  Heading.displayName = ELEMENT_NAME
+}

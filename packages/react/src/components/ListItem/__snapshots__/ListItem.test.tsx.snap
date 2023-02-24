@@ -1,0 +1,115 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ListItem renders a button list item 1`] = `
+<ul
+  class="ObjUI-List emotion-0"
+>
+  <li
+    class="ObjUI-ListItem ObjUI-ListItem-button ObjUI-ListItem-joined emotion-1"
+  >
+    <button
+      class="emotion-2"
+    >
+      <div
+        class="emotion-3"
+      >
+        <div
+          class="emotion-4"
+        >
+          <span
+            class="ObjUI-ListItemText emotion-5"
+          >
+            List item 1
+          </span>
+        </div>
+      </div>
+    </button>
+  </li>
+</ul>
+`;
+
+exports[`ListItem renders a button list item with a description 1`] = `
+<ul
+  class="ObjUI-List emotion-0"
+>
+  <li
+    class="ObjUI-ListItem ObjUI-ListItem-button ObjUI-ListItem-joined ObjUI-ListItem-description emotion-1"
+  >
+    <button
+      class="emotion-2"
+    >
+      <div
+        class="emotion-3"
+      >
+        <div
+          class="emotion-4"
+        >
+          <span
+            class="ObjUI-ListItemText emotion-5"
+          >
+            List item 1
+          </span>
+          <span
+            class="ObjUI-ListItemSubtext emotion-6"
+          >
+            Description
+          </span>
+        </div>
+      </div>
+    </button>
+  </li>
+</ul>
+`;
+
+exports[`ListItem renders a list item 1`] = `
+<ul
+  class="ObjUI-List emotion-0"
+>
+  <li
+    class="ObjUI-ListItem ObjUI-ListItem-joined emotion-1"
+  >
+    <div
+      class="emotion-2"
+    >
+      <div
+        class="emotion-3"
+      >
+        <span
+          class="ObjUI-ListItemText emotion-4"
+        >
+          List item 1
+        </span>
+      </div>
+    </div>
+  </li>
+</ul>
+`;
+
+exports[`ListItem renders a list item with a description 1`] = `
+<ul
+  class="ObjUI-List emotion-0"
+>
+  <li
+    class="ObjUI-ListItem ObjUI-ListItem-joined ObjUI-ListItem-description emotion-1"
+  >
+    <div
+      class="emotion-2"
+    >
+      <div
+        class="emotion-3"
+      >
+        <span
+          class="ObjUI-ListItemText emotion-4"
+        >
+          List item 1
+        </span>
+        <span
+          class="ObjUI-ListItemSubtext emotion-5"
+        >
+          Description
+        </span>
+      </div>
+    </div>
+  </li>
+</ul>
+`;

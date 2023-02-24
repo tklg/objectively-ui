@@ -1,0 +1,39 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ListItemGroup renders a list with a group and 1 item 1`] = `
+<ul
+  class="ObjUI-List emotion-0"
+  data-testid="list"
+>
+  <li
+    class="ObjUI-ListItemGroup emotion-1"
+  >
+    <ul
+      class="ObjUI-ListItemGroupInnerList emotion-2"
+    >
+      <li
+        class="ObjUI-ListItemGroupSubheading emotion-3"
+      >
+        Group 1
+      </li>
+      <li
+        class="ObjUI-ListItem ObjUI-ListItem-joined emotion-4"
+      >
+        <div
+          class="emotion-5"
+        >
+          <div
+            class="emotion-6"
+          >
+            <span
+              class="ObjUI-ListItemText emotion-7"
+            >
+              Item 1
+            </span>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </li>
+</ul>
+`;

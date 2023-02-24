@@ -11,6 +11,7 @@ export const SpaceBetween = forwardRef<HTMLDivElement, SpaceBetweenProps>(({
   direction = 'horizontal',
   size = 'sm',
   className: _className,
+  ...props
 }, ref) => {
   const theme = useTheme()
   const className = buildClassName(ELEMENT_NAME, {
@@ -21,14 +22,18 @@ export const SpaceBetween = forwardRef<HTMLDivElement, SpaceBetweenProps>(({
   return (
     <div
       ref={ref}
+      {...props}
       className={className}
       css={spaceBetweenStyles(theme, size)}
       data-spacebetween-direction={direction}
     >
-      {Children.toArray(children).filter(elem => typeof elem === 'object').map((elem, i) => (
-        cloneElement(elem as ReactElement, {
-          'data-spacebetween-first': i === 0 ? true : undefined,
-        })
+      {Children.toArray(children).map((elem, i) => (
+        typeof elem === 'object'
+          ? cloneElement(elem as ReactElement, {
+            key: i,
+            'data-spacebetween-first': i === 0 || undefined,
+          })
+          : <span key={i} data-spacebetween-first={i === 0 || undefined}>{elem}</span>
       ))}
     </div>
   )
