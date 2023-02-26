@@ -13,6 +13,7 @@ export const Switch = forwardRef<HTMLInputElement, SwitchProps>(({
   inputRef: externalInputRef,
   label,
   checked,
+  defaultChecked = false,
   onChange,
   className: _className,
   id: _id,
@@ -27,8 +28,8 @@ export const Switch = forwardRef<HTMLInputElement, SwitchProps>(({
   const theme = useTheme()
   const inputRef = useRef<HTMLInputElement>()
   const id = _id || fallbackId
-  const [internalChecked, setInternalChecked] = useState(checked)
-  const internalCheckedRef = useRef(checked)
+  const [internalChecked, setInternalChecked] = useState(checked ?? defaultChecked)
+  const internalCheckedRef = useRef(checked ?? defaultChecked)
   const className = buildClassName(ELEMENT_NAME, {
     readOnly,
     disabled,
@@ -40,17 +41,17 @@ export const Switch = forwardRef<HTMLInputElement, SwitchProps>(({
   const labelClassName = buildClassName(`${ELEMENT_NAME}Label`)
 
   useEffect(() => {
-    if (checked !== internalCheckedRef.current) {
+    if (checked !== undefined && checked !== internalCheckedRef.current) {
       setInternalChecked(checked)
     }
   }, [checked])
 
   const handleChange = useCallback((e: ChangeEvent<HTMLInputElement>) => {
-    const newState = !internalChecked
+    const newState = e.target.checked
     internalCheckedRef.current = newState
     setInternalChecked(newState)
     onChange?.(e, newState)
-  }, [internalChecked, onChange])
+  }, [onChange])
 
   const handleKeydown = useCallback(() => {
     inputRef.current?.click()

@@ -3,7 +3,7 @@ import { CommonColor, CommonSize } from 'src/types/props'
 
 type InputPropsType = ClassAttributes<HTMLInputElement> & InputHTMLAttributes<HTMLInputElement>
 
-export interface SwitchProps extends Omit<InputPropsType, 'value' | 'size' | 'onChange'> {
+export interface SwitchProps extends Omit<InputPropsType, 'value' | 'defaultValue' | 'size' | 'onChange'> {
   label?: string;
   inputRef?: Ref<HTMLInputElement>;
   size?: CommonSize;

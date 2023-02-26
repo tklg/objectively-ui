@@ -53,7 +53,6 @@ export const componentsList = [
       }, {
         path: 'uptime',
         name: 'Uptime',
-        wip: true,
       },
     ],
   }, {

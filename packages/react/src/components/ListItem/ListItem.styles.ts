@@ -75,10 +75,10 @@ export const listItemContentStyles = (theme: ColorTheme) => css({
     background: theme.colors.accentPrimary.value,
     color: theme.colors.accentPrimary.contrastText,
 
-    '&:hover': {
+    'button:not(:disabled) &:hover': {
       background: theme.colors.accentPrimary.hover,
     },
-    '&:active': {
+    'button:not(:disabled) &:active': {
       background: theme.colors.accentPrimary.active,
     },
   },

@@ -6,7 +6,7 @@ import {
   LiveError,
   LivePreview,
 } from 'react-live'
-import { AppLayout, Button, CssBaseline, Heading, Icon, IconButton, Input, List, ListItem, ListItemGroup, PageContent, SideNavigation, SpaceBetween, Switch, TopNavigation, useColorScheme } from '@objectively-ui/react'
+import { AppLayout, Button, CssBaseline, Heading, Icon, IconButton, Input, List, ListItem, ListItemGroup, PageContent, SideNavigation, SpaceBetween, Switch, TopNavigation, Uptime, useColorScheme } from '@objectively-ui/react'
 import darkTheme from 'prism-react-renderer/themes/vsDark'
 import lightTheme from 'prism-react-renderer/themes/vsLight'
 import { Inline } from 'src/components/DisplayContainers/Inline'
@@ -27,6 +27,7 @@ const liveScope = {
   Inline: Inline,
   Align: Align,
   //  objui components
+  useColorScheme,
   AppLayout: AppLayout,
   Button: Button,
   CssBaseline: CssBaseline,
@@ -42,6 +43,7 @@ const liveScope = {
   SpaceBetween: SpaceBetween,
   Switch: Switch,
   TopNavigation: TopNavigation,
+  Uptime: Uptime,
 }
 
 export const ComponentPreviewContainer: FC<ComponentPreviewContainerProps> = ({

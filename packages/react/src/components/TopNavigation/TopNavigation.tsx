@@ -11,6 +11,7 @@ export const TopNavigation = forwardRef<HTMLElement, TopNavigationProps>(({
   children,
   className: _className,
   compact,
+  ...props
 }, ref) => {
   const theme = useTheme()
   const { maxWidth } = useAppLayout()
@@ -20,6 +21,7 @@ export const TopNavigation = forwardRef<HTMLElement, TopNavigationProps>(({
 
   return (
     <header
+      {...props}
       ref={ref}
       className={className}
       css={topNavigationStyles(theme)}

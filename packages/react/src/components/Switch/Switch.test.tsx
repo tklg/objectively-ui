@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/ban-ts-comment */
 import { Switch } from 'src/components/Switch/Switch'
 import { fireEvent, render, screen } from 'src/__test__/render'
 

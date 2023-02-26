@@ -1,0 +1,35 @@
+import code from './uptime.mdx?raw'
+import shapeCode from './shape.mdx?raw'
+import sizeCode from './size.mdx?raw'
+import labelCode from './label.mdx?raw'
+import customColorsCode from './customColors.mdx?raw'
+
+# Uptime
+
+Good for showing historic uptime of a service.
+
+<ComponentPreview code={code} />
+
+-----
+## Square corners
+Leaving off the `rounded` prop makes the corners of each bar square.
+
+<ComponentPreview code={shapeCode} />
+
+-----
+## Sizes
+Setting the `size` prop changes the height of the bars.
+
+<ComponentPreview code={sizeCode} />
+
+-----
+## Custom colors
+The `color` prop of each bar can have any color assigned to it.
+
+<ComponentPreview code={customColorsCode} />
+
+-----
+## Labels
+You can add some labels to your uptime with the `label`, `startDate`, `endDate`, and `showUptimePercent` props.
+
+<ComponentPreview code={labelCode} />

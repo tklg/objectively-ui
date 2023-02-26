@@ -1,0 +1,22 @@
+() => {
+  const { mode } = useColorScheme()
+  const bars = useMemo(() => {
+    const max = 70
+    return new Array(max).fill(0).map((_, i) => {
+      const h = i / max * 360
+      const s = 50
+      const v = mode === 'dark' ? 50 : 60
+
+      return {
+        color: `hsl(${h}, ${s}%, ${v}%)`
+      }
+    })
+  }, [mode])
+
+  return (
+    <Uptime
+      bars={bars}
+      rounded
+    />
+  )
+}

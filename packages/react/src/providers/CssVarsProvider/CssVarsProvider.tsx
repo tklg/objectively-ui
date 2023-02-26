@@ -38,7 +38,8 @@ export const CssVarsProvider: FC<CssVarsProviderProps> = ({
   const [mode, setMode] = useState<ColorScheme | null>((localStorage.getItem(COLOR_SCHEME_STORAGE_KEY) as ColorScheme) ?? overrideMode)
 
   const completeLightTheme = useCompleteColorTheme(theme, defaultLightColorTheme)
-  const completeDarkTheme = useCompleteColorTheme(defaultDarkColorTheme, completeLightTheme)
+  const _completeDarkThemePartial = useCompleteColorTheme(defaultDarkColorTheme, completeLightTheme)
+  const completeDarkTheme = useCompleteColorTheme(darkTheme, _completeDarkThemePartial)
 
   const { style: lightThemeVars, replacedTheme: themeWithCssVars } = useStyleElementVars(completeLightTheme, 'light', true)
   const { style: darkThemeVars } = useStyleElementVars(darkTheme, 'dark', false)
@@ -81,8 +82,8 @@ export const CssVarsProvider: FC<CssVarsProviderProps> = ({
   const value = useMemo(() => ({
     mode: effectiveColorScheme,
     setMode: setColorTheme,
-    theme: mode === 'dark' ? completeDarkTheme : completeLightTheme,
-  }), [completeDarkTheme, completeLightTheme, effectiveColorScheme, mode, setColorTheme])
+    theme: effectiveColorScheme === 'dark' ? completeDarkTheme : completeLightTheme,
+  }), [completeDarkTheme, completeLightTheme, effectiveColorScheme, setColorTheme])
 
   return (
     <CssVarsContext.Provider value={value}>

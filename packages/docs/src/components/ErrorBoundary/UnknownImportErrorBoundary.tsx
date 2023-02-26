@@ -1,4 +1,6 @@
 import { Component, ErrorInfo, PropsWithChildren } from 'react'
+import { clsx } from 'src/util/clsx'
+import styles from './index.module.scss'
 
 interface ErrorBoundaryProps extends PropsWithChildren {
   page?: string;
@@ -44,8 +46,9 @@ class UnknownImportErrorBoundary extends Component<ErrorBoundaryProps, ErrorBoun
 
     if (error) {
       return (
-        <div>
-          <span>Could not find dynamic import for <code>{window.location.pathname}</code>.</span>
+        <div className={clsx(styles.errorBoundary, styles.unknownImport)}>
+          <h2>404 :(</h2>
+          <span>Could not find dynamic import for <code>{window.location.pathname}</code></span>
         </div>
       )
     }

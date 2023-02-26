@@ -1,12 +1,14 @@
-import { render } from 'src/__test__/render'
+import { render, screen } from 'src/__test__/render'
 import { TopNavigation } from './TopNavigation'
 
 describe('TopNavigation', () => {
-  it('renders its children', async () => {
+  it('renders a header', async () => {
     render(
-      <TopNavigation>
+      <TopNavigation data-testid='nav'>
         Text
       </TopNavigation>,
     )
+
+    expect(screen.getByTestId('nav')).toMatchSnapshot()
   })
 })

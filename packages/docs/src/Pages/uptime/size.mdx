@@ -1,0 +1,33 @@
+() => {
+  const bars = useMemo(() => {
+    return new Array(70).fill(0).map(() => ({
+      color: ''
+    }))
+  }, [])
+
+  return (
+    <>
+      <div data-row>
+        <Uptime
+          size='sm'
+          bars={bars}
+          rounded
+        />
+      </div>
+      <div data-row>
+        <Uptime
+          size='md'
+          bars={bars}
+          rounded
+        />
+      </div>
+      <div data-row>
+        <Uptime
+          size='lg'
+          bars={bars}
+          rounded
+        />
+      </div>
+    </>
+  )
+}
