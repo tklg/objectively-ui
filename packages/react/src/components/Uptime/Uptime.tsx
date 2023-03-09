@@ -1,6 +1,7 @@
 import { FC, forwardRef, useMemo } from 'react'
+import { Tooltip } from 'src/components/Tooltip'
 import { UptimeBarData, UptimeProps } from 'src/components/Uptime/types'
-import { uptimeLabelStyles, uptimeStyles } from 'src/components/Uptime/Uptime.styles'
+import { uptimeFooterStyles, uptimeLabelStyles, uptimeStyles } from 'src/components/Uptime/Uptime.styles'
 import { useSizeAsPx } from 'src/hooks/useFontSize'
 import { useRawTheme, useTheme } from 'src/hooks/useTheme'
 import { buildClassName } from 'src/utils/buildClassName'
@@ -18,12 +19,16 @@ export const Uptime = forwardRef<HTMLDivElement, UptimeProps>(({
   endDate,
   rounded = false,
   showUptimePercent = false,
-  formatUptimePercent = (pct) => (pct * 100).toFixed(2) + '%',
+  formatUptimePercent = (pct) => (pct * 100).toFixed(2) + '% uptime',
 }, ref) => {
   const theme = useTheme()
   const rawTheme = useRawTheme()
   const className = buildClassName(ELEMENT_NAME, {
     size,
+    rounded,
+    showUptimePercent,
+    withStartDate: Boolean(startDate),
+    withEndDate: Boolean(endDate),
   }, _className)
   const labelClassName = buildClassName(`${ELEMENT_NAME}Label`)
 
@@ -61,7 +66,11 @@ export const Uptime = forwardRef<HTMLDivElement, UptimeProps>(({
           />
         ))}
       </svg>
-      {showUptimePercent && <span>{formatUptimePercent(uptimePercent)}</span>}
+      <div css={uptimeFooterStyles(theme)}>
+        <span data-start-date>{startDate}</span>
+        {showUptimePercent && <span>{formatUptimePercent(uptimePercent)}</span>}
+        <span data-end-date>{endDate}</span>
+      </div>
     </div>
   )
 })
@@ -91,7 +100,7 @@ const UptimeBar: FC<UptimeBarData & {
     return _color || rawTheme.colors.textDisabled
   }, [_color, rawTheme.colors])
 
-  return (
+  const rect = (
     <rect
       height={height}
       width={width}
@@ -99,8 +108,19 @@ const UptimeBar: FC<UptimeBarData & {
       y={0}
       fill={color}
       rx={radius}
+      tabIndex={-1}
     />
   )
+
+  if (tooltip) {
+    return (
+      <Tooltip title={tooltip} arrow>
+        {rect}
+      </Tooltip>
+    )
+  }
+
+  return rect
 }
 
 const THEME_COLORS = ['primary', 'secondary', 'info', 'warning', 'error', 'success']

@@ -2,7 +2,7 @@ import { FC, JSXElementConstructor, lazy, Suspense, useEffect, useState } from '
 import { useParams } from 'react-router-dom'
 import { MDXProvider } from '@mdx-js/react'
 import { ComponentPreviewContainer } from 'src/components/ComponentPreview'
-import { SpaceBetween, Uptime } from '@objectively-ui/react'
+import { Button, SpaceBetween, Tooltip, Uptime } from '@objectively-ui/react'
 import styles from './index.module.scss'
 import { UnknownImportErrorBoundary } from 'src/components/ErrorBoundary/UnknownImportErrorBoundary'
 import { Inline } from 'src/components/DisplayContainers/Inline'
@@ -13,6 +13,8 @@ const mdxComponents = {
   Inline: Inline,
   SpaceBetween: SpaceBetween,
   Uptime: Uptime,
+  Tooltip: Tooltip,
+  Button: Button,
 }
 
 export const ComponentDocsPage: FC = () => {

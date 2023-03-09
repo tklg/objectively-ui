@@ -85,10 +85,14 @@ export const listItemContentStyles = (theme: ColorTheme) => css({
 
   [`.${PROJECT_SHORTNAME}-ListItem-joined &`]: {
     margin: `2px ${theme.spacing.xxs}`,
-    borderRadius: theme.radii.sm,
+    borderRadius: theme.radii.md,
     width: `calc(100% - (${theme.spacing.xxs} * 2))`,
     height: 'calc(100% - 4px)',
     padding: `0 calc(${theme.spacing.md} - ${theme.spacing.xxs})`,
+
+    [`.${PROJECT_SHORTNAME}-ListItem-compact &`]: {
+      borderRadius: theme.radii.sm,
+    },
   },
 })
 

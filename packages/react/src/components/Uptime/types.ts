@@ -1,15 +1,10 @@
 import { ReactNode } from 'react'
 import { CommonColor, CommonSize } from 'src/types/props'
 
-export interface UptimeTooltipData {
-  date?: string;
-  content?: ReactNode;
-}
-
 export interface UptimeBarData {
   color?: CommonColor | string;
   up?: boolean;
-  tooltip?: UptimeTooltipData;
+  tooltip?: ReactNode;
 }
 
 export interface UptimeProps {

@@ -1,7 +1,7 @@
 () => {
   const { mode } = useColorScheme()
   const bars = useMemo(() => {
-    const max = 70
+    const max = 60
     return new Array(max).fill(0).map((_, i) => {
       const h = i / max * 360
       const s = 50

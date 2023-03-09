@@ -37,7 +37,6 @@ export const componentsList = [
       }, {
         path: 'tooltip',
         name: 'Tooltip',
-        wip: true,
       }, {
         path: 'divider',
         name: 'Divider',
