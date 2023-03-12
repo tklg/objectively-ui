@@ -13,6 +13,7 @@ const outputOptions = {
   preserveModules: true,
   preserveModulesRoot: 'src',
   inlineDynamicImports: false,
+  exports: 'named',
   globals: {
     react: 'React',
     'react-dom': 'ReactDOM',

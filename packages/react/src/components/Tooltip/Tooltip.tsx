@@ -71,11 +71,16 @@ export const Tooltip = forwardRef<Element, TooltipProps>(({
 
   const getChildProps = () => {
     const props: Record<string, unknown> = {}
-    if (open) {
+    if (children.props?.children) {
+      return props
+    }
+
+    if (isOpen) {
       props['aria-labelledby'] = id
     } else {
       props['aria-label'] = children.props?.['aria-label'] || (typeof title === 'string' ? title : undefined)
     }
+
     return props
   }
 
@@ -87,25 +92,27 @@ export const Tooltip = forwardRef<Element, TooltipProps>(({
   return (
     <>
       {childElement}
-      <Portal>
-        <div
-          ref={setTooltipEl}
-          style={styles.popper}
-          {...attributes.popper}
-          css={tooltipStyles(theme, open)}
-          className={className}
-          id={id}
-        >
-          <span>{title}</span>
-          {arrow && (
-            <span
-              ref={setArrowEl}
-              style={styles.arrow}
-              css={tooltipArrowStyles}
-            />
-          )}
-        </div>
-      </Portal>
+      {isOpen && (
+        <Portal>
+          <div
+            ref={setTooltipEl}
+            style={styles.popper}
+            {...attributes.popper}
+            css={tooltipStyles(theme, isOpen)}
+            className={className}
+            id={id}
+          >
+            <span>{title}</span>
+            {arrow && (
+              <span
+                ref={setArrowEl}
+                style={styles.arrow}
+                css={tooltipArrowStyles}
+              />
+            )}
+          </div>
+        </Portal>
+      )}
     </>
   )
 })

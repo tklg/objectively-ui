@@ -6,14 +6,12 @@ export const componentsList = [
       {
         path: 'avatar',
         name: 'Avatar',
-        wip: true,
       }, {
         path: 'list',
         name: 'List',
       }, {
         path: 'badge',
         name: 'Badge',
-        wip: true,
       }, {
         path: 'lozenge',
         name: 'Lozenge',

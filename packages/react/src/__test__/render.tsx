@@ -2,7 +2,7 @@ import { CssVarsProvider } from 'src/providers'
 import { render, RenderOptions } from '@testing-library/react'
 import { FC, PropsWithChildren, ReactElement } from 'react'
 
-const AllTheProviders: FC<PropsWithChildren> = ({children}) => {
+const AllTheProviders: FC<PropsWithChildren> = ({ children }) => {
   return <CssVarsProvider>{children}</CssVarsProvider>
 }
 

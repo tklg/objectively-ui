@@ -3,9 +3,8 @@ import { Tooltip } from 'src/components/Tooltip'
 import { UptimeBarData, UptimeProps } from 'src/components/Uptime/types'
 import { uptimeFooterStyles, uptimeLabelStyles, uptimeStyles } from 'src/components/Uptime/Uptime.styles'
 import { useSizeAsPx } from 'src/hooks/useFontSize'
-import { useRawTheme, useTheme } from 'src/hooks/useTheme'
+import { useRawTheme, useTheme, useThemeColor } from 'src/hooks/useTheme'
 import { buildClassName } from 'src/utils/buildClassName'
-import { capitalize } from 'src/utils/stringUtils'
 
 const ELEMENT_NAME = 'Uptime'
 const VIEW_WIDTH = 1000
@@ -83,22 +82,12 @@ const UptimeBar: FC<UptimeBarData & {
 }> = ({
   height,
   width,
-  color: _color = '',
+  color = '',
   radius,
   x,
   tooltip,
 }) => {
-  const rawTheme = useRawTheme()
-  const color = useMemo(() => {
-    if (THEME_COLORS.includes(_color)) {
-      const capitalized = capitalize(_color)
-      const key = capitalized === 'Primary' || capitalized === 'Secondary'
-        ? (`accent${capitalized}` as 'accentPrimary' | 'accentSecondary')
-        : (`status${capitalized}` as 'statusInfo' | 'statusWarning' | 'statusError' | 'statusSuccess')
-      return rawTheme.colors[key].value
-    }
-    return _color || rawTheme.colors.textDisabled
-  }, [_color, rawTheme.colors])
+  const { value: backgroundColor } = useThemeColor(color || 'default')
 
   const rect = (
     <rect
@@ -106,7 +95,7 @@ const UptimeBar: FC<UptimeBarData & {
       width={width}
       x={x}
       y={0}
-      fill={color}
+      fill={backgroundColor}
       rx={radius}
       tabIndex={-1}
     />
@@ -122,8 +111,6 @@ const UptimeBar: FC<UptimeBarData & {
 
   return rect
 }
-
-const THEME_COLORS = ['primary', 'secondary', 'info', 'warning', 'error', 'success']
 
 if (process.env.NODE_ENV !== 'production') {
   Uptime.displayName = ELEMENT_NAME
