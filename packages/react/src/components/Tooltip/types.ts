@@ -1,4 +1,4 @@
-import { ReactElement, ReactNode } from 'react'
+import { ForwardRefExoticComponent, ReactElement, ReactNode } from 'react'
 
 export interface TooltipProps {
   children: ReactElement;
@@ -9,3 +9,5 @@ export interface TooltipProps {
   open?: boolean;
   className?: string;
 }
+
+export type TooltipComponent<P = TooltipProps> = ForwardRefExoticComponent<P>

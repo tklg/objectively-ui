@@ -1,6 +1,6 @@
 import { FC, forwardRef, useMemo } from 'react'
 import { Tooltip } from 'src/components/Tooltip'
-import { UptimeBarData, UptimeProps } from 'src/components/Uptime/types'
+import { UptimeBarData, UptimeComponent, UptimeProps } from 'src/components/Uptime/types'
 import { uptimeFooterStyles, uptimeLabelStyles, uptimeStyles } from 'src/components/Uptime/Uptime.styles'
 import { useSizeAsPx } from 'src/hooks/useFontSize'
 import { useRawTheme, useTheme, useThemeColor } from 'src/hooks/useTheme'
@@ -72,7 +72,7 @@ export const Uptime = forwardRef<HTMLDivElement, UptimeProps>(({
       </div>
     </div>
   )
-})
+}) as UptimeComponent
 
 const UptimeBar: FC<UptimeBarData & {
   height: number;

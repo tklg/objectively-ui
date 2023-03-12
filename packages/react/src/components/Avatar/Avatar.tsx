@@ -1,6 +1,6 @@
 import { forwardRef, useMemo } from 'react'
 import { avatarStyles } from 'src/components/Avatar/Avatar.styles'
-import { AvatarProps } from 'src/components/Avatar/types'
+import { AvatarComponent, AvatarProps } from 'src/components/Avatar/types'
 import { useTheme } from 'src/hooks'
 import { useThemeColor } from 'src/hooks/useTheme'
 import { buildClassName } from 'src/utils/buildClassName'
@@ -51,7 +51,7 @@ export const Avatar = forwardRef<HTMLDivElement, AvatarProps>(({
       )}
     </div>
   )
-})
+}) as AvatarComponent
 
 if (process.env.NODE_ENV !== 'production') {
   Avatar.displayName = ELEMENT_NAME

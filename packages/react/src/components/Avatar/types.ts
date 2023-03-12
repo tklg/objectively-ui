@@ -1,3 +1,4 @@
+import { ForwardRefExoticComponent } from 'react'
 import { CommonColor, CommonSize } from 'src/types/props'
 
 export interface AvatarProps {
@@ -8,3 +9,5 @@ export interface AvatarProps {
   className?: string;
   color?: CommonColor | 'auto';
 }
+
+export type AvatarComponent<P = AvatarProps> = ForwardRefExoticComponent<P>

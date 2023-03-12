@@ -1,0 +1,17 @@
+() => {
+  const theme = useTheme()
+  const background = theme.colors.hover
+  const height = 50
+  const width = 50
+
+  return (
+    <Inline flex>
+      <Badge fit='square'>
+        <div style={{ height, width, background }} />
+      </Badge>
+      <Badge fit='circle'>
+        <div style={{ height, width, background, borderRadius: '50%' }} />
+      </Badge>
+    </Inline>
+  )
+}

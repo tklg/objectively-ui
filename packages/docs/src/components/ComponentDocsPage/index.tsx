@@ -10,9 +10,9 @@ import { Inline } from 'src/components/DisplayContainers/Inline'
 
 const mdxComponents = {
   ComponentPreview: ComponentPreviewContainer,
-  Inline: Inline,
-  SpaceBetween: SpaceBetween,
-  Button: Button,
+  Inline,
+  SpaceBetween,
+  Button,
 }
 
 export const ComponentDocsPage: FC = () => {

@@ -6,7 +6,7 @@ import {
   LiveError,
   LivePreview,
 } from 'react-live'
-import { AppLayout, Avatar, Button, CssBaseline, Heading, Icon, IconButton, Input, List, ListItem, ListItemGroup, PageContent, SideNavigation, SpaceBetween, Switch, Tooltip, TopNavigation, Uptime, useColorScheme } from '@objectively-ui/react'
+import { AppLayout, Avatar, Badge, Button, CssBaseline, Heading, Icon, IconButton, Input, List, ListItem, ListItemGroup, PageContent, SideNavigation, SpaceBetween, Switch, Tooltip, TopNavigation, Uptime, useColorScheme, useTheme } from '@objectively-ui/react'
 import darkTheme from 'prism-react-renderer/themes/vsDark'
 import lightTheme from 'prism-react-renderer/themes/vsLight'
 import { Inline } from 'src/components/DisplayContainers/Inline'
@@ -24,28 +24,30 @@ const liveScope = {
   useEffect,
   useMemo,
   // docs components
-  Inline: Inline,
-  Align: Align,
+  Inline,
+  Align,
   //  objui components
   useColorScheme,
-  AppLayout: AppLayout,
-  Avatar: Avatar,
-  Button: Button,
-  CssBaseline: CssBaseline,
-  Heading: Heading,
-  Icon: Icon,
-  IconButton: IconButton,
-  Input: Input,
-  List: List,
-  ListItem: ListItem,
-  ListItemGroup: ListItemGroup,
-  PageContent: PageContent,
-  SideNavigation: SideNavigation,
-  SpaceBetween: SpaceBetween,
-  Switch: Switch,
-  Tooltip: Tooltip,
-  TopNavigation: TopNavigation,
-  Uptime: Uptime,
+  useTheme,
+  AppLayout,
+  Avatar,
+  Badge,
+  Button,
+  CssBaseline,
+  Heading,
+  Icon,
+  IconButton,
+  Input,
+  List,
+  ListItem,
+  ListItemGroup,
+  PageContent,
+  SideNavigation,
+  SpaceBetween,
+  Switch,
+  Tooltip,
+  TopNavigation,
+  Uptime,
 }
 
 export const ComponentPreviewContainer: FC<ComponentPreviewContainerProps> = ({

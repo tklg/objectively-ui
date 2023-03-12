@@ -3,7 +3,7 @@ import { cloneElement, forwardRef, useEffect, useId, useMemo, useState } from 'r
 import { usePopper } from 'react-popper'
 import { Portal } from 'src/components/Portal'
 import { tooltipArrowStyles, tooltipStyles } from 'src/components/Tooltip/Tooltip.styles'
-import { TooltipProps } from 'src/components/Tooltip/types'
+import { TooltipComponent, TooltipProps } from 'src/components/Tooltip/types'
 import { useRawTheme, useTheme } from 'src/hooks/useTheme'
 import { buildClassName } from 'src/utils/buildClassName'
 import { mergeRefs } from 'src/utils/mergeRefs'
@@ -115,7 +115,7 @@ export const Tooltip = forwardRef<Element, TooltipProps>(({
       )}
     </>
   )
-})
+}) as TooltipComponent
 
 if (process.env.NODE_ENV !== 'production') {
   Tooltip.displayName = ELEMENT_NAME

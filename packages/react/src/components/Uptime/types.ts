@@ -1,4 +1,4 @@
-import { ReactNode } from 'react'
+import { ForwardRefExoticComponent, ReactNode } from 'react'
 import { CommonColor, CommonSize } from 'src/types/props'
 
 export interface UptimeBarData {
@@ -18,3 +18,5 @@ export interface UptimeProps {
   showUptimePercent?: boolean;
   formatUptimePercent?: (pct: number) => string;
 }
+
+export type UptimeComponent<P = UptimeProps> = ForwardRefExoticComponent<P>
