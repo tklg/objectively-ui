@@ -6,7 +6,7 @@ import {
   LiveError,
   LivePreview,
 } from 'react-live'
-import { AppLayout, Avatar, Badge, Button, CssBaseline, Heading, Icon, IconButton, Input, List, ListItem, ListItemGroup, PageContent, SideNavigation, SpaceBetween, Switch, Tooltip, TopNavigation, Uptime, useColorScheme, useTheme } from '@objectively-ui/react'
+import { AppLayout, Avatar, Badge, Button, CssBaseline, Heading, Icon, IconButton, Input, List, ListItem, ListItemGroup, Lozenge, PageContent, ScreenreaderOnly, SideNavigation, SpaceBetween, Stat, StatArrow, StatDetail, StatLabel, StatNumber, Switch, Tooltip, TopNavigation, Uptime, useColorScheme, useTheme } from '@objectively-ui/react'
 import darkTheme from 'prism-react-renderer/themes/vsDark'
 import lightTheme from 'prism-react-renderer/themes/vsLight'
 import { Inline } from 'src/components/DisplayContainers/Inline'
@@ -41,8 +41,15 @@ const liveScope = {
   List,
   ListItem,
   ListItemGroup,
+  Lozenge,
   PageContent,
+  ScreenreaderOnly,
   SideNavigation,
+  Stat,
+  StatArrow,
+  StatDetail,
+  StatLabel,
+  StatNumber,
   SpaceBetween,
   Switch,
   Tooltip,

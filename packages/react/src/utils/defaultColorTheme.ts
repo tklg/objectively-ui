@@ -137,7 +137,7 @@ export const defaultDarkColorTheme: DeepPartial<ColorTheme> = {
   colors: {
     mode: 'dark',
 
-    backgroundPrimary: '#22242c',
+    backgroundPrimary: '#18191e',
     backgroundSecondary: '#444444',
     backgroundDisabled: '#222222',
 

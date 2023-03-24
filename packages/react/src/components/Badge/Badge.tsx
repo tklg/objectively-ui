@@ -14,22 +14,25 @@ export const Badge = forwardRef<HTMLDivElement, BadgeProps>(({
   fit = 'circle',
   placement = 'top-right',
   color = 'info',
+  dot = false,
+  showZero = false,
   value,
+  ...props
 }, ref) => {
   const theme = useTheme()
   const [containerRef, setContainerRef] = useState<HTMLDivElement | null>(null)
   const containerClassName = buildClassName(ELEMENT_NAME + 'Container')
-  const withValue = value !== undefined
   const className = buildClassName(ELEMENT_NAME, {
     fit,
     placement,
-    withValue,
     color,
+    dot,
+    showZero,
   }, _className)
 
   const { value: backgroundColor, contrastText: textColor } = useThemeColor(color)
 
-  const size = withValue ? 20 : 10
+  const size = dot ? 10 : 20
 
   const position = useMemo(() => {
     if (fit === 'square') {
@@ -54,12 +57,16 @@ export const Badge = forwardRef<HTMLDivElement, BadgeProps>(({
     }
   }, [containerRef, fit, placement, size])
 
+  const show = showZero || (value !== 0 && value !== '0')
+
   return (
-    <div ref={mergeRefs(ref, setContainerRef)} className={containerClassName} css={badgeContainerStyles}>
+    <div {...props} ref={mergeRefs(ref, setContainerRef)} className={containerClassName} css={badgeContainerStyles}>
       {children}
-      <span className={className} css={badgeStyles(theme, size, backgroundColor, textColor)} style={position}>
-        {value}
-      </span>
+      {show && (
+        <span className={className} css={badgeStyles(theme, size, backgroundColor, textColor)} style={position}>
+          {dot ? null : value}
+        </span>
+      )}
     </div>
   )
 }) as BadgeComponent

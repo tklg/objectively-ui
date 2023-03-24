@@ -6,6 +6,8 @@ export interface BadgeProps {
   className?: string;
   fit?: 'square' | 'circle';
   value?: string | number;
+  dot?: boolean;
+  showZero?: boolean;
   placement?: 'top-right' | 'bottom-right' | 'bottom-left' | 'top-left';
   color?: CommonColor;
 }

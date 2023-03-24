@@ -1,6 +1,7 @@
 import { useMemo } from 'react'
 import { ColorScheme, ColorTheme } from 'src/types/ColorTheme'
 import { DeepPartial } from 'src/types/DeepPartial'
+import { px } from 'src/utils/commonUtils'
 import { COLOR_SCHEME_DATA_ATTR, PROJECT_SHORTNAME } from 'src/utils/constants'
 import { deepClone } from 'src/utils/deepClone'
 import { hyphenate } from 'src/utils/stringUtils'
@@ -34,7 +35,7 @@ const createVars = (theme: DeepPartial<ColorTheme>) => {
       } else {
         if (typeof value === 'number')
           if (/(spacing|size|lines|radii)$/.test(prefix)) {
-            value = `${value}px`
+            value = px(value)
           } else if (/(duration)$/.test(prefix)) {
             value = `${value}s` // Seconds
           }

@@ -4,7 +4,8 @@ import placementsCode from './placements.mdx?raw'
 import miniCode from './mini.mdx?raw'
 
 # Badge
-A notification badge.
+
+A notification badge. Zero-values are hidden unless the `showZero` prop is added.
 
 ## Colors
 
@@ -26,6 +27,6 @@ Badges can be placed in any corner.
 
 ## Without a value
 
-If no value is provided, the badge will display as a dot.
+If the `dot` prop is provided, the badge will display as a dot.
 
 <ComponentPreview code={miniCode} />

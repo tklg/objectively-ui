@@ -15,7 +15,6 @@ export const componentsList = [
       }, {
         path: 'lozenge',
         name: 'Lozenge',
-        wip: true,
       }, {
         path: 'kbd',
         name: 'Kbd',
@@ -31,17 +30,12 @@ export const componentsList = [
       }, {
         path: 'stat',
         name: 'Stat',
-        wip: true,
       }, {
         path: 'tooltip',
         name: 'Tooltip',
       }, {
-        path: 'divider',
-        name: 'Divider',
-        wip: true,
-      }, {
         path: 'callout',
-        name: 'Callout',
+        name: 'Callout', // blockquote box
         wip: true,
       }, {
         path: 'table',
@@ -178,6 +172,10 @@ export const componentsList = [
       }, {
         path: 'heading',
         name: 'Heading',
+      }, {
+        path: 'divider',
+        name: 'Divider',
+        wip: true,
       }, {
         path: 'grid',
         name: 'Grid',

@@ -1,0 +1,13 @@
+.layout {
+  main {
+    [data-color-scheme='dark'] & {
+      background: rgb(6, 8, 17);
+      background: linear-gradient(
+        30deg,
+        rgba(6, 8, 17, 1) 0%,
+        rgba(18, 36, 42, 1) 27%,
+        rgba(0, 30, 19, 1) 100%
+      );
+    }
+  }
+}
