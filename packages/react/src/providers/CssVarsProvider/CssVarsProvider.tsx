@@ -38,11 +38,12 @@ export const CssVarsProvider: FC<CssVarsProviderProps> = ({
   const [mode, setMode] = useState<ColorScheme | null>((localStorage.getItem(COLOR_SCHEME_STORAGE_KEY) as ColorScheme) ?? overrideMode)
 
   const completeLightTheme = useCompleteColorTheme(theme, defaultLightColorTheme)
-  const _completeDarkThemePartial = useCompleteColorTheme(defaultDarkColorTheme, completeLightTheme)
+  const darkThemePartial = useCompleteColorTheme(darkTheme, defaultDarkColorTheme)
+  const _completeDarkThemePartial = useCompleteColorTheme(darkThemePartial, completeLightTheme)
   const completeDarkTheme = useCompleteColorTheme(darkTheme, _completeDarkThemePartial)
 
   const { style: lightThemeVars, replacedTheme: themeWithCssVars } = useStyleElementVars(completeLightTheme, 'light', true)
-  const { style: darkThemeVars } = useStyleElementVars(darkTheme, 'dark', false)
+  const { style: darkThemeVars } = useStyleElementVars(darkThemePartial, 'dark', false)
   const themeWithMode = useMemo(() => {
     return {
       ...themeWithCssVars,

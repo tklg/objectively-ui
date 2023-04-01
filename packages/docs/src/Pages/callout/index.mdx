@@ -1,1 +1,26 @@
+import colorsCode from './colors.mdx?raw'
+import iconColorsCode from './iconcolors.mdx?raw'
+import iconCode from './icons.mdx?raw'
+import { mdiAccountGroup } from '@mdi/js'
+
 # Callout
+
+Make your words stand out.
+ 
+-----
+## Colors
+
+Callouts come in all the basic colors.
+
+<ComponentPreview code={colorsCode} />
+
+-----
+## Icons
+
+The status colors (`warning`, `error`, `info`, `success`) will include an icon with an `icon` prop.
+
+<ComponentPreview code={iconColorsCode} />
+
+Or you can provide any icon. The element you provide will be given the prop `size='small'`.
+
+<ComponentPreview code={iconCode} imports={{ mdiAccountGroup }} />

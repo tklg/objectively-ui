@@ -6,9 +6,16 @@ import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom'
 import { ComponentsPageLayout } from 'src/components/ComponentsPageLayout'
 import { componentsList } from './componentslist'
 
+const darkTheme = {
+  colors: {
+    border: '#778397',
+    divider: '#48647c',
+  },
+}
+
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
-    <CssVarsProvider>
+    <CssVarsProvider darkTheme={darkTheme}>
       <CssBaseline />
       <BrowserRouter>
         <Routes>

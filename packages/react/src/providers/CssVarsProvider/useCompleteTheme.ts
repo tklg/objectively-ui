@@ -6,7 +6,7 @@ import { deepClone } from 'src/utils/deepClone'
 import { deepFreeze } from 'src/utils/deepFreeze'
 import { deepMerge } from 'src/utils/deepMerge'
 
-export const useCompleteColorTheme = (theme: DeepPartial<ColorTheme>, baseTheme: ColorTheme): ColorTheme => {
+export const useCompleteColorTheme = (theme: DeepPartial<ColorTheme>, baseTheme: DeepPartial<ColorTheme>): ColorTheme => {
   return useMemo(() => deepFreeze(
     populateHoverColors(
       (theme === baseTheme ? theme : deepMerge(baseTheme, theme)) as ColorTheme,

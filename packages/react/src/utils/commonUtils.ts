@@ -1,9 +1,15 @@
+import { CommonColor, StatusColor } from 'src/types/props'
+
 export const isCommonSize = (size: string) => {
   return ['sm', 'md', 'lg'].includes(size)
 }
 
-export const isCommonColor = (color: string) => {
+export const isCommonColor = (color: string): color is CommonColor => {
   return ['default', 'primary', 'secondary', 'info', 'warning', 'error', 'success'].includes(color)
+}
+
+export const isStatusColor = (color: CommonColor): color is StatusColor => {
+  return ['info', 'warning', 'error', 'success'].includes(color)
 }
 
 export const commonColorKeys = ['Primary', 'Secondary', 'Info', 'Warning', 'Error', 'Success'].map(k => {
