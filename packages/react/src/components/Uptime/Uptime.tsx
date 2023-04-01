@@ -16,7 +16,7 @@ export const Uptime = forwardRef<HTMLDivElement, UptimeProps>(({
   bars = [],
   startDate,
   endDate,
-  rounded = false,
+  square = false,
   showUptimePercent = false,
   formatUptimePercent = (pct) => (pct * 100).toFixed(2) + '% uptime',
 }, ref) => {
@@ -24,7 +24,7 @@ export const Uptime = forwardRef<HTMLDivElement, UptimeProps>(({
   const rawTheme = useRawTheme()
   const className = buildClassName(ELEMENT_NAME, {
     size,
-    rounded,
+    square,
     showUptimePercent,
     withStartDate: Boolean(startDate),
     withEndDate: Boolean(endDate),
@@ -38,7 +38,7 @@ export const Uptime = forwardRef<HTMLDivElement, UptimeProps>(({
     return Math.max(1, (VIEW_WIDTH - (spacing * (bars.length - 1))) / bars.length)
   }, [spacing, bars.length])
 
-  const radius = rounded ? barWidth / 2 : 0
+  const radius = square ? 0 : barWidth / 2
 
   const uptimePercent = useMemo(() => {
     return showUptimePercent ? (bars.filter(bar => bar.up).length / bars.length) : 0

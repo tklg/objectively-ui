@@ -14,7 +14,7 @@ export interface UptimeProps {
   bars: UptimeBarData[];
   startDate?: string;
   endDate?: string;
-  rounded?: boolean;
+  square?: boolean;
   showUptimePercent?: boolean;
   formatUptimePercent?: (pct: number) => string;
 }
