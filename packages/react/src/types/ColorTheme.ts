@@ -72,6 +72,7 @@ export interface ColorTheme {
     fontFamily: {
       heading: string;
       body: string;
+      monospace: string;
     };
   };
   spacing: {

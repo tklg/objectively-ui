@@ -18,7 +18,6 @@ export const componentsList = [
       }, {
         path: 'kbd',
         name: 'Kbd',
-        wip: true,
       }, {
         path: 'code',
         name: 'Code',
@@ -36,7 +35,6 @@ export const componentsList = [
       }, {
         path: 'callout',
         name: 'Callout', // blockquote box
-        wip: true,
       }, {
         path: 'table',
         name: 'Table',

@@ -14,7 +14,7 @@ export const defaultLightColorTheme: ColorTheme = {
 
     accentPrimary: {
       // value: '#3d815b',
-      value: '#1e88b1',
+      value: '#00aed5',
       contrastText: 'white',
 
       // value: 'linear-gradient(30deg, rgba(0,14,75,1) 0%, rgba(9,94,121,1) 30%, rgba(0,190,118,1) 100%)',
@@ -85,6 +85,7 @@ export const defaultLightColorTheme: ColorTheme = {
     fontFamily: {
       body: '\'Public Sans\', sans-serif',
       heading: '\'Public Sans\', sans-serif',
+      monospace: 'monospace',
     },
   },
 
@@ -152,7 +153,7 @@ export const defaultDarkColorTheme: DeepPartial<ColorTheme> = {
     textDisabled: '#8d8d8d',
 
     border: '#535b68',
-    divider: '#33373e',
+    divider: '#48647c',
 
     special: {
       codeBackground: '#33373e',
