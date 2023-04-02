@@ -21,6 +21,13 @@ export const commonColorKeys = ['Primary', 'Secondary', 'Info', 'Warning', 'Erro
   }
 })
 
+export const statusColorKeys = ['Info', 'Warning', 'Error', 'Success'].map(k => {
+  return {
+    propKey: k,
+    themeKey: `status${k}` as 'statusInfo' | 'statusWarning' | 'statusError' | 'statusSuccess',
+  }
+})
+
 export const commonSizeKeys = ['Sm', 'Md', 'Lg'].map(k => {
   return {
     propKey: k as 'Sm' | 'Md' | 'Lg',

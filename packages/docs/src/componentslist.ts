@@ -98,7 +98,6 @@ export const componentsList = [
       {
         path: 'alert',
         name: 'Alert',
-        wip: true,
       }, {
         path: 'progress',
         name: 'Progress',

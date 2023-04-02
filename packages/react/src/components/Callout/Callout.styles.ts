@@ -1,10 +1,9 @@
 import { css } from '@emotion/react'
 import { ColorTheme } from 'src/types/ColorTheme'
-import { fadeColor } from 'src/utils/colorUtils'
 import { commonColorKeys } from 'src/utils/commonUtils'
 import { PROJECT_SHORTNAME } from 'src/utils/constants'
 
-export const calloutStyles = (theme: ColorTheme, rawTheme: ColorTheme) => css({
+export const calloutStyles = (theme: ColorTheme) => css({
   display: 'flex',
   color: theme.colors.textPrimary,
   backgroundColor: theme.colors.hover,
@@ -19,7 +18,6 @@ export const calloutStyles = (theme: ColorTheme, rawTheme: ColorTheme) => css({
       ...a,
       [`&.${PROJECT_SHORTNAME}-Callout-color${item.propKey}`]: {
         borderColor: theme.colors[item.themeKey].value,
-        backgroundColor: fadeColor(rawTheme.colors[item.themeKey].value, 0.8),
       },
     }
   }, {}),
