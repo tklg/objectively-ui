@@ -37,7 +37,7 @@ export const alertStyles = (theme: ColorTheme, rawTheme: ColorTheme) => css({
     padding: `0 ${theme.spacing.md} 0 ${theme.spacing.xxs}`,
   },
   [`& .${PROJECT_SHORTNAME}-AlertAction`]: {
-    padding: `${theme.spacing.xxs} ${theme.spacing.md} ${theme.spacing.xxs} 0`,
+    padding: `${theme.spacing.xxs} ${theme.spacing.sm} ${theme.spacing.xxs} 0`,
   },
 })
 

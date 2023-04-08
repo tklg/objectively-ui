@@ -10,7 +10,8 @@ export const calloutStyles = (theme: ColorTheme) => css({
   borderTopRightRadius: theme.radii.sm,
   borderBottomRightRadius: theme.radii.sm,
   borderRadius: theme.radii.sm,
-  border: `${theme.lines.xs} solid ${theme.colors.border}`,
+  // border: `${theme.lines.xs} solid ${theme.colors.border}`,
+  borderLeft: `${theme.lines.md} solid ${theme.colors.border}`,
   width: '100%',
 
   ...commonColorKeys.reduce((a, item) => {

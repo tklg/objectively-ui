@@ -10,6 +10,9 @@ const darkTheme = {
   colors: {
     border: '#778397',
     divider: '#48647c',
+    special: {
+      codeBackground: '#22385e',
+    },
   },
 }
 

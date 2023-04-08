@@ -101,7 +101,6 @@ export const componentsList = [
       }, {
         path: 'progress',
         name: 'Progress',
-        wip: true,
       }, {
         path: 'dialog',
         name: 'Dialog',

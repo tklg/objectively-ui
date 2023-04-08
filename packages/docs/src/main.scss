@@ -1,2 +1,12 @@
+@import 'src/vars';
+
 html {
+  &[data-color-scheme='dark'] {
+    ::-webkit-scrollbar-track {
+      background: transparent;
+    }
+    ::-webkit-scrollbar-thumb {
+      border: 2px solid #0f3657;
+    }
+  }
 }

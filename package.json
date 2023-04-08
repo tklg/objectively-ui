@@ -3,10 +3,12 @@
   "name": "objectively-ui",
   "version": "0.0.0",
   "license": "MIT",
+  "type": "module",
   "scripts": {
     "start": "npx nx run-many --target=start --projects=@objectively-ui/react,@objectively-ui/docs --nx-bail=true",
     "build": "npx nx affected --target=build",
-    "test": "npx nx run-many --target=test"
+    "test": "npx nx run-many --target=test",
+    "g:component": "node ./scripts/newcomponent"
   },
   "devDependencies": {
     "@types/node": "^18.11.18",
