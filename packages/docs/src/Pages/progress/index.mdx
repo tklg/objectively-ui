@@ -2,21 +2,25 @@ import colorCode from './colors.mdx?raw'
 import determinateCode from './determinate.mdx?raw'
 import indeterminateCode from './indeterminate.mdx?raw'
 import labelCode from './label.mdx?raw'
+import circleDeterminateCode from './circular-determinate.mdx?raw'
+import circleIndeterminateCode from './circular-indeterminate.mdx?raw'
+import circleColorCode from './circular-colors.mdx?raw'
+import circleSizeCode from './circular-sizes.mdx?raw'
 
 # Progress
 
 A progress bar.
 
 -----
-## Determinate progress
+## Linear determinate progress
 <ComponentPreview code={determinateCode} />
 
 -----
-## Indeterminate progress
+## Linear indeterminate progress
 <ComponentPreview code={indeterminateCode} />
 
 -----
-## Colors
+## Linear colors
 
 Progress bars come in all the standard colors (except for `default`).
 <ComponentPreview code={colorCode} />
@@ -26,3 +30,24 @@ Progress bars come in all the standard colors (except for `default`).
 
 Set the `withLabel` prop to show a label with the current percent.
 <ComponentPreview code={labelCode} />
+
+-----
+## Circular determinate progress
+<ComponentPreview code={circleDeterminateCode} />
+
+-----
+## Circular indeterminate progress
+<ComponentPreview code={circleIndeterminateCode} />
+
+-----
+## Circular colors
+
+Progress spinners come in all the standard colors (except for `default`).
+<ComponentPreview code={circleColorCode} />
+
+-----
+## Circular sizes
+
+Circular progress spinner come in 3 sizes.
+
+<ComponentPreview code={circleSizeCode} />

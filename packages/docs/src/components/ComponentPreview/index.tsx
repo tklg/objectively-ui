@@ -6,7 +6,7 @@ import {
   LiveError,
   LivePreview,
 } from 'react-live'
-import { Alert, AppLayout, Avatar, Badge, Button, Callout, CssBaseline, Heading, Icon, IconButton, Input, Kbd, List, ListItem, ListItemGroup, Lozenge, PageContent, Portal, Progress, ScreenreaderOnly, SideNavigation, SpaceBetween, Stat, StatArrow, StatDetail, StatLabel, StatNumber, Switch, Tooltip, TopNavigation, Uptime, useColorScheme, useTheme } from '@objectively-ui/react'
+import { Alert, AppLayout, Avatar, Badge, Button, Callout, CircularProgress, CssBaseline, Heading, Icon, IconButton, Input, Kbd, List, ListItem, ListItemGroup, Lozenge, PageContent, Portal, Progress, ScreenreaderOnly, SideNavigation, SpaceBetween, Stat, StatArrow, StatDetail, StatLabel, StatNumber, Switch, Tooltip, TopNavigation, Uptime, useColorScheme, useTheme } from '@objectively-ui/react'
 import darkTheme from 'prism-react-renderer/themes/vsDark'
 import lightTheme from 'prism-react-renderer/themes/vsLight'
 import { Inline } from 'src/components/DisplayContainers/Inline'
@@ -35,6 +35,7 @@ const liveScope = {
   Badge,
   Button,
   Callout,
+  CircularProgress,
   CssBaseline,
   Heading,
   Icon,

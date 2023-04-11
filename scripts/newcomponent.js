@@ -14,7 +14,7 @@ if (!/^[A-Z]/.test(name)) {
   throw new Error('Component name must be Titlecase')
 }
 
-const lower = (str) => str.toLowerCase()
+const lower = (str) => str[0].toLowerCase() + str.slice(1)
 
 const run = async () => {
   const componentFolder = path.join(componentsPath, name)

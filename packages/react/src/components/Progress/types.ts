@@ -1,8 +1,8 @@
 import { ForwardRefExoticComponent } from 'react'
-import { PropsWithChildrenAndClassName } from 'src/types/PropsWithChildrenAndClassName'
+import { PropsWithClassName } from 'src/types/PropsWithClassName'
 import { CommonColor } from 'src/types/props'
 
-export interface ProgressProps extends PropsWithChildrenAndClassName {
+export interface ProgressProps extends PropsWithClassName {
   color?: CommonColor;
   indeterminate?: boolean;
   value?: number;

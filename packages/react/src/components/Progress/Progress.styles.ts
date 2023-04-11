@@ -62,10 +62,10 @@ export const progressBarStyles = (theme: ColorTheme) => css({
         transform: 'translateX(-20%) scaleX(20%)',
       },
       '60%': {
-        transform: 'translateX(20%) scaleX(40%)',
+        transform: 'translateX(30%) scaleX(50%)',
       },
       '100%': {
-        transform: 'translateX(100%) scaleX(70%)',
+        transform: 'translateX(100%) scaleX(40%)',
       },
     },
   },
