@@ -1,0 +1,21 @@
+() => {
+  const [progress, setProgress] = useState(0)
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setProgress((old) => {
+        if (old === 100) {
+          return 0
+        }
+        const next = Math.random() * 15
+        return Math.min(old + next, 100)
+      });
+    }, 500);
+
+    return () => {
+      clearInterval(timer)
+    }
+  }, [])
+
+  return <Progress value={progress} withLabel />
+}

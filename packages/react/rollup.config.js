@@ -5,6 +5,12 @@ import typescript from 'rollup-plugin-typescript2'
 import dts from 'rollup-plugin-dts'
 import cjs from 'rollup-plugin-cjs-es'
 
+const isProd = process.env.NODE_ENV === 'production'
+
+if (isProd) {
+  console.info('Building for production')
+}
+
 /** @type {import('rollup').OutputOptions} */
 const outputOptions = {
   name: 'ObjUI',
@@ -40,7 +46,7 @@ const options = [
       peerDepsExternal(),
       typescript({
         useTsconfigDeclarationDir: true,
-        check: true,
+        check: isProd,
       }),
       cjs({
         nested: true,

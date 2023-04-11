@@ -1,9 +1,28 @@
 import colorCode from './colors.mdx?raw'
+import determinateCode from './determinate.mdx?raw'
+import indeterminateCode from './indeterminate.mdx?raw'
+import labelCode from './label.mdx?raw'
 
 # Progress
 
-Description goes here.
+A progress bar.
+
+-----
+## Determinate progress
+<ComponentPreview code={determinateCode} />
+
+-----
+## Indeterminate progress
+<ComponentPreview code={indeterminateCode} />
 
 -----
 ## Colors
+
+Progress bars come in all the standard colors (except for `default`).
 <ComponentPreview code={colorCode} />
+
+-----
+## With label
+
+Set the `withLabel` prop to show a label with the current percent.
+<ComponentPreview code={labelCode} />

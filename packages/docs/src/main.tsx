@@ -9,7 +9,7 @@ import { componentsList } from './componentslist'
 const darkTheme = {
   colors: {
     border: '#778397',
-    divider: '#48647c',
+    divider: '#1d527e',
     special: {
       codeBackground: '#22385e',
     },
