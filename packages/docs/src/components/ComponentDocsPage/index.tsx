@@ -2,7 +2,7 @@ import { FC, JSXElementConstructor, lazy, Suspense, useEffect, useState } from '
 import { useParams } from 'react-router-dom'
 import { MDXProvider } from '@mdx-js/react'
 import { ComponentPreviewContainer } from 'src/components/ComponentPreview'
-import { Button, Callout, SpaceBetween } from '@objectively-ui/react'
+import { Button, Callout, CircularProgress, SpaceBetween } from '@objectively-ui/react'
 import styles from './index.module.scss'
 import { UnknownImportErrorBoundary } from 'src/components/ErrorBoundary/UnknownImportErrorBoundary'
 import { Inline } from 'src/components/DisplayContainers/Inline'
@@ -38,7 +38,7 @@ export const ComponentDocsPage: FC = () => {
     <MDXProvider components={mdxComponents}>
       <UnknownImportErrorBoundary page={componentParam}>
         <div className={styles.docs}>
-          <Suspense fallback='Loading'>
+          <Suspense fallback={<CircularProgress size='lg' indeterminate />}>
             {Component && <Component />}
           </Suspense>
         </div>

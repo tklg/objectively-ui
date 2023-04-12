@@ -3,28 +3,35 @@ import { ColorTheme } from 'src/types/ColorTheme'
 import { commonColorKeys, commonSizeKeys } from 'src/utils/commonUtils'
 import { PROJECT_SHORTNAME } from 'src/utils/constants'
 
-export const circularProgressContainerStyles = (theme: ColorTheme) => css({
-  p: {
-    minWidth: 35,
-    margin: 0,
-    marginLeft: theme.spacing.xs,
-    color: theme.colors.textSecondary,
-    fontSize: theme.typography.size.sm,
-  },
-})
-
 export const circularProgressStyles = (theme: ColorTheme) => css({
   position: 'relative',
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
 
   ...commonSizeKeys.reduce((a, item) => {
+    const res = {
+      height: theme.size[item.themeKey],
+      width: theme.size[item.themeKey],
+    } as {
+      height: number | string;
+      width: number | string;
+      p?: object;
+    }
+    if (item.themeKey === 'sm') {
+      res.p = { transform: 'scale(0.7)' }
+    }
     return {
       ...a,
-      [`&.${PROJECT_SHORTNAME}-CircularProgress-size${item.propKey}`]: {
-        height: theme.size[item.themeKey],
-        width: theme.size[item.themeKey],
-      },
+      [`&.${PROJECT_SHORTNAME}-CircularProgress-size${item.propKey}`]: res,
     }
   }, {}),
+
+  p: {
+    margin: 0,
+    color: theme.colors.textSecondary,
+    fontSize: theme.typography.size.xs,
+  },
 })
 
 export const circularProgressBarStyles = (theme: ColorTheme) => css({
