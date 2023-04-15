@@ -50,6 +50,7 @@ const options = [
       }),
       cjs({
         nested: true,
+        sourceMap: isProd,
       }),
       resolve({
         extensions: ['.js', '.ts', '.tsx'],
@@ -67,6 +68,7 @@ const options = [
     plugins: [
       typescript({
         useTsconfigDeclarationDir: true,
+        check: isProd,
       }),
       dts(),
     ],
