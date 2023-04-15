@@ -14,7 +14,7 @@
   },
   "scripts": {
     "start": "rollup -c rollup.config.js -w",
-    "build": "npx rimraf dist/ && rollup -c rollup.config.js",
+    "build": "npx rimraf dist/ && rollup -c rollup.config.js --environment NODE_ENV:production",
     "test": "jest",
     "test:watch": "jest --watch",
     "clean": "npx rimraf node_modules/.cache/"
