@@ -14,3 +14,9 @@ $spacingGutter: var(--ObjUI-spacing-gutter);
 $spacingSm: var(--ObjUI-spacing-sm);
 $spacingMd: var(--ObjUI-spacing-md);
 $spacingLg: var(--ObjUI-spacing-lg);
+
+@mixin darkmode {
+  @at-root #{selector-nest(':root[data-color-scheme=dark]', &)} {
+    @content;
+  }
+}

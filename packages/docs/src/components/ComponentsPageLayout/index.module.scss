@@ -1,8 +1,12 @@
+@import 'src/vars';
+
 .layout {
   background: #fefeff;
 
-  [data-color-scheme='dark'] & {
-    background: #040e1c;
-    background-image: linear-gradient(to top, #040e1c 0%, #175485 100%);
+  @include darkmode {
+    & {
+      background: #040e1c;
+      background-image: linear-gradient(to top, #040e1c 0%, #175485 100%);
+    }
   }
 }

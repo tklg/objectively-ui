@@ -1,4 +1,4 @@
-import { ClassAttributes, InputHTMLAttributes, Ref } from 'react'
+import { ClassAttributes, ForwardRefExoticComponent, InputHTMLAttributes, Ref } from 'react'
 import { CommonColor, CommonSize } from 'src/types/props'
 
 type InputPropsType = ClassAttributes<HTMLInputElement> & InputHTMLAttributes<HTMLInputElement>
@@ -11,3 +11,5 @@ export interface SwitchProps extends Omit<InputPropsType, 'value' | 'defaultValu
   inputProps?: object;
   onChange?: (e: React.ChangeEvent<HTMLInputElement>, checked: boolean) => void;
 }
+
+export type SwitchComponent<P = SwitchProps> = ForwardRefExoticComponent<P>

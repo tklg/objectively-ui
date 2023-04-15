@@ -1,6 +1,6 @@
 import { ChangeEvent, forwardRef, useCallback, useEffect, useId, useRef, useState } from 'react'
 import { switchHandleStyles, switchLabelStyles, switchStyles, switchTrackStyles } from 'src/components/Switch/Switch.styles'
-import { SwitchProps } from 'src/components/Switch/types'
+import { SwitchComponent, SwitchProps } from 'src/components/Switch/types'
 import { useTheme } from 'src/hooks'
 import { useKeyboardEvents } from 'src/hooks/useKeyboardEvents'
 import { buildClassName } from 'src/utils/buildClassName'
@@ -95,7 +95,7 @@ export const Switch = forwardRef<HTMLInputElement, SwitchProps>(({
       )}
     </div>
   )
-})
+}) as SwitchComponent
 
 if (process.env.NODE_ENV !== 'production') {
   Switch.displayName = ELEMENT_NAME
