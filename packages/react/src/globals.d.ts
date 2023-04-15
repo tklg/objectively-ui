@@ -1,5 +1,6 @@
-// type ColorTheme = import('src/types/colorscheme').ColorTheme
+/// <reference types="@emotion/react/types/css-prop" />
 
+// type ColorTheme = import('src/types/colorscheme').ColorTheme
 declare module '*.css';
 
 // declare module '@emotion/react' {

@@ -34,11 +34,10 @@ export const componentsList = [
         name: 'Tooltip',
       }, {
         path: 'callout',
-        name: 'Callout', // blockquote box
+        name: 'Callout',
       }, {
         path: 'table',
         name: 'Table',
-        wip: true,
       }, {
         path: 'uptime',
         name: 'Uptime',
