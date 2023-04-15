@@ -14,9 +14,9 @@ if (isProd) {
 /** @type {import('rollup').OutputOptions} */
 const outputOptions = {
   name: 'ObjUI',
-  compact: true,
+  compact: isProd,
   sourcemapExcludeSources: true,
-  preserveModules: true,
+  preserveModules: false,
   preserveModulesRoot: 'src',
   inlineDynamicImports: false,
   exports: 'named',
@@ -26,22 +26,27 @@ const outputOptions = {
   },
 }
 
+const outputs = [
+  {
+    format: 'esm',
+    dir: './dist/esm',
+    ...outputOptions,
+  },
+]
+
+if (isProd) {
+  outputs.push({
+    format: 'cjs',
+    dir: './dist/cjs',
+    ...outputOptions,
+  })
+}
+
 /** @type {import('rollup').RollupOptions[]} */
 const options = [
   {
     input: './src/index.ts',
-    output: [
-      {
-        format: 'cjs',
-        dir: './dist/cjs',
-        ...outputOptions,
-      },
-      {
-        format: 'esm',
-        dir: './dist/esm',
-        ...outputOptions,
-      },
-    ],
+    output: outputs,
     plugins: [
       peerDepsExternal(),
       typescript({
@@ -50,7 +55,7 @@ const options = [
       }),
       cjs({
         nested: true,
-        sourceMap: isProd,
+        // sourceMap: isProd,
       }),
       resolve({
         extensions: ['.js', '.ts', '.tsx'],
@@ -61,6 +66,7 @@ const options = [
         extensions: ['.js', '.ts', '.tsx'],
       }),
     ],
+    cache: true,
   },
   {
     input: 'src/index.ts',
@@ -72,6 +78,7 @@ const options = [
       }),
       dts(),
     ],
+    cache: true,
   },
 ]
 
