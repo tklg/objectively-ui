@@ -11,10 +11,15 @@ export const Table = forwardRef<HTMLElement, TableProps>(({
   className: _className,
   children,
   as = 'table',
+  striped,
+  compact,
   ...props
 }, ref) => {
   const theme = useTheme()
-  const className = buildClassName(ELEMENT_NAME, null, _className)
+  const className = buildClassName(ELEMENT_NAME, {
+    striped,
+    compact,
+  }, _className)
 
   return jsx(as, {
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment

@@ -1,5 +1,6 @@
 import { css } from '@emotion/react'
 import { ColorTheme } from 'src/types/ColorTheme'
+import { fadeColor } from 'src/utils/colorUtils'
 import { PROJECT_SHORTNAME } from 'src/utils/constants'
 
 export const tableStyles = (theme: ColorTheme) => css({
@@ -20,6 +21,10 @@ export const tableHeadStyles = (theme: ColorTheme) => css({
     borderBottom: `${theme.lines.xs} solid ${theme.colors.border}`,
     background: theme.colors.hover,
     padding: theme.spacing.sm,
+
+    [`.${PROJECT_SHORTNAME}-Table-compact &`]: {
+      padding: `${theme.spacing.xs} ${theme.spacing.sm}`,
+    },
   },
 })
 
@@ -35,12 +40,20 @@ export const tableRowStyles = (theme: ColorTheme) => css({
   borderColor: 'inherit',
 })
 
-export const tableCellStyles = (theme: ColorTheme) => css({
+export const tableCellStyles = (theme: ColorTheme, rawTheme: ColorTheme) => css({
   display: 'table-cell',
   verticalAlign: 'inherit',
   padding: `${theme.spacing.xs} ${theme.spacing.sm}`,
   textAlign: 'start',
   fontWeight: theme.typography.fontWeight.normal,
+
+  [`.${PROJECT_SHORTNAME}-Table-compact &`]: {
+    padding: `${theme.spacing.xxs} ${theme.spacing.sm}`,
+  },
+
+  [`.${PROJECT_SHORTNAME}-Table-striped .${PROJECT_SHORTNAME}-TableRow:nth-of-type(even) &`]: {
+    background: fadeColor(rawTheme.colors.hover, 0.5),
+  },
 })
 
 export const tableFootStyles = (theme: ColorTheme) => css({
@@ -51,5 +64,9 @@ export const tableFootStyles = (theme: ColorTheme) => css({
   [`& .${PROJECT_SHORTNAME}-TableCell`]: {
     fontWeight: theme.typography.fontWeight.bold,
     borderTop: `${theme.lines.xs} solid ${theme.colors.border}`,
+
+    [`.${PROJECT_SHORTNAME}-Table-compact &`]: {
+      padding: `${theme.spacing.xxs} ${theme.spacing.sm}`,
+    },
   },
 })

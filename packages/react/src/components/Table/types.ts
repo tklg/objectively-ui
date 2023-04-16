@@ -11,6 +11,8 @@ export interface TableProviderProps extends PropsWithChildren {
 
 export interface TableProps extends PropsWithChildrenAndClassName {
   as?: keyof HtmlIntrinsicElements | ComponentType;
+  striped?: boolean;
+  compact?: boolean;
 }
 export type TableComponent<P = TableProps> = ForwardRefExoticComponent<P>
 

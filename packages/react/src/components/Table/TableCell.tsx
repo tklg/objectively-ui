@@ -3,7 +3,7 @@ import { forwardRef, useContext, useMemo } from 'react'
 import { tableCellStyles } from 'src/components/Table/Table.styles'
 import { TableContext } from 'src/components/Table/TableContext'
 import { TableCellComponent, TableCellProps } from 'src/components/Table/types'
-import { useTheme } from 'src/hooks/useTheme'
+import { useRawTheme, useTheme } from 'src/hooks/useTheme'
 import { buildClassName } from 'src/utils/buildClassName'
 
 const ELEMENT_NAME = 'TableCell'
@@ -16,6 +16,7 @@ export const TableCell = forwardRef<HTMLDivElement, TableCellProps>(({
   rowSpan,
   ...props
 }, ref) => {
+  const rawTheme = useRawTheme()
   const theme = useTheme()
   const className = buildClassName(ELEMENT_NAME, null, _className)
   const tableSection = useContext(TableContext)
@@ -45,7 +46,7 @@ export const TableCell = forwardRef<HTMLDivElement, TableCellProps>(({
     className,
     ...props,
     ...tableElementProps,
-    css: tableCellStyles(theme),
+    css: tableCellStyles(theme, rawTheme),
   }, children)
 }) as TableCellComponent
 
