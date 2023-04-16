@@ -143,6 +143,10 @@ export const componentsList = [
         name: 'Table of contents',
         wip: true,
       }, {
+        path: 'tabs',
+        name: 'Tabs',
+        wip: true,
+      }, {
         path: 'skiptomain',
         name: 'Skip to main',
         wip: true,

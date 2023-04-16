@@ -1,6 +1,6 @@
 import { forwardRef } from 'react'
 import { inputContainerStyles, inputInputStyles } from 'src/components/Input/Input.styles'
-import { InputProps } from 'src/components/Input/types'
+import { InputComponent, InputProps } from 'src/components/Input/types'
 import { useTheme } from 'src/hooks'
 import { buildClassName } from 'src/utils/buildClassName'
 
@@ -14,6 +14,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(({
   size = 'md',
   fullWidth,
   value,
+  onChange = () => null,
   disabled,
   className: _className,
   ...props
@@ -38,12 +39,13 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(({
         css={inputInputStyles(theme)}
         aria-label={label}
         value={value}
+        onChange={onChange}
         disabled={disabled}
         {...props}
       />
     </div>
   )
-})
+}) as InputComponent
 
 if (process.env.NODE_ENV !== 'production') {
   Input.displayName = ELEMENT_NAME

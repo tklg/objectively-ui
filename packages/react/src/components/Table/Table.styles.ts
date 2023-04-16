@@ -18,7 +18,7 @@ export const tableHeadStyles = (theme: ColorTheme) => css({
 
   [`& .${PROJECT_SHORTNAME}-TableCell`]: {
     fontWeight: theme.typography.fontWeight.bolder,
-    borderBottom: `${theme.lines.xs} solid ${theme.colors.border}`,
+    // borderBottom: `${theme.lines.xs} solid ${theme.colors.border}`,
     background: theme.colors.hover,
     padding: theme.spacing.sm,
 
@@ -63,7 +63,7 @@ export const tableFootStyles = (theme: ColorTheme) => css({
 
   [`& .${PROJECT_SHORTNAME}-TableCell`]: {
     fontWeight: theme.typography.fontWeight.bold,
-    borderTop: `${theme.lines.xs} solid ${theme.colors.border}`,
+    borderTop: `${theme.lines.xs} solid ${theme.colors.hover}`,
 
     [`.${PROJECT_SHORTNAME}-Table-compact &`]: {
       padding: `${theme.spacing.xxs} ${theme.spacing.sm}`,

@@ -15,20 +15,22 @@ export const inputContainerStyles = (theme: ColorTheme) => css({
     `box-shadow ${theme.transitions.duration.fast} ${theme.transitions.function.default}`,
   ].join(','),
 
-  [`&.${PROJECT_SHORTNAME}-Input-SM`]: {
+  [`&.${PROJECT_SHORTNAME}-Input-sizeSm`]: {
     height: theme.size.sm,
+    borderRadius: theme.radii.sm,
   },
-  [`&.${PROJECT_SHORTNAME}-Input-LG`]: {
+  [`&.${PROJECT_SHORTNAME}-Input-sizeLg`]: {
     height: theme.size.lg,
+    borderRadius: theme.radii.lg,
   },
   [`&.${PROJECT_SHORTNAME}-Input-fullWidth`]: {
     display: 'block',
     width: '100%',
   },
   [`&.${PROJECT_SHORTNAME}-Input-disabled`]: {
-    display: 'block',
-    width: '100%',
-    background: theme.colors.hover,
+    background: theme.colors.backgroundDisabled,
+    color: theme.colors.textDisabled,
+    borderColor: theme.colors.textDisabled,
   },
 
   '&:focus-within': {

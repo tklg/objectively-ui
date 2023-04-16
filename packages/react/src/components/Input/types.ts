@@ -1,4 +1,4 @@
-import { DetailedHTMLProps, InputHTMLAttributes, ReactNode } from 'react'
+import { DetailedHTMLProps, ForwardRefExoticComponent, InputHTMLAttributes, ReactNode } from 'react'
 import { CommonSize } from 'src/types/props'
 
 export interface InputProps extends Omit<DetailedHTMLProps<InputHTMLAttributes<HTMLInputElement>, HTMLInputElement>, 'size'> {
@@ -8,3 +8,5 @@ export interface InputProps extends Omit<DetailedHTMLProps<InputHTMLAttributes<H
   size?: CommonSize;
   fullWidth?: boolean;
 }
+
+export type InputComponent<P = InputProps> = ForwardRefExoticComponent<P>
